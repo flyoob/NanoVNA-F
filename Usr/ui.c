@@ -1661,6 +1661,40 @@ keypad_apply_touch(void)
   return -1;
 }
 
+uint8_t
+get_digit(uint16_t x)
+{
+  if (x < 84) {
+    return 9;
+  }
+  if (x > 84 && x < 104) {
+    return 8;
+  }
+  if (x > 104 && x < 128) {
+    return 7;
+  }
+
+  if (x > 128 && x < 152) {
+    return 6;
+  }
+  if (x > 152 && x < 172) {
+    return 5;
+  }
+  if (x > 172 && x < 196) {
+    return 4;
+  }
+
+  if (x > 196 && x < 220) {
+    return 3;
+  }
+  if (x > 220 && x < 240) {
+    return 2;
+  }
+  if (x > 240) {
+    return 1;
+  }
+}
+
 void
 numeric_apply_touch(void)
 {
@@ -1669,14 +1703,17 @@ numeric_apply_touch(void)
   int step;
   touch_position(&touch_x, &touch_y);
 
-  if (touch_x < 64) {
-    ui_mode_normal();
-    return;
-  }
   if (touch_y < LCD_HEIGHT-40) {
     ui_mode_normal();
     return;
   }
+  
+  if (touch_x < 64) {
+    set_numeric_value();
+    ui_mode_normal();
+    return;
+  }
+  
   if (touch_x > 64+9*20+8+8) {
     ui_mode_keypad(keypad_mode);  // 按下数字条后部，弹出大键盘
     ui_process_keypad();
@@ -1688,7 +1725,8 @@ numeric_apply_touch(void)
     step = -1;
   }
   
-  i = 9 - (touch_x - 64) / 20;
+  // i = 9 - (touch_x - 64) / 20;
+  i = get_digit(touch_x) - 1;
   uistat.digit = i;
   uistat.digit_mode = TRUE;
   for (i = uistat.digit; i > 0; i--)
@@ -1941,7 +1979,7 @@ ui_process_touch(void)
       menu_apply_touch();
       break;
 
-    case UI_NUMERIC:   // 设置数字
+    case UI_NUMERIC:   // 数字条模式
       numeric_apply_touch();
       break;
     }
