@@ -1,2 +1,2 @@
 # NanoVNAPro
-NanoVNA Professional, An improved version of TTRFTECH's NanoVNA.
+NanoVNA Professional, An improved version of [TTRFTECH](https://github.com/ttrftech)'s NanoVNA.
