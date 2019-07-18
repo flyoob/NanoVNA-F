@@ -26,8 +26,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-extern osThreadId Task001Handle;
-
 uistat_t uistat = {
  // digit: 6,
  // current_trace: 0
@@ -398,8 +396,6 @@ touch_cal_exec(void)  // 触摸校准，电容触摸不用
   int status;
   int x1, x2, y1, y2;
 
-  osThreadSuspend(Task001Handle);
-  
   // adc_stop(ADC1); //  电容触摸不用
   HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
@@ -433,8 +429,6 @@ touch_cal_exec(void)  // 触摸校准，电容触摸不用
   redraw_frame();
   request_to_redraw_grid();
   //redraw_all();
-
-  osThreadResume(Task001Handle);
 
   touch_start_watchdog();
 }
@@ -670,6 +664,8 @@ menu_channel_cb(int item)
 static void
 menu_touchcal_cb(int item)
 {
+  touch_cal_exec();
+  config_save();
   menu_move_back();
   ui_mode_normal();
 }

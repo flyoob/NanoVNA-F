@@ -28,6 +28,8 @@
 #include <math.h>
 #include <ctype.h>
 
+extern osThreadId Task001Handle;
+
 extern int g_HDStatus;
 extern I2S_HandleTypeDef hi2s2;
 extern TIM_HandleTypeDef htim1;
@@ -1943,6 +1945,8 @@ static void cmd_touchcal(BaseSequentialStream *chp, int argc, char *argv[])
     int i;
 
     chMtxLock(&mutex);
+    osThreadSuspend(Task001Handle);
+
     chprintf(chp, "first touch upper left, then lower right...");
     touch_cal_exec();
     chprintf(chp, "done\r\n");
@@ -1953,6 +1957,8 @@ static void cmd_touchcal(BaseSequentialStream *chp, int argc, char *argv[])
     }
     chprintf(chp, "\r\n");
     chMtxUnlock(&mutex);
+
+    osThreadResume(Task001Handle);
 }
 static const CLI_Command_Definition_t x_cmd_touchcal = {
 "touchcal", "usage: touchcal\r\n", (shellcmd_t)cmd_touchcal, -1};
