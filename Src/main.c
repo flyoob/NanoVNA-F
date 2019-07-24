@@ -126,7 +126,8 @@ static void MY_USBDP_IO_Init(void)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  SCB->VTOR = FLASH_BASE | FLASH_BOOT_SIZE;
+  __enable_irq();
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/

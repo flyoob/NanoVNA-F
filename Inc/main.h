@@ -54,7 +54,10 @@
 /* Includes ------------------------------------------------------------------*/
 
 /* USER CODE BEGIN Includes */
-
+#define FLASH_BOOT_ADDR    0x08000000
+#define FLASH_BOOT_SIZE    0x00010000
+#define FLASH_APP_ADDR     0x08010000
+#define FLASH_APP_SIZE     0x00028000
 /* USER CODE END Includes */
 
 /* Private define ------------------------------------------------------------*/

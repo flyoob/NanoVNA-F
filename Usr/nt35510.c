@@ -547,6 +547,9 @@ void ili9341_init(void)
   lcd_delay(50);
 
   nt35510_fill(0, 0, 800, 480, BLACK);
+
+  // Add Logo
+  nt35510_fill();
 }
 
 /*
