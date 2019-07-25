@@ -1686,9 +1686,7 @@ get_digit(uint16_t x)
   if (x > 220 && x < 240) {
     return 2;
   }
-  if (x > 240) {
-    return 1;
-  }
+  return 1;
 }
 
 void
