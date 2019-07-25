@@ -127,7 +127,6 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
   SCB->VTOR = FLASH_BASE | FLASH_BOOT_SIZE;
-  __enable_irq();
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/
@@ -157,6 +156,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   // MY_SDIO_IO_Init();
   // MX_SDIO_SD_Init();
+  __enable_irq();
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
