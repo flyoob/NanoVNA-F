@@ -33,6 +33,7 @@ extern osThreadId Task001Handle;
 extern int g_HDStatus;
 extern I2S_HandleTypeDef hi2s2;
 extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim2;
 extern void vUARTCommandConsoleStart( uint16_t usStackSize, UBaseType_t uxPriority );
 extern void touch_position(int *x, int *y);
 
@@ -601,7 +602,7 @@ config_t config = {  // 默认配置
 properties_t current_props = {  // 默认属性
 /* magic */   CONFIG_MAGIC,
 /* frequency0 */     50000, // start = 50kHz
-/* frequency1 */  BASE_MAX, // end
+/* frequency1 */  STOP_MAX, // end
 /* sweep_points */     SWEEP_POINTS,
 /* cal_status */         0,
 /* frequencies */       {0},
@@ -1094,8 +1095,8 @@ static void cmd_pwm(BaseSequentialStream *chp, int argc, char *argv[])
     duty = 0;
   if (duty > 1)
     duty = 1;
-  // __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 1999);  // 占空比 (2ms-1us)/2ms
-  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, (uint16_t)(2000*duty));
+  // __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, 1999);  // 占空比 (2ms-1us)/2ms
+  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, (uint16_t)(2000*duty));
 }
 static const CLI_Command_Definition_t x_cmd_pwm = {
 "pwm", "usage: pwm {0.0-1.0}\r\n", (shellcmd_t)cmd_pwm, -1};
@@ -2191,9 +2192,9 @@ void app_init(void)
   /* LCD 初始化 */
   ili9341_init();
   osDelay(100);    //
-  // HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-  // __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 1250);
-  HAL_GPIO_WritePin(LED_PWM_GPIO_Port, LED_PWM_Pin, GPIO_PIN_SET);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
+  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, 1000);
+  // HAL_GPIO_WritePin(LED_PWM_GPIO_Port, LED_PWM_Pin, GPIO_PIN_SET);
 
   // ctp_init();
   rtp_init();

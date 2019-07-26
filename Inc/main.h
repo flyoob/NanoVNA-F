@@ -64,8 +64,8 @@
 
 #define BAT_ADC_Pin GPIO_PIN_0
 #define BAT_ADC_GPIO_Port GPIOC
-#define DAC_FC_Pin GPIO_PIN_5
-#define DAC_FC_GPIO_Port GPIOA
+#define LED_PWM_Pin GPIO_PIN_2
+#define LED_PWM_GPIO_Port GPIOA
 #define AIC_RST_Pin GPIO_PIN_11
 #define AIC_RST_GPIO_Port GPIOB
 #define I2S_WCLK_Pin GPIO_PIN_12
@@ -87,8 +87,6 @@
 #define K_DOWN_EXTI_IRQn EXTI9_5_IRQn
 #define LED1_Pin GPIO_PIN_8
 #define LED1_GPIO_Port GPIOA
-#define LED_PWM_Pin GPIO_PIN_9
-#define LED_PWM_GPIO_Port GPIOA
 #define BEEP_Pin GPIO_PIN_10
 #define BEEP_GPIO_Port GPIOA
 #define TP_BUSY_Pin GPIO_PIN_3
