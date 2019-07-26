@@ -356,7 +356,7 @@ si5351_set_frequency_fixeddiv(int channel, int pll, int freq, int div,
 /* 
  * 1~100MHz fixed PLL 900MHz, fractional divider
  * 100~150MHz fractional PLL 600-900MHz, fixed divider 6
- * 150~200MHz fractional PLL 600-900MHz, fixed divider 4
+ * 150~BASE_MAX fractional PLL (150-BASE_MAX)*4, fixed divider 4
  */
 void
 si5351_set_frequency(int channel, int freq, uint8_t drive_strength)
@@ -566,7 +566,7 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
   }
   break;
 
-  case 2:  // [150M,BASE_MAX] PLL range: 600-1200M PLL=23.08~46.15
+  case 2:  // [150M,BASE_MAX] PLL range: [150M,BASE_MAX]*4 PLL=23.08~46.15
   {
     // div by 4 mode.
     si5351_set_frequency_fixeddiv(0, SI5351_PLL_A, freq_c0, 4,
@@ -609,7 +609,7 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
   }
   break;
 
-  case 2:  // [150M,BASE_MAX] PLL range: 600-1200M PLL=23.08~46.15
+  case 2:  // [150M,BASE_MAX] PLL range: [150M,BASE_MAX]*4 PLL=23.08~46.15
   {
     // div by 4 mode.
     si5351_set_frequency_fixeddiv(1, SI5351_PLL_B, freq_c1, 4,
