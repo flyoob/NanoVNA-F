@@ -143,7 +143,7 @@ void nt35510_fill(int x, int y, int w, int h, int color)
     LCD 初始化
 =======================================
 */
-void ili9341_init(void)
+void nt35510_init(void)
 {
   lcd_rst();
 
@@ -557,7 +557,7 @@ void ili9341_init(void)
     画一个像素点
 =======================================
 */
-void ili9341_pixel(int x, int y, int color)
+void nt35510_pixel_x2(int x, int y, int color)
 {
   int i;
 
@@ -578,7 +578,7 @@ void ili9341_pixel(int x, int y, int color)
     h 要选定矩形的y方向长度
 =======================================
 */
-void ili9341_fill(int x, int y, int w, int h, int color)
+void nt35510_fill_x2(int x, int y, int w, int h, int color)
 {
   int i;
 
@@ -597,7 +597,7 @@ void ili9341_fill(int x, int y, int w, int h, int color)
 =======================================
 */
 #if 0 // NO DMA
-void ili9341_bulk(int x, int y, int w, int h)
+void nt35510_bulk_x2(int x, int y, int w, int h)
 {
   uint8_t xx[4] = { x >> 8, x, (x+w-1) >> 8, (x+w-1) };
   uint8_t yy[4] = { y >> 8, y, (y+h-1) >> 8, (y+h-1) };
@@ -610,7 +610,7 @@ void ili9341_bulk(int x, int y, int w, int h)
     ssp_senddata16(*buf++);
 }
 #else
-void ili9341_bulk(int x, int y, int w, int h)
+void nt35510_bulk_x2(int x, int y, int w, int h)
 {
   int i,j;
   uint16_t *buf = lcd_buffer;
@@ -639,7 +639,7 @@ void ili9341_bulk(int x, int y, int w, int h)
 }
 #endif
 
-void ili9341_drawchar_5x7(uint8_t ch, int x, int y, uint16_t fg, uint16_t bg)
+void nt35510_drawchar_5x7_x2(uint8_t ch, int x, int y, uint16_t fg, uint16_t bg)
 {
   uint16_t *buf = lcd_buffer;
   uint16_t bits;
@@ -651,13 +651,13 @@ void ili9341_drawchar_5x7(uint8_t ch, int x, int y, uint16_t fg, uint16_t bg)
       bits <<= 1;
     }
   }
-  ili9341_bulk(x, y, 5, 7);
+  nt35510_bulk_x2(x, y, 5, 7);
 }
 
-void ili9341_drawstring_5x7(const char *str, int x, int y, uint16_t fg, uint16_t bg)
+void nt35510_drawstring_5x7_x2(const char *str, int x, int y, uint16_t fg, uint16_t bg)
 {
   while (*str) {
-    ili9341_drawchar_5x7(*str, x, y, fg, bg);
+    nt35510_drawchar_5x7_x2(*str, x, y, fg, bg);
     x += 5;
     str++;
   }
@@ -665,7 +665,7 @@ void ili9341_drawstring_5x7(const char *str, int x, int y, uint16_t fg, uint16_t
 
 #define SWAP(x,y) do { int z=x; x = y; y = z; } while(0)
 
-void ili9341_line(int x0, int y0, int x1, int y1, uint16_t fg)
+void nt35510_line_x2(int x0, int y0, int x1, int y1, uint16_t fg)
 {
   if (x0 > x1) {
     SWAP(x0, x1);
@@ -691,9 +691,9 @@ void ili9341_line(int x0, int y0, int x1, int y1, uint16_t fg)
       }
     }
     if (dy > 0)
-      ili9341_fill(x0, y0, dx, dy, fg);
+      nt35510_fill_x2(x0, y0, dx, dy, fg);
     else
-      ili9341_fill(x0, y0+dy, dx, -dy, fg);
+      nt35510_fill_x2(x0, y0+dy, dx, -dy, fg);
     x0 += dx;
     y0 += dy;
   }
@@ -703,7 +703,7 @@ const font_t NF20x24 = { 20, 24, 1, 24, (const uint32_t *)numfont20x24 };
 //const font_t NF32x24 = { 32, 24, 1, 24, (const uint32_t *)numfont32x24 };
 //const font_t NF32x48 = { 32, 48, 2, 24, (const uint32_t *)numfont32x24 };
 
-void ili9341_drawfont(uint8_t ch, const font_t *font, int x, int y, uint16_t fg, uint16_t bg)
+void nt35510_drawfont_x2(uint8_t ch, const font_t *font, int x, int y, uint16_t fg, uint16_t bg)
 {
   uint16_t *buf = lcd_buffer;
   uint32_t bits;
@@ -719,7 +719,7 @@ void ili9341_drawfont(uint8_t ch, const font_t *font, int x, int y, uint16_t fg,
       }
     }
   }
-  ili9341_bulk(x, y, font->width, font->height);
+  nt35510_bulk_x2(x, y, font->width, font->height);
 }
 
 #if 1
@@ -728,35 +728,35 @@ const uint16_t colormap[] = {
   BRG556(255,255,0), BRG556(0,255,255), BRG556(255,0,255)  // 紫 黄 青蓝
 };
 
-void ili9341_test(int mode)
+void nt35510_test(int mode)
 {
   int x, y;
   int i;
   switch (mode) {
   default:
 #if 1
-    ili9341_fill(0, 0, LCD_WIDTH, LCD_HEIGHT, 0);
+    nt35510_fill_x2(0, 0, LCD_WIDTH, LCD_HEIGHT, 0);
     for (y = 0; y < LCD_HEIGHT; y++) {
-      ili9341_fill(0, y, LCD_WIDTH, 1, BRG556(y, (y + 120) % 256, LCD_HEIGHT-y));
+      nt35510_fill_x2(0, y, LCD_WIDTH, 1, BRG556(y, (y + 120) % 256, LCD_HEIGHT-y));
     }
     break;
   case 1:
-    ili9341_fill(0, 0, LCD_WIDTH, LCD_HEIGHT, 0);
+    nt35510_fill_x2(0, 0, LCD_WIDTH, LCD_HEIGHT, 0);
     for (y = 0; y < LCD_HEIGHT; y++) {
       for (x = 0; x < LCD_WIDTH; x++) {
-        ili9341_pixel(x, y, (y<<8)|x);
+        nt35510_pixel_x2(x, y, (y<<8)|x);
       }
     }
     break;
   case 2:
     //send_command16(0x55, 0xff00);
-    ili9341_pixel(64, 64, 0xaa55);
+    nt35510_pixel_x2(64, 64, 0xaa55);
     break;
 #endif
 #if 1
     case 3:
       for (i = 0; i < 10; i++)
-        ili9341_drawfont(i, &NF20x24, i*20, 120, colormap[i%6], 0x0000);
+        nt35510_drawfont_x2(i, &NF20x24, i*20, 120, colormap[i%6], 0x0000);
       break;
 #endif
 #if 0
@@ -765,10 +765,10 @@ void ili9341_test(int mode)
       break;
 #endif
     case 4:
-      ili9341_line(0, 0, 399, 0, 0xffff);
-      ili9341_line(0, 0, 0, 239, 0xffff);
-      ili9341_line(0, 239, 399, 239, 0xffff);
-      ili9341_line(399, 0, 399, 239, 0xffff);
+      nt35510_line_x2(0, 0, 399, 0, 0xffff);
+      nt35510_line_x2(0, 0, 0, 239, 0xffff);
+      nt35510_line_x2(0, 239, 399, 239, 0xffff);
+      nt35510_line_x2(399, 0, 399, 239, 0xffff);
       break;
     }
 }
@@ -876,7 +876,7 @@ void nt35510_drawchar_x2(MWCFONT *font, uint8_t ch, int x, int y, uint16_t fg, u
       bits <<= 1;
     }
   }
-  ili9341_bulk(x, y, font->maxwidth, font->height);
+  nt35510_bulk_x2(x, y, font->maxwidth, font->height);
 }
 
 /*

@@ -388,7 +388,7 @@ void touch_wait_release(void)
   } while(status != EVT_TOUCH_RELEASED);
 }
 
-extern void ili9341_line(int, int, int, int, int);
+extern void nt35510_line_x2(int, int, int, int, int);
 
 void
 touch_cal_exec(void)  // 触摸校准，电容触摸不用
@@ -399,9 +399,9 @@ touch_cal_exec(void)  // 触摸校准，电容触摸不用
   // adc_stop(ADC1); //  电容触摸不用
   HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
-  ili9341_fill(0, 0, LCD_WIDTH, LCD_HEIGHT, 0);
-  ili9341_line(0, 31, 63, 31, 0xffff);
-  ili9341_line(31, 0, 31, 63, 0xffff);
+  nt35510_fill_x2(0, 0, LCD_WIDTH, LCD_HEIGHT, 0);
+  nt35510_line_x2(0, 31, 63, 31, 0xffff);
+  nt35510_line_x2(31, 0, 31, 63, 0xffff);
 
   do {
     status = touch_check();
@@ -409,9 +409,9 @@ touch_cal_exec(void)  // 触摸校准，电容触摸不用
   x1 = last_touch_x;
   y1 = last_touch_y;
 
-  ili9341_fill(0, 0, LCD_WIDTH, LCD_HEIGHT, 0);
-  ili9341_line(LCD_WIDTH-64, LCD_HEIGHT-32, LCD_WIDTH-1, LCD_HEIGHT-32, 0xffff);
-  ili9341_line(LCD_WIDTH-32, LCD_HEIGHT-64, LCD_WIDTH-32, LCD_HEIGHT-1, 0xffff);
+  nt35510_fill_x2(0, 0, LCD_WIDTH, LCD_HEIGHT, 0);
+  nt35510_line_x2(LCD_WIDTH-64, LCD_HEIGHT-32, LCD_WIDTH-1, LCD_HEIGHT-32, 0xffff);
+  nt35510_line_x2(LCD_WIDTH-32, LCD_HEIGHT-64, LCD_WIDTH-32, LCD_HEIGHT-1, 0xffff);
 
   do {
     status = touch_check();
@@ -454,7 +454,7 @@ touch_draw_test(void)
     status = touch_check();
     touch_position(&x1, &y1);              // 获取坐标
     
-    ili9341_line(x0, y0, x1, y1, 0xffff);  // 画线
+    nt35510_line_x2(x0, y0, x1, y1, 0xffff);  // 画线
     // dbprintf("Event 1, X:%3d Y:%3d\r\n", x1, y1);
 
     x0 = x1;
@@ -1172,8 +1172,8 @@ draw_keypad(void)
     uint16_t bg = config.menu_normal_color;
     if (i == selection)
       bg = config.menu_active_color;
-    ili9341_fill(keypads[i].x, keypads[i].y, 44, 44, bg);
-    ili9341_drawfont(keypads[i].c, &NF20x24, keypads[i].x+12, keypads[i].y+10, 0x0000, bg);
+    nt35510_fill_x2(keypads[i].x, keypads[i].y, 44, 44, bg);
+    nt35510_drawfont_x2(keypads[i].c, &NF20x24, keypads[i].x+12, keypads[i].y+10, 0x0000, bg);
     i++;
   }
 }
@@ -1181,9 +1181,9 @@ draw_keypad(void)
 void
 draw_numeric_area_frame(void)
 {
-    ili9341_fill(0, 208, LCD_WIDTH, 32, 0xffff);
+    nt35510_fill_x2(0, 208, LCD_WIDTH, 32, 0xffff);
     #if USE_ILI_LCD
-    ili9341_drawstring_5x7(keypad_mode_label[keypad_mode], 10, 220, 0x0000, 0xffff);
+    nt35510_drawstring_5x7_x2(keypad_mode_label[keypad_mode], 10, 220, 0x0000, 0xffff);
     #else
     nt35510_drawstring_5x7(keypad_mode_label[keypad_mode], 10, 220, 0x0000, 0xffff);
     #endif
@@ -1217,15 +1217,15 @@ draw_numeric_input(const char *buf)
     }
 
     if (c >= 0)
-      ili9341_drawfont(c, &NF20x24, x, 208+4, fg, bg);
+      nt35510_drawfont_x2(c, &NF20x24, x, 208+4, fg, bg);
     else if (focused)
-      ili9341_drawfont(0, &NF20x24, x, 208+4, fg, bg);
+      nt35510_drawfont_x2(0, &NF20x24, x, 208+4, fg, bg);
     else
-      ili9341_fill(x, 208+4, 20, 24, bg);
+      nt35510_fill_x2(x, 208+4, 20, 24, bg);
       
     x += 20;
     if (xsim[i] > 0) {
-      //ili9341_fill(x, 208+4, xsim[i], 20, bg);
+      //nt35510_fill_x2(x, 208+4, xsim[i], 20, bg);
       x += xsim[i];
     }
   }
@@ -1276,15 +1276,15 @@ draw_menu_buttons(const menuitem_t *menu)
     // focus only in MENU mode but not in KEYPAD mode
     if (ui_mode == UI_MENU && i == selection)
       bg = config.menu_active_color;
-    ili9341_fill(LCD_WIDTH-60, y, 60, 30, bg);
+    nt35510_fill_x2(LCD_WIDTH-60, y, 60, 30, bg);
     
     menu_item_modify_attribute(menu, i, &fg, &bg);
     #if USE_ILI_LCD
     if (menu_is_multiline(menu[i].label, &l1, &l2)) {
-      ili9341_drawstring_5x7(l1, LCD_WIDTH-54, y+8, fg, bg);
-      ili9341_drawstring_5x7(l2, LCD_WIDTH-54, y+15, fg, bg);
+      nt35510_drawstring_5x7_x2(l1, LCD_WIDTH-54, y+8, fg, bg);
+      nt35510_drawstring_5x7_x2(l2, LCD_WIDTH-54, y+15, fg, bg);
     } else {
-      ili9341_drawstring_5x7(menu[i].label, LCD_WIDTH-54, y+12, fg, bg);
+      nt35510_drawstring_5x7_x2(menu[i].label, LCD_WIDTH-54, y+12, fg, bg);
     }
     #else
     if (config.lang == LANG_CN)
@@ -1347,14 +1347,14 @@ void
 erase_menu_buttons(void)
 {
   uint16_t bg = 0;
-  ili9341_fill(LCD_WIDTH-60, 0, 60, 32*7, bg);
+  nt35510_fill_x2(LCD_WIDTH-60, 0, 60, 32*7, bg);
 }
 
 void
 erase_numeric_input(void)
 {
   uint16_t bg = 0;
-  ili9341_fill(0, LCD_HEIGHT-32, LCD_WIDTH, 32, bg);
+  nt35510_fill_x2(0, LCD_HEIGHT-32, LCD_WIDTH, 32, bg);
 }
 
 void

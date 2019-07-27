@@ -313,13 +313,13 @@ extern const font_t NF20x24;
 
 extern uint16_t lcd_buffer[4096];
 
-void ili9341_init(void);
-void ili9341_test(int mode);
-void ili9341_bulk(int x, int y, int w, int h);
-void ili9341_fill(int x, int y, int w, int h, int color);
-void ili9341_drawchar_5x7(uint8_t ch, int x, int y, uint16_t fg, uint16_t bg);
-void ili9341_drawstring_5x7(const char *str, int x, int y, uint16_t fg, uint16_t bg);
-void ili9341_drawfont(uint8_t ch, const font_t *font, int x, int y, uint16_t fg, uint16_t bg);
+void nt35510_init(void);
+void nt35510_test(int mode);
+void nt35510_bulk_x2(int x, int y, int w, int h);
+void nt35510_fill_x2(int x, int y, int w, int h, int color);
+void nt35510_drawchar_5x7_x2(uint8_t ch, int x, int y, uint16_t fg, uint16_t bg);
+void nt35510_drawstring_5x7_x2(const char *str, int x, int y, uint16_t fg, uint16_t bg);
+void nt35510_drawfont_x2(uint8_t ch, const font_t *font, int x, int y, uint16_t fg, uint16_t bg);
 
 void nt35510_fill(int x, int y, int w, int h, int color);
 void nt35510_drawchar(MWCFONT *font, uint8_t ch, int x, int y, uint16_t fg, uint16_t bg);

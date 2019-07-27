@@ -1215,7 +1215,7 @@ void draw_cell(int m, int n)
   if (m == 0) // refpos 总在 m=0 的 Cell
     cell_draw_refpos(m, n, w, h);
 
-  ili9341_bulk(OFFSETX + x0off, OFFSETY + y0, w, h);
+  nt35510_bulk_x2(OFFSETX + x0off, OFFSETY + y0, w, h);
 }
 
 void
@@ -1546,7 +1546,7 @@ draw_frequencies(void)
     frequency_string(buf+6, 24-6, start);
     strcat(buf, "    ");
     #if USE_ILI_LCD
-    ili9341_drawstring_5x7(buf, OFFSETX, HEIGHT, 0xffff, 0x0000);
+    nt35510_drawstring_5x7_x2(buf, OFFSETX, HEIGHT, 0xffff, 0x0000);
     #else
     nt35510_drawstring_5x7(buf, OFFSETX, HEIGHT, 0xffff, 0x0000);
     #endif
@@ -1554,7 +1554,7 @@ draw_frequencies(void)
     frequency_string(buf+5, 24-5, stop);
     strcat(buf, "    ");
     #if USE_ILI_LCD
-    ili9341_drawstring_5x7(buf, 205, HEIGHT, 0xffff, 0x0000);
+    nt35510_drawstring_5x7_x2(buf, 205, HEIGHT, 0xffff, 0x0000);
     #else
     nt35510_drawstring_5x7(buf, 270, HEIGHT, 0xffff, 0x0000);
     #endif
@@ -1565,7 +1565,7 @@ draw_frequencies(void)
     frequency_string(buf+7, 24-7, fcenter);
     strcat(buf, "    ");
     #if USE_ILI_LCD
-    ili9341_drawstring_5x7(buf, OFFSETX, HEIGHT, 0xffff, 0x0000);
+    nt35510_drawstring_5x7_x2(buf, OFFSETX, HEIGHT, 0xffff, 0x0000);
     #else
     nt35510_drawstring_5x7(buf, OFFSETX, HEIGHT, 0xffff, 0x0000);
     #endif
@@ -1573,7 +1573,7 @@ draw_frequencies(void)
     frequency_string(buf+5, 24-5, fspan);
     strcat(buf, "    ");
     #if USE_ILI_LCD
-    ili9341_drawstring_5x7(buf, 205, HEIGHT, 0xffff, 0x0000);
+    nt35510_drawstring_5x7_x2(buf, 205, HEIGHT, 0xffff, 0x0000);
     #else
     nt35510_drawstring_5x7(buf, 270, HEIGHT, 0xffff, 0x0000);
     #endif
@@ -1586,7 +1586,7 @@ draw_frequencies(void)
     nt35510_drawstring_5x7(buf, OFFSETX, HEIGHT, 0xffff, 0x0000);
     chsnprintf(buf, 24, "                             ");
     #if USE_ILI_LCD
-    ili9341_drawstring_5x7(buf, 205, HEIGHT, 0xffff, 0x0000);
+    nt35510_drawstring_5x7_x2(buf, 205, HEIGHT, 0xffff, 0x0000);
     #else
     nt35510_drawstring_5x7(buf, 270, HEIGHT, 0xffff, 0x0000);
     #endif
@@ -1600,7 +1600,7 @@ draw_cal_status(void)
   int x = 0;
   int y = 100;
 #define YSTEP 7
-  ili9341_fill(0, y, 10, 6*YSTEP, 0x0000);
+  nt35510_fill_x2(0, y, 10, 6*YSTEP, 0x0000);
   if (cal_status & CALSTAT_APPLY) {
     char c[3] = "C0";
     if (cal_status & CALSTAT_INTERPOLATED)
@@ -1609,28 +1609,28 @@ draw_cal_status(void)
       c[1] = '*';
     else
       c[1] += lastsaveid;
-    ili9341_drawstring_5x7(c, x, y, 0xffff, 0x0000);
+    nt35510_drawstring_5x7_x2(c, x, y, 0xffff, 0x0000);
     y += YSTEP;
   }
 
   if (cal_status & CALSTAT_ED) {
-    ili9341_drawstring_5x7("D", x, y, 0xffff, 0x0000);
+    nt35510_drawstring_5x7_x2("D", x, y, 0xffff, 0x0000);
     y += YSTEP;
   }
   if (cal_status & CALSTAT_ER) {
-    ili9341_drawstring_5x7("R", x, y, 0xffff, 0x0000);
+    nt35510_drawstring_5x7_x2("R", x, y, 0xffff, 0x0000);
     y += YSTEP;
   }
   if (cal_status & CALSTAT_ES) {
-    ili9341_drawstring_5x7("S", x, y, 0xffff, 0x0000);
+    nt35510_drawstring_5x7_x2("S", x, y, 0xffff, 0x0000);
     y += YSTEP;
   }
   if (cal_status & CALSTAT_ET) {
-    ili9341_drawstring_5x7("T", x, y, 0xffff, 0x0000);
+    nt35510_drawstring_5x7_x2("T", x, y, 0xffff, 0x0000);
     y += YSTEP;
   }
   if (cal_status & CALSTAT_EX) {
-    ili9341_drawstring_5x7("X", x, y, 0xffff, 0x0000);
+    nt35510_drawstring_5x7_x2("X", x, y, 0xffff, 0x0000);
     y += YSTEP;
   }
 #else
@@ -1646,33 +1646,33 @@ draw_cal_status(void)
       c[1] = '*';
     else
       c[1] += lastsaveid;
-    // ili9341_drawstring_5x7(c, x, y, 0xffff, 0x0000);
+    // nt35510_drawstring_5x7_x2(c, x, y, 0xffff, 0x0000);
     nt35510_drawstring(&font_12x24, c, x, y, 0xffff, 0x0000);
     y += YSTEP;
   }
 
   if (cal_status & CALSTAT_ED) {
-    // ili9341_drawstring_5x7("D", x, y, 0xffff, 0x0000);
+    // nt35510_drawstring_5x7_x2("D", x, y, 0xffff, 0x0000);
     nt35510_drawstring(&font_12x24, "D", x, y, 0xffff, 0x0000);
     y += YSTEP;
   }
   if (cal_status & CALSTAT_ER) {
-    // ili9341_drawstring_5x7("R", x, y, 0xffff, 0x0000);
+    // nt35510_drawstring_5x7_x2("R", x, y, 0xffff, 0x0000);
     nt35510_drawstring(&font_12x24, "R", x, y, 0xffff, 0x0000);
     y += YSTEP;
   }
   if (cal_status & CALSTAT_ES) {
-    // ili9341_drawstring_5x7("S", x, y, 0xffff, 0x0000);
+    // nt35510_drawstring_5x7_x2("S", x, y, 0xffff, 0x0000);
     nt35510_drawstring(&font_12x24, "S", x, y, 0xffff, 0x0000);
     y += YSTEP;
   }
   if (cal_status & CALSTAT_ET) {
-    // ili9341_drawstring_5x7("T", x, y, 0xffff, 0x0000);
+    // nt35510_drawstring_5x7_x2("T", x, y, 0xffff, 0x0000);
     nt35510_drawstring(&font_12x24, "T", x, y, 0xffff, 0x0000);
     y += YSTEP;
   }
   if (cal_status & CALSTAT_EX) {
-    // ili9341_drawstring_5x7("X", x, y, 0xffff, 0x0000);
+    // nt35510_drawstring_5x7_x2("X", x, y, 0xffff, 0x0000);
     nt35510_drawstring(&font_12x24, "X", x, y, 0xffff, 0x0000);
     y += YSTEP;
   }
@@ -1689,7 +1689,7 @@ request_to_redraw_grid(void)
 void
 redraw_frame(void)
 {
-  ili9341_fill(0, 0, LCD_WIDTH, LCD_HEIGHT, 0);
+  nt35510_fill_x2(0, 0, LCD_WIDTH, LCD_HEIGHT, 0);
   draw_frequencies();
   draw_cal_status();
 }

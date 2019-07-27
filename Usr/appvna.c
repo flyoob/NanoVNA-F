@@ -1141,7 +1141,7 @@ static void cmd_lcd(BaseSequentialStream *chp, int argc, char *argv[])
     str2hex(val, argv[4]);
     color = val[0]*256 + val[1];
     // nt35510_fill(0, 0, 800, 480, BLACK);
-    ili9341_fill(x, y, w, h, color);
+    nt35510_fill_x2(x, y, w, h, color);
     return;
   }
 
@@ -2033,7 +2033,7 @@ static void cmd_test(BaseSequentialStream *chp, int argc, char *argv[])
 
   for (i = 0; i < 20; i++) {
     // palClearPad(GPIOC, GPIOC_LED);
-    ili9341_test(mode);
+    nt35510_test(mode);
     // palSetPad(GPIOC, GPIOC_LED);
     // chThdSleepMilliseconds(50);
     osDelay(50);
@@ -2190,7 +2190,7 @@ void app_init(void)
   tlv320aic3204_init_slave();
 
   /* LCD 初始化 */
-  ili9341_init();
+  nt35510_init();
   osDelay(100);    //
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
   __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, 1000);
