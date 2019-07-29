@@ -1103,6 +1103,33 @@ static const CLI_Command_Definition_t x_cmd_pwm = {
 
 /*
 =======================================
+    命令：测试BEEP
+=======================================
+*/
+static void cmd_beep(BaseSequentialStream *chp, int argc, char *argv[])
+{
+  (void)chp;
+
+  if (argc != 1) {
+    dbprintf("usage: beep on/off\r\n");
+    return;
+  }
+  if (strcmp(argv[0], "on") == 0) {
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, (uint16_t)(185));
+    return;
+  }
+  if (strcmp(argv[0], "off") == 0) {
+    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+    return;
+  }
+  dbprintf("usage: beep on/off\r\n");
+}
+static const CLI_Command_Definition_t x_cmd_beep = {
+"beep", "usage: beep on/off\r\n", (shellcmd_t)cmd_beep, -1};
+
+/*
+=======================================
     命令：LCD 测试
 =======================================
 */
@@ -2271,6 +2298,7 @@ void cmd_register( void )
   FreeRTOS_CLIRegisterCommand( &x_cmd_list );
   FreeRTOS_CLIRegisterCommand( &x_cmd_fatfs );
   FreeRTOS_CLIRegisterCommand( &x_cmd_pwm );
+  FreeRTOS_CLIRegisterCommand( &x_cmd_beep );
   FreeRTOS_CLIRegisterCommand( &x_cmd_lcd );
   FreeRTOS_CLIRegisterCommand( &x_cmd_task );
 }
