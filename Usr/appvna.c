@@ -899,9 +899,13 @@ void set_sweep_frequency(int type, float frequency)
     break;
   case ST_CW:
     freq_mode_centerspan();
+    if (frequency > STOP_MAX)
+      freq = STOP_MAX;
+    if (frequency < START_MIN)
+      freq = START_MIN;
     if (frequency0 != freq || frequency1 != 0) {
       ensure_edit_config();
-      frequency0 = frequency;
+      frequency0 = freq;
       frequency1 = 0;
       update_frequencies();
     }
