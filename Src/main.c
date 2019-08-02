@@ -178,7 +178,7 @@ int main(void)
   Task001Handle = osThreadCreate(osThread(Task001), NULL);
 
   /* definition and creation of TaskCmd */
-  osThreadDef(TaskCmd, StartTaskCmd, osPriorityAboveNormal, 0, 512);
+  osThreadDef(TaskCmd, StartTaskCmd, osPriorityNormal, 0, 512);
   TaskCmdHandle = osThreadCreate(osThread(TaskCmd), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
