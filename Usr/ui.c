@@ -1571,6 +1571,36 @@ ui_process_menu(void)
   }
 }
 
+/* 数字条间隔 20 20 20 8 20 20 20 8 20 20 20 20 */
+uint16_t
+get_postion(uint8_t d)
+{
+  switch(d)
+  {
+  case 0:
+    return 64;
+  case 1:
+    return 84;
+  case 2:
+    return 104;
+  case 3:
+    return 132;
+  case 4:
+    return 152;
+  case 5:
+    return 172;
+  case 6:
+    return 200;
+  case 7:
+    return 220;
+  case 8:
+    return 240;
+  case 9:
+    return 260;
+  default:
+    return 64;
+  }
+}
 
 int
 keypad_click(int key) 
@@ -1626,6 +1656,7 @@ keypad_click(int key)
       return KP_CANCEL;
     }
     --kp_index;
+    nt35510_fill_x2(get_postion(kp_index), 208+4, 20, 24, 0xffff);
   }
   kp_buf[kp_index] = '\0';
   draw_numeric_input(kp_buf);
@@ -1657,6 +1688,7 @@ keypad_apply_touch(void)
   return -1;
 }
 
+/* 数字条间隔 20 20 20 8 20 20 20 8 20 20 20 20 */
 uint8_t
 get_digit(uint16_t x)
 {
