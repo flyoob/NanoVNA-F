@@ -160,8 +160,8 @@ static void cmd_reset(BaseSequentialStream *chp, int argc, char *argv[])
   (void)argv;
 
   chprintf(chp, "Performing reset\r\n");
-
-  /* 看门狗复位 */
+  osDelay(200);
+  HAL_NVIC_SystemReset();
 
   while(1);
 }

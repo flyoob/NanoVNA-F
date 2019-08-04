@@ -139,7 +139,7 @@ void cmd_register( void );
 
 /* Const messages output by the command console. */
 // static const char * const pcWelcomeMessage = "FreeRTOS command server.\r\nType Help to view a list of registered commands.\r\n\r\n>";
-static const char * const pcEndOfMsg = "nanovnaPro> ";
+static const char * const pcEndOfMsg = "nanovna-F> ";
 static const char * const pcNewLine  = "\r\n";
 
 /* Used to guard access to the UART in case messages are sent to the UART from
