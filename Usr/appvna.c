@@ -495,7 +495,7 @@ static void cmd_dump(BaseSequentialStream *chp, int argc, char *argv[])
   if (argc == 1)
     dump_selection = atoi(argv[0]);
 
-  wait_dsp(3);
+  wait_dsp(4);
 
   dump_selection = 0;
 
@@ -557,7 +557,7 @@ static const CLI_Command_Definition_t x_cmd_dump = {
 "dump", "usage: dump 1\r\n", (shellcmd_t)cmd_dump, -1};
 #endif
 
-#if 0
+#if 1
 static void cmd_gamma(BaseSequentialStream *chp, int argc, char *argv[])
 {
   float gamma[2];
@@ -570,8 +570,10 @@ static void cmd_gamma(BaseSequentialStream *chp, int argc, char *argv[])
   calculate_gamma(gamma);
   chMtxUnlock(&mutex);
 
-  chprintf(chp, "%d %d\r\n", gamma[0], gamma[1]);
+  chprintf(chp, "%f %f\r\n", gamma[0], gamma[1]);
 }
+static const CLI_Command_Definition_t x_cmd_gamma = {
+"gamma", "usage: gamma\r\n", (shellcmd_t)cmd_gamma, -1};
 #endif
 
 #if 0
@@ -675,8 +677,8 @@ void sweep(void)
   int delay;
 
 rewind:
-    frequency_updated = FALSE;
-    delay = 3;
+  frequency_updated = FALSE;
+  delay = 4;
 
   for (i = 0; i < sweep_points; i++)  // SWEEP_POINTS
   {
@@ -695,16 +697,12 @@ rewind:
 
     /* calculate reflection coeficient 计算反射系数 */
     calculate_gamma(measured[0][i]);
-    // measured[0][i][0] = 0;
-    // measured[0][i][1] = 0;
 
     tlv320aic3204_select_in1(); // S21:TRANSMISSION
     wait_dsp(delay);  // 扔掉两块数据
 
     /* calculate transmission coeficient 计算传输系数 */
     calculate_gamma(measured[1][i]);
-    // measured[1][i][0] = 0.001;
-    // measured[1][i][1] = 0.001;
 
     // blink LED while scanning
     // palSetPad(GPIOC, GPIOC_LED);  // 不使用 LED
@@ -2283,7 +2281,7 @@ void cmd_register( void )
   FreeRTOS_CLIRegisterCommand( &x_cmd_gain );
   FreeRTOS_CLIRegisterCommand( &x_cmd_power );
 
-  // FreeRTOS_CLIRegisterCommand( &x_cmd_gamma );
+  FreeRTOS_CLIRegisterCommand( &x_cmd_gamma );
   // FreeRTOS_CLIRegisterCommand( &x_cmd_scan );
 
   FreeRTOS_CLIRegisterCommand( &x_cmd_sweep );
