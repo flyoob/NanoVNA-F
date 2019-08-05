@@ -615,7 +615,7 @@ properties_t current_props = {  // 默认属性
   { 1, TRC_LOGMAG, 0, 0, 1.0, 7.0 },
   { 1, TRC_LOGMAG, 1, 0, 1.0, 7.0 },
   { 1, TRC_SMITH,  0, 1, 1.0, 0.0 },
-  { 1, TRC_PHASE,  1, 0, 1.0, 4.0 }
+  { 0, TRC_PHASE,  0, 0, 1.0, 4.0 }
 },
 /* markers[4] */ {
   { 1, 30, 0 }, { 0, 40, 0 }, { 0, 60, 0 }, { 0, 80, 0 }
@@ -2231,7 +2231,7 @@ void app_init(void)
   nt35510_init();
   osDelay(100);    //
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
-  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, 1000);
+  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, 1500);
   // HAL_GPIO_WritePin(LED_PWM_GPIO_Port, LED_PWM_Pin, GPIO_PIN_SET);
 
   // ctp_init();

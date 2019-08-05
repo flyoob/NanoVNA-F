@@ -1438,7 +1438,7 @@ void cell_draw_marker_info(int m, int n, int w, int h)
             xpos += 22;
             trace_get_info(t, buf, sizeof buf);
             cell_drawstring_06x13(w, h, buf, xpos, ypos, config.trace_color[t]);
-            xpos += 74;
+            xpos += 77;
             trace_get_value_string(t, buf, sizeof buf, measured[trace[t].channel][idx], frequencies[idx]);
             cell_drawstring_06x13(w, h, buf, xpos, ypos, config.trace_color[t]);
             #endif

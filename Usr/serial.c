@@ -157,7 +157,7 @@ signed portBASE_TYPE xSerialReset( xComPortHandle pxPort )
 
   /* Get the next character from the buffer.  Return false if no characters
   are available, or arrive before xBlockTime expires. */
-  xQueueReset( xRxedChars );
+  // xQueueReset( xRxedChars );
 
   return pdTRUE;
 }
