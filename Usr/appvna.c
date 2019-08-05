@@ -180,9 +180,9 @@ int set_frequency(int freq)
     if (freq <= BASE_MAX) {
       drive_strength = SI5351_CLK_DRIVE_STRENGTH_2MA;
     } else if (freq <= BASE_MAX*2) {
-      drive_strength = SI5351_CLK_DRIVE_STRENGTH_6MA;
+      drive_strength = SI5351_CLK_DRIVE_STRENGTH_8MA;
     } else {
-      drive_strength = SI5351_CLK_DRIVE_STRENGTH_6MA;
+      drive_strength = SI5351_CLK_DRIVE_STRENGTH_8MA;
     }
     delay = si5351_set_frequency_with_offset_expand(freq, frequency_offset, drive_strength);
     frequency = freq;
@@ -688,9 +688,9 @@ rewind:
   {
     set_frequency(frequencies[i]);
     if (frequencies[i] > BASE_MAX) {
-      tlv320aic3204_set_gain(40, 40);
+      tlv320aic3204_set_gain(40, 50);
     } else {
-      tlv320aic3204_set_gain(0, 0);
+      tlv320aic3204_set_gain(0, 10);
     }
 
     tlv320aic3204_select_in3(); // S11:REFLECT
@@ -733,9 +733,9 @@ rewind:
   }
   set_frequency(frequencies[0]);
   if (frequencies[0] > BASE_MAX) {
-    tlv320aic3204_set_gain(40, 40);
+    tlv320aic3204_set_gain(40, 50);
   } else {
-    tlv320aic3204_set_gain(0, 0);
+    tlv320aic3204_set_gain(0, 10);
   }
 
   LED1_OFF;

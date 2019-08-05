@@ -60,11 +60,11 @@ SOLT校准方法使用12项误差修正模型，其中被测件的正向有6项�
 正向误差项：ED（方向）、ES（源匹配）、EL（负载匹配）、ERF（反射跟踪）、ETF（发射跟踪）和EX（串扰）。
  */
 
-#define CAL_LOAD 0     // 负载 接50欧姆负载
-#define CAL_OPEN 1     // 开路 接开路负载
+#define CAL_LOAD  0    // 负载 接50欧姆负载
+#define CAL_OPEN  1    // 开路 接开路负载
 #define CAL_SHORT 2    // 短路 接短路负载
-#define CAL_THRU 3     // 直通 PORT1 PORT2 短接
-#define CAL_ISOLN 4    // 隔离 PORT1 PORT2 都接负载，只有一个负载时接 PORT2
+#define CAL_THRU  3    // 直通 PORT1 PORT2 短接
+#define CAL_ISOLN 4    // 隔离 PORT1 PORT2 都接负载
 
 #define CALSTAT_LOAD   (1<<0)
 #define CALSTAT_OPEN   (1<<1)
