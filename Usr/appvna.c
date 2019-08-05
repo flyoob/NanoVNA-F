@@ -357,8 +357,8 @@ static void wait_dsp(int count)
 {
   wait_count = count;
   // reset_dsp_accumerator();
-  while (wait_count)
-    __WFI(); // WFI = wait for interrupt 等待中断，即下一次中断发生前都在此hold住不干活
+  while (wait_count);
+    // __WFI(); // WFI = wait for interrupt 等待中断，即下一次中断发生前都在此hold住不干活
   // 直到 wait_count = 0;
 }
 
@@ -410,7 +410,7 @@ void i2s_end_callback(size_t offset, size_t n)
 void HAL_I2S_RxHalfCpltCallback(I2S_HandleTypeDef *hi2s)
 {
   if (hi2s == &hi2s2) {
-    LED1_ON;
+    // LED1_ON;
     #if 0
     if (acquire == 1) {
       memcpy(rx_copy, rx_buffer, AUDIO_BUFFER_LEN);
@@ -429,7 +429,7 @@ void HAL_I2S_RxHalfCpltCallback(I2S_HandleTypeDef *hi2s)
 void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s)
 {
   if (hi2s == &hi2s2) {
-    LED1_OFF;
+    // LED1_OFF;
     #if 0
     if (acquire == 2) {
       memcpy(rx_copy+AUDIO_BUFFER_LEN/2, rx_buffer+AUDIO_BUFFER_LEN/2, AUDIO_BUFFER_LEN);
@@ -674,12 +674,16 @@ static void cmd_scan(BaseSequentialStream *chp, int argc, char *argv[])
 void sweep(void)
 {
   int i;
-  int delay;
+  int delay1, delay2;
 
 rewind:
   frequency_updated = FALSE;
-  delay = 4;
+  delay1 = 3;
+  delay2 = 5;
 
+  LED1_ON;
+
+  // osDelay(2000);
   for (i = 0; i < sweep_points; i++)  // SWEEP_POINTS
   {
     set_frequency(frequencies[i]);
@@ -690,7 +694,8 @@ rewind:
     }
 
     tlv320aic3204_select_in3(); // S11:REFLECT
-    wait_dsp(delay);  // 扔掉两块数据
+    // osDelay(50);
+    wait_dsp(delay1);  // 扔掉两块数据
 
     // blink LED while scanning
     // palClearPad(GPIOC, GPIOC_LED);  // 不使用 LED
@@ -699,10 +704,12 @@ rewind:
     calculate_gamma(measured[0][i]);
 
     tlv320aic3204_select_in1(); // S21:TRANSMISSION
-    wait_dsp(delay);  // 扔掉两块数据
+    // osDelay(50);
+    wait_dsp(delay2);  // 扔掉两块数据
 
     /* calculate transmission coeficient 计算传输系数 */
     calculate_gamma(measured[1][i]);
+    // dbprintf("%5d %5d\r\n", acc_samp_s, acc_samp_c);
 
     // blink LED while scanning
     // palSetPad(GPIOC, GPIOC_LED);  // 不使用 LED
@@ -730,6 +737,8 @@ rewind:
   } else {
     tlv320aic3204_set_gain(0, 0);
   }
+
+  LED1_OFF;
 
   // if (cal_status & CALSTAT_APPLY)
       // apply_error_term();

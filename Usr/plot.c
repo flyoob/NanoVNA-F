@@ -438,6 +438,9 @@ draw_on_strut(int v0, int d, int color)
  */ 
 float logmag(float *v)
 {
+  if (v[0] == 0 && v[1] == 0) {
+    return -INFINITY;
+  }
   return log10f(v[0]*v[0] + v[1]*v[1]);
 }
 
@@ -623,7 +626,10 @@ trace_get_value_string(int t, char *buf, int len, float coeff[2], uint32_t frequ
     break;
   case TRC_SWR:
     v = swr(coeff);
-    chsnprintf(buf, len, "%.2f", v);
+    if (v == INFINITY)
+      chsnprintf(buf, len, "INF");
+    else
+      chsnprintf(buf, len, "%.2f", v);
     break;
   case TRC_SMITH:
     gamma2imp(buf, len, coeff, frequency);
