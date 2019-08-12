@@ -84,8 +84,8 @@ const uint8_t si5351_configs[] = {
   2, SI5351_REG_177_PLL_RESET, SI5351_PLL_RESET_A | SI5351_PLL_RESET_B,
   // setup multisynth (832MHz / 104 = 8MHz, 104/2-2=50) a = 104
   9, SI5351_REG_58_MULTISYNTH2, /*P3*/0, 1, /*P1*/0, 50, 0, /*P2|P3*/0, 0, 0,  
-  // 只打开 CLK2 输出 8MHz，默认  MultiSynth0 <= PLLA，输出关闭=(1 << 7)
-  2, SI5351_REG_18_CLK2_CONTROL, SI5351_CLK_DRIVE_STRENGTH_2MA | SI5351_CLK_INPUT_MULTISYNTH_N | SI5351_CLK_INTEGER_MODE | (1<<7),
+  // 只打开 CLK2 输出 8MHz PLLB Select MultiSynth 2 as the source for CLK2. 可选输出关闭=(1 << 7)
+  2, SI5351_REG_18_CLK2_CONTROL, SI5351_CLK_DRIVE_STRENGTH_2MA | SI5351_CLK_INPUT_MULTISYNTH_N | SI5351_CLK_INTEGER_MODE | SI5351_CLK_PLL_SELECT_B,
   2, SI5351_REG_3_OUTPUT_ENABLE_CONTROL, 0,  // 使能输出所有时钟
   0 // sentinel
 };
@@ -130,7 +130,7 @@ void si5351_disable_output(void)
 void si5351_enable_output(void)
 {
   // si5351_write(SI5351_REG_3_OUTPUT_ENABLE_CONTROL, 0x00);
-  si5351_write(SI5351_REG_3_OUTPUT_ENABLE_CONTROL, 0xFC);
+  si5351_write(SI5351_REG_3_OUTPUT_ENABLE_CONTROL, 0x00);
 }
 
 /*
@@ -465,6 +465,7 @@ si5351_set_frequency_with_offset(int freq, int offset, uint8_t drive_strength)
     si5351_enable_output();
 #endif
     delay += 0;
+    osDelay(30);
   }
 
   current_band = band;
@@ -500,13 +501,7 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
   if (freq_c1 > BASE_MAX) {
     freq_c0 = freq_c0/5;    // CLK0=参考/本振（b0-b1切换时有问题）
     freq_c1 = freq_c1/3;    // CLK1=发射
-    // if (freq <= BASE_MAX*2) {
-        // tlv320aic3204_set_gain(40, 40);
-    // } else {
-        // tlv320aic3204_set_gain(40, 40);
-    // }
   } else {
-    // tlv320aic3204_set_gain(0, 0);
   }
 
   // CLK0: frequency + offset          参考/本振
@@ -590,8 +585,9 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
         freq_c1 *= 64;
     }
     // PLLFREQ = 832M
-    si5351_set_frequency_fixedpll(1, SI5351_PLL_B, PLLFREQ, freq_c1, rdiv,
-                                  drive_strength);  // 发射
+    si5351_set_frequency_fixedpll(1, SI5351_PLL_B, PLLFREQ, freq_c1, rdiv, drive_strength);  // 发射
+    si5351_set_frequency_fixedpll(2, SI5351_PLL_B, PLLFREQ, CLK2_FREQUENCY,
+                                  SI5351_R_DIV_1, SI5351_CLK_DRIVE_STRENGTH_2MA);
   }
   break;
 
@@ -604,16 +600,18 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
   }
 
     // div by 6 mode.
-    si5351_set_frequency_fixeddiv(1, SI5351_PLL_B, freq_c1, 6,
-                                  drive_strength);
+    si5351_set_frequency_fixeddiv(1, SI5351_PLL_B, freq_c1, 6, drive_strength);
+    si5351_set_frequency_fixedpll(2, SI5351_PLL_B, freq_c1 * 6, CLK2_FREQUENCY,
+                                  SI5351_R_DIV_1, SI5351_CLK_DRIVE_STRENGTH_2MA);
   }
   break;
 
   case 2:  // [150M,BASE_MAX] PLL range: [150M,BASE_MAX]*4 PLL=23.08~46.15
   {
     // div by 4 mode.
-    si5351_set_frequency_fixeddiv(1, SI5351_PLL_B, freq_c1, 4,
-                                  drive_strength);
+    si5351_set_frequency_fixeddiv(1, SI5351_PLL_B, freq_c1, 4, drive_strength);
+    si5351_set_frequency_fixedpll(2, SI5351_PLL_B, freq_c1 * 4, CLK2_FREQUENCY,
+                                  SI5351_R_DIV_1, SI5351_CLK_DRIVE_STRENGTH_2MA);
   }
   break;
   }

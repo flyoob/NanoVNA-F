@@ -488,7 +488,7 @@ static void cmd_dump(BaseSequentialStream *chp, int argc, char *argv[])
   int16_t *p = &dump_buffer[0];
   int64_t acc0, acc1;
   int32_t ave0, ave1;
-  int32_t count = AUDIO_BUFFER_LEN;
+  int32_t count = AUDIO_BUFFER_LEN/2;
   int16_t min0, min1;
   int16_t max0, max1;
 
@@ -547,9 +547,9 @@ static void cmd_dump(BaseSequentialStream *chp, int argc, char *argv[])
   chprintf(chp, "max: %6d %6d\r\n", stat.max[0], stat.max[1]);  // 反射或传输，参考
   chprintf(chp, "rms: %6d %6d\r\n", stat.rms[0], stat.rms[1]);  // 反射或传输，参考
   // chprintf(chp, "callback count: %d\r\n", stat.callback_count);
-  //chprintf(chp, "interval cycle: %d\r\n", stat.interval_cycles);
-  //chprintf(chp, "busy cycle: %d\r\n", stat.busy_cycles);
-  //chprintf(chp, "load: %d\r\n", stat.busy_cycles * 100 / stat.interval_cycles);
+  // chprintf(chp, "interval cycle: %d\r\n", stat.interval_cycles);
+  // chprintf(chp, "busy cycle: %d\r\n", stat.busy_cycles);
+  // chprintf(chp, "load: %d\r\n", stat.busy_cycles * 100 / stat.interval_cycles);
   // extern int awd_count;
   // chprintf(chp, "awd: %d\r\n", awd_count);
 }
@@ -683,7 +683,6 @@ rewind:
 
   LED1_ON;
 
-  // osDelay(2000);
   for (i = 0; i < sweep_points; i++)  // SWEEP_POINTS
   {
     set_frequency(frequencies[i]);
@@ -694,7 +693,6 @@ rewind:
     }
 
     tlv320aic3204_select_in3(); // S11:REFLECT
-    // osDelay(50);
     wait_dsp(delay1);  // 扔掉两块数据
 
     // blink LED while scanning
@@ -702,14 +700,13 @@ rewind:
 
     /* calculate reflection coeficient 计算反射系数 */
     calculate_gamma(measured[0][i]);
+    // dbprintf("%5d %5d\r\n", acc_samp_s, acc_samp_c);
 
     tlv320aic3204_select_in1(); // S21:TRANSMISSION
-    // osDelay(50);
     wait_dsp(delay2);  // 扔掉两块数据
 
     /* calculate transmission coeficient 计算传输系数 */
     calculate_gamma(measured[1][i]);
-    // dbprintf("%5d %5d\r\n", acc_samp_s, acc_samp_c);
 
     // blink LED while scanning
     // palSetPad(GPIOC, GPIOC_LED);  // 不使用 LED
@@ -743,6 +740,7 @@ rewind:
   // if (cal_status & CALSTAT_APPLY)
       // apply_error_term();
 }
+
 /*
 =======================================
     更新 Mark 点位置
@@ -2224,8 +2222,8 @@ void app_init(void)
   osDelay(5);    //
   AIC_RESET_H;
   osDelay(5);    //
-  // tlv320aic3204_init();
-  tlv320aic3204_init_slave();
+  tlv320aic3204_init();
+  // tlv320aic3204_init_slave();
 
   /* LCD 初始化 */
   nt35510_init();
