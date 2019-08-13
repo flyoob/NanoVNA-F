@@ -94,7 +94,7 @@ enum {
   ST_START, ST_STOP, ST_CENTER, ST_SPAN, ST_CW
 };
 
-void set_sweep_frequency(int type, float frequency);
+void set_sweep_frequency(int type, int frequency);
 uint32_t get_sweep_frequency(int type);
 
 float my_atof(const char *p);

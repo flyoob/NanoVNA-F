@@ -314,7 +314,7 @@ touch_status(void)
   touch_prepare_sense();
   // return adc_single_read(ADC1, ADC_CHSELR_CHSEL7) > TOUCH_THRESHOLD;  // 电容触摸不用
   // return (!CTP_INT_IN());
-  chThdSleepMilliseconds(5);
+  chThdSleepMilliseconds(20);
   if (touch_measure_x() < 4040) {
     return 1;
   } else {
@@ -1608,11 +1608,11 @@ keypad_click(int key)
   int c = keypads[key].c;
   if (c >= KP_X1 && c <= KP_G) {
     int n = c - KP_X1;
-    float scale = 1;
+    int scale = 1;
     while (n-- > 0)
       scale *= 1000;
     /* numeric input done */
-    float value = my_atof(kp_buf) * scale;
+    int value = atoi(kp_buf) * scale;
     switch (keypad_mode) {
     case KM_START:
       set_sweep_frequency(ST_START, value);
@@ -1629,14 +1629,17 @@ keypad_click(int key)
     case KM_CW:
       set_sweep_frequency(ST_CW, value);
       break;
+    }
+    float value_f = my_atof(kp_buf) * scale;
+    switch (keypad_mode) {
     case KM_SCALE:
-      set_trace_scale(uistat.current_trace, value);
+      set_trace_scale(uistat.current_trace, value_f);
       break;
     case KM_REFPOS:
-      set_trace_refpos(uistat.current_trace, value);
+      set_trace_refpos(uistat.current_trace, value_f);
       break;
     case KM_EDELAY:
-      set_electrical_delay(value);
+      set_electrical_delay(value_f);
       break;
     }
 

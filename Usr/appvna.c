@@ -831,7 +831,7 @@ void freq_mode_centerspan(void)
   }
 }
 
-void set_sweep_frequency(int type, float frequency)
+void set_sweep_frequency(int type, int frequency)
 {
   int32_t freq = frequency;
   switch (type) {
