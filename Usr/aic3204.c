@@ -148,10 +148,10 @@ void tlv320aic3204_init_slave(void)
   I2CWrite(AIC3204_ADDR, 0x14, 0x80); /* Program the OSR of ADC to 128 */
   I2CWrite(AIC3204_ADDR, 0x3d, 0x01); /* Select ADC PRB_R1 */
 
-  // tlv320aic3204_adc_filter_enable(TRUE);
-  // I2CWrite(AIC3204_ADDR, 0x00, 0x08); // Select page 8, Disable Adaptive Filtering for ADC
-  // I2CWrite(AIC3204_ADDR, 0x01, 0x00);
-  // tlv320aic3204_config_adc_filter();
+  tlv320aic3204_adc_filter_enable(TRUE);
+  I2CWrite(AIC3204_ADDR, 0x00, 0x08); // Select page 8, Disable Adaptive Filtering for ADC
+  I2CWrite(AIC3204_ADDR, 0x01, 0x00);
+  tlv320aic3204_config_adc_filter();
 
   I2CWrite(AIC3204_ADDR, 0x00, 0x01); /* Select Page 1 */
   I2CWrite(AIC3204_ADDR, 0x3d, 0x00); /* Select ADC PTM_R4 */
@@ -423,7 +423,7 @@ void tlv320aic3204_set_gain(int lgain, int rgain)
     I2CWrite(AIC3204_ADDR, 0x3b, lgain); /* Unmute Left MICPGA, set gain */
     I2CWrite(AIC3204_ADDR, 0x3c, rgain); /* Unmute Right MICPGA, set gain */
     I2CWrite(AIC3204_ADDR, 0x00, 0x00); /* Select Page 0 */
-    osDelay(50);
+    osDelay(30);
   }
 }
 

@@ -130,7 +130,7 @@ void si5351_disable_output(void)
 void si5351_enable_output(void)
 {
   // si5351_write(SI5351_REG_3_OUTPUT_ENABLE_CONTROL, 0x00);
-  si5351_write(SI5351_REG_3_OUTPUT_ENABLE_CONTROL, 0x00);
+  si5351_write(SI5351_REG_3_OUTPUT_ENABLE_CONTROL, 0xFC);
 }
 
 /*
@@ -498,10 +498,15 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
     rdiv = SI5351_R_DIV_8;
   }
 
-  if (freq_c1 > BASE_MAX) {
-    freq_c0 = freq_c0/5;    // CLK0=参考/本振（b0-b1切换时有问题）
-    freq_c1 = freq_c1/3;    // CLK1=发射
-  } else {
+  if (freq_c1 > BASE_MAX)
+  {
+    if (freq_c1 <= BASE_MAX*3) {
+      freq_c0 = freq_c0/5;    // CLK0=参考/本振
+      freq_c1 = freq_c1/3;    // CLK1=发射
+    } else {
+      freq_c0 = freq_c0/7;    // CLK0=参考/本振
+      freq_c1 = freq_c1/5;    // CLK1=发射
+    }
   }
 
   // CLK0: frequency + offset          参考/本振
@@ -551,21 +556,18 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
   {
     // Set PLL twice on changing from band 2
     if (current_band_c0 == 2) {
-      si5351_set_frequency_fixeddiv(0, SI5351_PLL_A, freq_c0, 6,
-                                drive_strength);
+      si5351_set_frequency_fixeddiv(0, SI5351_PLL_A, freq_c0, 6, drive_strength);
   }
 
     // div by 6 mode.
-    si5351_set_frequency_fixeddiv(0, SI5351_PLL_A, freq_c0, 6,
-                                  drive_strength);
+    si5351_set_frequency_fixeddiv(0, SI5351_PLL_A, freq_c0, 6, drive_strength);
   }
   break;
 
   case 2:  // [150M,BASE_MAX] PLL range: [150M,BASE_MAX]*4 PLL=23.08~46.15
   {
     // div by 4 mode.
-    si5351_set_frequency_fixeddiv(0, SI5351_PLL_A, freq_c0, 4,
-                                  drive_strength);
+    si5351_set_frequency_fixeddiv(0, SI5351_PLL_A, freq_c0, 4, drive_strength);
   }
   break;
   }
@@ -595,8 +597,7 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
   {
     // Set PLL twice on changing from band 2
     if (current_band_c1 == 2) {
-        si5351_set_frequency_fixeddiv(1, SI5351_PLL_B, freq_c1, 6,
-                                  drive_strength);
+        si5351_set_frequency_fixeddiv(1, SI5351_PLL_B, freq_c1, 6, drive_strength);
   }
 
     // div by 6 mode.

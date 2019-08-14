@@ -179,8 +179,6 @@ int set_frequency(int freq)
   if (frequency != freq) {
     if (freq <= BASE_MAX) {
       drive_strength = SI5351_CLK_DRIVE_STRENGTH_2MA;
-    } else if (freq <= BASE_MAX*2) {
-      drive_strength = SI5351_CLK_DRIVE_STRENGTH_8MA;
     } else {
       drive_strength = SI5351_CLK_DRIVE_STRENGTH_8MA;
     }
@@ -589,7 +587,7 @@ float cal_data[5][SWEEP_POINTS][2];
 config_t config = {  // 默认配置
 /* magic */   CONFIG_MAGIC,
 /* dac_value */ 1922,
-/* grid_color */ BRG556(100,100,100),
+/* grid_color */ BRG556(128,128,128),
 /* menu_normal_color */ 0xffff,
 /* menu_active_color */ 0x7777,
 // S11-LOGMAG S21-LOGMAG S11-SMITH S21-PHASE 黄 蓝 绿 紫
@@ -686,7 +684,13 @@ rewind:
   for (i = 0; i < sweep_points; i++)  // SWEEP_POINTS
   {
     set_frequency(frequencies[i]);
-    if (frequencies[i] > BASE_MAX) {
+    if (frequencies[i] > BASE_MAX*4) {
+      tlv320aic3204_set_gain(72, 92);
+    } else if (frequencies[i] > BASE_MAX*3) {
+      tlv320aic3204_set_gain(68, 82);
+    } else if (frequencies[i] > BASE_MAX*2) {
+      tlv320aic3204_set_gain(48, 58);
+    } else if (frequencies[i] > BASE_MAX) {
       tlv320aic3204_set_gain(40, 50);
     } else {
       tlv320aic3204_set_gain(0, 10);
@@ -729,7 +733,13 @@ rewind:
       goto rewind;
   }
   set_frequency(frequencies[0]);
-  if (frequencies[0] > BASE_MAX) {
+  if (frequencies[i] > BASE_MAX*4) {
+    tlv320aic3204_set_gain(72, 92);
+  } else if (frequencies[i] > BASE_MAX*3) {
+    tlv320aic3204_set_gain(68, 82);
+  } else if (frequencies[i] > BASE_MAX*2) {
+    tlv320aic3204_set_gain(48, 58);
+  } else if (frequencies[i] > BASE_MAX) {
     tlv320aic3204_set_gain(40, 50);
   } else {
     tlv320aic3204_set_gain(0, 10);
@@ -2219,11 +2229,10 @@ void app_init(void)
   si5351_init();
 
   AIC_RESET_L;
-  osDelay(5);    //
+  osDelay(5);
   AIC_RESET_H;
-  osDelay(5);    //
-  tlv320aic3204_init();
-  // tlv320aic3204_init_slave();
+  osDelay(5);
+  tlv320aic3204_init_slave();
 
   /* LCD 初始化 */
   nt35510_init();

@@ -159,12 +159,23 @@ void HAL_I2S_MspInit(I2S_HandleTypeDef* hi2s)
     /**I2S2 GPIO Configuration    
     PB12     ------> I2S2_WS
     PB13     ------> I2S2_CK
-    PB15     ------> I2S2_SD 
+    PB15     ------> I2S2_SD
+    PC6     ------> I2S2_MCK 
     */
-    GPIO_InitStruct.Pin = I2S_WCLK_Pin|I2S_BCLK_Pin|I2S_DOUT_Pin;
+    GPIO_InitStruct.Pin = I2S_WCLK_Pin|I2S_BCLK_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = I2S_DOUT_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+    HAL_GPIO_Init(I2S_DOUT_GPIO_Port, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_6;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
     /* I2S2 DMA Init */
     /* SPI2_RX Init */
@@ -204,9 +215,12 @@ void HAL_I2S_MspDeInit(I2S_HandleTypeDef* hi2s)
     /**I2S2 GPIO Configuration    
     PB12     ------> I2S2_WS
     PB13     ------> I2S2_CK
-    PB15     ------> I2S2_SD 
+    PB15     ------> I2S2_SD
+    PC6     ------> I2S2_MCK 
     */
     HAL_GPIO_DeInit(GPIOB, I2S_WCLK_Pin|I2S_BCLK_Pin|I2S_DOUT_Pin);
+
+    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_6);
 
     /* I2S2 DMA DeInit */
     HAL_DMA_DeInit(hi2s->hdmarx);
