@@ -92,7 +92,6 @@ void app_loop(void)
       sweep();
       chMtxUnlock(&mutex);
     } else {
-      // __WFI();  // 电容触摸目前没用中断
       ui_process();
     }
     /* calculate trace coordinates：坐标 */
@@ -354,10 +353,7 @@ float measured[2][SWEEP_POINTS][2];
 static void wait_dsp(int count)
 {
   wait_count = count;
-  // reset_dsp_accumerator();
   while (wait_count);
-    // __WFI(); // WFI = wait for interrupt 等待中断，即下一次中断发生前都在此hold住不干活
-  // 直到 wait_count = 0;
 }
 
 #ifdef ENABLED_DUMP
@@ -1007,7 +1003,7 @@ static const CLI_Command_Definition_t x_cmd_sweep = {
 */
 static void cmd_list(BaseSequentialStream *chp, int argc, char *argv[])
 {
-  int disk_total, disk_free;
+  // int disk_total, disk_free;
 
   (void)chp;
   (void)argc;

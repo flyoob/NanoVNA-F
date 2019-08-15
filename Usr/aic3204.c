@@ -30,10 +30,6 @@ void tlv320aic3204_config_adc_filter(void);
 
 static void I2CWrite(int addr, uint8_t d0, uint8_t d1)
 {
-  // uint8_t buf[] = { d0, d1 };
-  // i2cAcquireBus(&I2CD1);
-  // (void)i2cMasterTransmitTimeout(&I2CD1, addr, buf, 2, NULL, 0, 1000);
-  // i2cReleaseBus(&I2CD1);
   i2c_write_reg(addr, d0, d1);
 }
 
@@ -80,7 +76,7 @@ void tlv320aic3204_init(void)
   I2CWrite(AIC3204_ADDR, 0x01, 0x08); /* Disable Internal Crude AVdd in presence of external AVdd supply or before powering up internal AVdd LDO*/
   I2CWrite(AIC3204_ADDR, 0x02, 0x01); /* Enable Master Analog Power Control */
   I2CWrite(AIC3204_ADDR, 0x7b, 0x01); /* Set the REF charging time to 40ms */
-//  I2CWrite(AIC3204_ADDR, 0x0a, 0x00); /* Set the Input Common Mode to 0.9V and Output Common Mode for Headphone to Input Common Mode */
+  // I2CWrite(AIC3204_ADDR, 0x0a, 0x00); /* Set the Input Common Mode to 0.9V and Output Common Mode for Headphone to Input Common Mode */
   I2CWrite(AIC3204_ADDR, 0x0a, 0x33); /* Set the Input Common Mode to 0.9V and Output Common Mode for Headphone to 1.65V */
     
   I2CWrite(AIC3204_ADDR, 0x00, 0x00); /* Select Page 0 */
@@ -110,8 +106,8 @@ void tlv320aic3204_init(void)
   I2CWrite(AIC3204_ADDR, 0x51, 0xc0); /* Power up Left and Right ADC Channels */
   I2CWrite(AIC3204_ADDR, 0x52, 0x00); /* Unmute Left and Right ADC Digital Volume Control */
 
-  //tlv320aic3204_config_adc_filter();
-  //tlv320aic3204_adc_filter_enable(TRUE);
+  // tlv320aic3204_config_adc_filter();
+  // tlv320aic3204_adc_filter_enable(TRUE);
 }
 
 // CODEC_CLKIN = NDAC * MDAC * DOSR * DAC_FS
@@ -139,7 +135,7 @@ void tlv320aic3204_init_slave(void)
   I2CWrite(AIC3204_ADDR, 0x01, 0x08); /* Disable Internal Crude AVdd in presence of external AVdd supply or before powering up internal AVdd LDO*/
   I2CWrite(AIC3204_ADDR, 0x02, 0x01); /* Enable Master Analog Power Control */
   I2CWrite(AIC3204_ADDR, 0x7b, 0x01); /* Set the REF charging time to 40ms */
-//  I2CWrite(AIC3204_ADDR, 0x0a, 0x00); /* Set the Input Common Mode to 0.9V and Output Common Mode for Headphone to Input Common Mode */
+  // I2CWrite(AIC3204_ADDR, 0x0a, 0x00); /* Set the Input Common Mode to 0.9V and Output Common Mode for Headphone to Input Common Mode */
   I2CWrite(AIC3204_ADDR, 0x0a, 0x33); /* Set the Input Common Mode to 0.9V and Output Common Mode for Headphone to 1.65V */
     
   I2CWrite(AIC3204_ADDR, 0x00, 0x00); /* Select Page 0 */
@@ -323,7 +319,7 @@ const uint8_t adc_filter_config[] = {
   /* left channel C7 - C31 */
   40, 8, 36, 
   /* Pg8 Reg36-127 */
-0x02, 0x9b, 0xed, 0x00,  // Author
+0x02, 0x9b, 0xed, 0x00,
 0x02, 0x9b, 0xed, 0x00,
 0x02, 0x9b, 0xed, 0x00,
 0x5d, 0x91, 0x0f, 0x00,
@@ -333,18 +329,7 @@ const uint8_t adc_filter_config[] = {
 0x18, 0x22, 0x1d, 0x00,
 0x62, 0xd9, 0x9b, 0x00,
 0x8d, 0x2c, 0xda, 0x00,
-  
-  // 0x00, 0x08, 0x0D, 0x00,
-  // 0x00, 0x00, 0x00, 0x00,
-  // 0xFF, 0xF7, 0xF2, 0x00,
-  // 0x00, 0x5E, 0x36, 0x00,
-  // 0xFF, 0x90, 0x1B, 0x00,
-  // 0x00, 0x08, 0x0D, 0x00,
-  // 0x00, 0x00, 0x00, 0x00,
-  // 0xFF, 0xF7, 0xF2, 0x00,
-  // 0x00, 0x5E, 0x36, 0x00,
-  // 0xFF, 0x90, 0x1B, 0x00,
-    
+
   /* right channel C39 - C63 */
   40, 9, 44, 
   /* Pg9 Reg 44-127 */
@@ -358,18 +343,6 @@ const uint8_t adc_filter_config[] = {
 0x18, 0x22, 0x1d, 0x00,
 0x62, 0xd9, 0x9b, 0x00,
 0x8d, 0x2c, 0xda, 0x00,
-  
-  // 0x00, 0x08, 0x0D, 0x00,
-  // 0x00, 0x00, 0x00, 0x00,
-  // 0xFF, 0xF7, 0xF2, 0x00,
-  // 0x00, 0x5E, 0x36, 0x00,
-  // 0xFF, 0x90, 0x1B, 0x00,
-  // 0x00, 0x08, 0x0D, 0x00,
-  // 0x00, 0x00, 0x00, 0x00,
-  // 0xFF, 0xF7, 0xF2, 0x00,
-  // 0x00, 0x5E, 0x36, 0x00,
-  // 0xFF, 0x90, 0x1B, 0x00,
-  
   0 /* sentinel */
 };
 #endif
