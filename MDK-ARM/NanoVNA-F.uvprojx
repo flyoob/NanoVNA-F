@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_projx.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" noNamespaceSchemaLocation="project_projx.xsd">
 
   <SchemaVersion>2.1</SchemaVersion>
 
@@ -18,28 +18,28 @@
           <PackID>Keil.STM32F1xx_DFP.2.3.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000-0x2000FFFF) IROM(0x8000000-0x807FFFF) CLOCK(8000000) CPUTYPE("Cortex-M3")</Cpu>
-          <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile></StartupFile>
-          <FlashDriverDll></FlashDriverDll>
-          <DeviceId></DeviceId>
-          <RegisterFile></RegisterFile>
-          <MemoryEnv></MemoryEnv>
-          <Cmp></Cmp>
-          <Asm></Asm>
-          <Linker></Linker>
-          <OHString></OHString>
-          <InfinionOptionDll></InfinionOptionDll>
-          <SLE66CMisc></SLE66CMisc>
-          <SLE66AMisc></SLE66AMisc>
-          <SLE66LinkerMisc></SLE66LinkerMisc>
+          <FlashUtilSpec />
+          <StartupFile />
+          <FlashDriverDll />
+          <DeviceId />
+          <RegisterFile />
+          <MemoryEnv />
+          <Cmp />
+          <Asm />
+          <Linker />
+          <OHString />
+          <InfinionOptionDll />
+          <SLE66CMisc />
+          <SLE66AMisc />
+          <SLE66LinkerMisc />
           <SFDFile>$$Device:STM32F103VE$SVD\STM32F103xx.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
-          <BinPath></BinPath>
-          <IncludePath></IncludePath>
-          <LibPath></LibPath>
-          <RegisterFilePath></RegisterFilePath>
-          <DBRegisterFilePath></DBRegisterFilePath>
+          <BinPath />
+          <IncludePath />
+          <LibPath />
+          <RegisterFilePath />
+          <DBRegisterFilePath />
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -54,15 +54,15 @@
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath></ListingPath>
+          <ListingPath />
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
           <BeforeCompile>
             <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name></UserProg1Name>
-            <UserProg2Name></UserProg2Name>
+            <UserProg1Name />
+            <UserProg2Name />
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopU1X>0</nStopU1X>
@@ -71,8 +71,8 @@
           <BeforeMake>
             <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name></UserProg1Name>
-            <UserProg2Name></UserProg2Name>
+            <UserProg1Name />
+            <UserProg2Name />
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopB1X>0</nStopB1X>
@@ -82,14 +82,14 @@
             <RunUserProg1>1</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
             <UserProg1Name>D:\Keil_v5\ARM\ARMCC\bin\fromelf.exe --bin -o .\update.bin .\NanoVNA-F\NanoVNA-F.axf</UserProg1Name>
-            <UserProg2Name></UserProg2Name>
+            <UserProg2Name />
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopA1X>0</nStopA1X>
             <nStopA2X>0</nStopA2X>
           </AfterMake>
           <SelectedForBatchBuild>0</SelectedForBatchBuild>
-          <SVCSIdString></SVCSIdString>
+          <SVCSIdString />
         </TargetCommonOption>
         <CommonProperty>
           <UseCPPCompiler>0</UseCPPCompiler>
@@ -103,8 +103,8 @@
           <AssembleAssemblyFile>0</AssembleAssemblyFile>
           <PublicsOnly>0</PublicsOnly>
           <StopOnExitCode>3</StopOnExitCode>
-          <CustomArgument></CustomArgument>
-          <IncludeLibraryModules></IncludeLibraryModules>
+          <CustomArgument />
+          <IncludeLibraryModules />
           <ComprImg>0</ComprImg>
         </CommonProperty>
         <DllOption>
@@ -113,7 +113,7 @@
           <SimDlgDll>DCM.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM3</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments></TargetDllArguments>
+          <TargetDllArguments />
           <TargetDlgDll>TCM.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM3</TargetDlgDllArguments>
         </DllOption>
@@ -138,10 +138,10 @@
           <bUseTDR>1</bUseTDR>
           <Flash2>STLink\ST-LINKIII-KEIL_SWO.dll</Flash2>
           <Flash3>"" ()</Flash3>
-          <Flash4></Flash4>
-          <pFcarmOut></pFcarmOut>
-          <pFcarmGrp></pFcarmGrp>
-          <pFcArmRoot></pFcArmRoot>
+          <Flash4 />
+          <pFcarmOut />
+          <pFcarmGrp />
+          <pFcArmRoot />
           <FcArmLst>0</FcArmLst>
         </Utilities>
         <TargetArmAds>
@@ -174,7 +174,7 @@
             <RvctClst>0</RvctClst>
             <GenPPlst>0</GenPPlst>
             <AdsCpuType>"Cortex-M3"</AdsCpuType>
-            <RvctDeviceName></RvctDeviceName>
+            <RvctDeviceName />
             <mOS>0</mOS>
             <uocRom>0</uocRom>
             <uocRam>0</uocRam>
@@ -306,7 +306,7 @@
                 <Size>0x0</Size>
               </OCR_RVCT10>
             </OnChipMemories>
-            <RvctStartVector></RvctStartVector>
+            <RvctStartVector />
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
@@ -332,10 +332,10 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls></MiscControls>
+              <MiscControls />
               <Define>USE_HAL_DRIVER,STM32F103xE,ARM_MATH_CM3,__CC_ARM,ARM_MATH_MATRIX_CHECK,ARM_MATH_ROUNDING</Define>
-              <Undefine></Undefine>
-              <IncludePath>../Inc;                                   ../Usr;                                   ..\FreeRTOS-Plus-CLI;                                   C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src/drivers;      C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Inc;      C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;      C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;      C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Core/Inc;      C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc;      C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/CMSIS/Device/ST/STM32F1xx/Include;      C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src;      C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/include;      C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;      C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/CMSIS/Include;   C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Inc;   C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;   C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;   C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Core/Inc;   C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc;   C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/CMSIS/Device/ST/STM32F1xx/Include;   C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src;   C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/include;   C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;   C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/CMSIS/Include</IncludePath>
+              <Undefine />
+              <IncludePath>../Inc;                                    ../Usr;                                    ..\FreeRTOS-Plus-CLI;                                    C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src/drivers;       C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Inc;       C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;       C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;       C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Core/Inc;       C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc;       C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/CMSIS/Device/ST/STM32F1xx/Include;       C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src;       C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/include;       C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;       C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/CMSIS/Include;    C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Inc;    C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;    C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;    C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Core/Inc;    C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc;    C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/CMSIS/Device/ST/STM32F1xx/Include;    C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src;    C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/include;    C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;    C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -350,9 +350,9 @@
             <useXO>0</useXO>
             <uClangAs>0</uClangAs>
             <VariousControls>
-              <MiscControls></MiscControls>
-              <Define></Define>
-              <Undefine></Undefine>
+              <MiscControls />
+              <Define />
+              <Undefine />
               <IncludePath>..\\Inc</IncludePath>
             </VariousControls>
           </Aads>
@@ -365,13 +365,13 @@
             <useFile>0</useFile>
             <TextAddressRange>0x08000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
-            <pXoBase></pXoBase>
-            <ScatterFile></ScatterFile>
-            <IncludeLibs></IncludeLibs>
-            <IncludeLibsPath></IncludeLibsPath>
-            <Misc></Misc>
-            <LinkerInputFile></LinkerInputFile>
-            <DisabledWarnings></DisabledWarnings>
+            <pXoBase />
+            <ScatterFile />
+            <IncludeLibs />
+            <IncludeLibsPath />
+            <Misc />
+            <LinkerInputFile />
+            <DisabledWarnings />
           </LDads>
         </TargetArmAds>
       </TargetOption>
@@ -386,326 +386,9 @@
             </File>
           </Files>
         </Group>
-        <Group>
-          <GroupName>Application/User</GroupName>
-          <Files>
-            <File>
-              <FileName>aic3204.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\aic3204.c</FilePath>
-            </File>
-            <File>
-              <FileName>appcmd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\appcmd.c</FilePath>
-            </File>
-            <File>
-              <FileName>appvna.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\appvna.c</FilePath>
-            </File>
-            <File>
-              <FileName>board.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\board.c</FilePath>
-            </File>
-            <File>
-              <FileName>si5351.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\si5351.c</FilePath>
-            </File>
-            <File>
-              <FileName>si5351_low.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\si5351_low.c</FilePath>
-            </File>
-            <File>
-              <FileName>serial.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\serial.c</FilePath>
-            </File>
-            <File>
-              <FileName>FreeRTOS_CLI.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FreeRTOS-Plus-CLI\FreeRTOS_CLI.c</FilePath>
-            </File>
-            <File>
-              <FileName>fs_funs.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\fs_funs.c</FilePath>
-            </File>
-            <File>
-              <FileName>dsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\dsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\flash.c</FilePath>
-            </File>
-            <File>
-              <FileName>Font5x7.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\Font5x7.c</FilePath>
-            </File>
-            <File>
-              <FileName>Fonthanzi24x24.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\Fonthanzi24x24.c</FilePath>
-            </File>
-            <File>
-              <FileName>Fontneep-iso8859-1-06x13.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\Fontneep-iso8859-1-06x13.c</FilePath>
-            </File>
-            <File>
-              <FileName>Fontneep-iso8859-1-08x15.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\Fontneep-iso8859-1-08x15.c</FilePath>
-            </File>
-            <File>
-              <FileName>Fontneep-iso8859-1-10x20.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\Fontneep-iso8859-1-10x20.c</FilePath>
-            </File>
-            <File>
-              <FileName>Fontneep-iso8859-1-12x24.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\Fontneep-iso8859-1-12x24.c</FilePath>
-            </File>
-            <File>
-              <FileName>nt35510.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\nt35510.c</FilePath>
-            </File>
-            <File>
-              <FileName>numfont20x24.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\numfont20x24.c</FilePath>
-            </File>
-            <File>
-              <FileName>plot.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\plot.c</FilePath>
-            </File>
-            <File>
-              <FileName>ui.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\ui.c</FilePath>
-            </File>
-            <File>
-              <FileName>touch_ctp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\touch_ctp.c</FilePath>
-            </File>
-            <File>
-              <FileName>touch_rtp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\touch_rtp.c</FilePath>
-            </File>
-            <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/main.c</FilePath>
-            </File>
-            <File>
-              <FileName>user_diskio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/user_diskio.c</FilePath>
-            </File>
-            <File>
-              <FileName>fatfs.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/fatfs.c</FilePath>
-            </File>
-            <File>
-              <FileName>freertos.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/freertos.c</FilePath>
-            </File>
-            <File>
-              <FileName>usb_device.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/usb_device.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_conf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/usbd_conf.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_desc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/usbd_desc.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_cdc_if.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/usbd_cdc_if.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_it.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/stm32f1xx_it.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_msp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/stm32f1xx_hal_msp.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_timebase_TIM.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/stm32f1xx_hal_timebase_TIM.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Drivers/STM32F1xx_HAL_Driver</GroupName>
-          <Files>
-            <File>
-              <FileName>stm32f1xx_ll_sdmmc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_sdmmc.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_sd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sd.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_dac.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dac.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_dac_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dac_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_gpio_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_pcd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_pcd_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_ll_usb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_adc_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_ll_fsmc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_sram.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sram.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_i2s.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2s.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_spi_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_tim.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_tim_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_rcc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_rcc_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_dma.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_cortex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_pwr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_flash_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Drivers/CMSIS</GroupName>
-          <Files>
-            <File>
-              <FileName>system_stm32f1xx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..//Src/system_stm32f1xx.c</FilePath>
-            </File>
-          </Files>
-        </Group>
+        <Group><GroupName>Application/User</GroupName><Files><File><FileName>aic3204.c</FileName><FileType>1</FileType><FilePath>..\Usr\aic3204.c</FilePath></File><File><FileName>appcmd.c</FileName><FileType>1</FileType><FilePath>..\Usr\appcmd.c</FilePath></File><File><FileName>appvna.c</FileName><FileType>1</FileType><FilePath>..\Usr\appvna.c</FilePath></File><File><FileName>board.c</FileName><FileType>1</FileType><FilePath>..\Usr\board.c</FilePath></File><File><FileName>si5351.c</FileName><FileType>1</FileType><FilePath>..\Usr\si5351.c</FilePath></File><File><FileName>si5351_low.c</FileName><FileType>1</FileType><FilePath>..\Usr\si5351_low.c</FilePath></File><File><FileName>serial.c</FileName><FileType>1</FileType><FilePath>..\Usr\serial.c</FilePath></File><File><FileName>FreeRTOS_CLI.c</FileName><FileType>1</FileType><FilePath>..\FreeRTOS-Plus-CLI\FreeRTOS_CLI.c</FilePath></File><File><FileName>fs_funs.c</FileName><FileType>1</FileType><FilePath>..\Usr\fs_funs.c</FilePath></File><File><FileName>dsp.c</FileName><FileType>1</FileType><FilePath>..\Usr\dsp.c</FilePath></File><File><FileName>flash.c</FileName><FileType>1</FileType><FilePath>..\Usr\flash.c</FilePath></File><File><FileName>Font5x7.c</FileName><FileType>1</FileType><FilePath>..\Usr\Font5x7.c</FilePath></File><File><FileName>Fonthanzi24x24.c</FileName><FileType>1</FileType><FilePath>..\Usr\Fonthanzi24x24.c</FilePath></File><File><FileName>Fontneep-iso8859-1-06x13.c</FileName><FileType>1</FileType><FilePath>..\Usr\Fontneep-iso8859-1-06x13.c</FilePath></File><File><FileName>Fontneep-iso8859-1-08x15.c</FileName><FileType>1</FileType><FilePath>..\Usr\Fontneep-iso8859-1-08x15.c</FilePath></File><File><FileName>Fontneep-iso8859-1-10x20.c</FileName><FileType>1</FileType><FilePath>..\Usr\Fontneep-iso8859-1-10x20.c</FilePath></File><File><FileName>Fontneep-iso8859-1-12x24.c</FileName><FileType>1</FileType><FilePath>..\Usr\Fontneep-iso8859-1-12x24.c</FilePath></File><File><FileName>nt35510.c</FileName><FileType>1</FileType><FilePath>..\Usr\nt35510.c</FilePath></File><File><FileName>numfont20x24.c</FileName><FileType>1</FileType><FilePath>..\Usr\numfont20x24.c</FilePath></File><File><FileName>plot.c</FileName><FileType>1</FileType><FilePath>..\Usr\plot.c</FilePath></File><File><FileName>ui.c</FileName><FileType>1</FileType><FilePath>..\Usr\ui.c</FilePath></File><File><FileName>touch_ctp.c</FileName><FileType>1</FileType><FilePath>..\Usr\touch_ctp.c</FilePath></File><File><FileName>touch_rtp.c</FileName><FileType>1</FileType><FilePath>..\Usr\touch_rtp.c</FilePath></File><File><FileName>main.c</FileName><FileType>1</FileType><FilePath>../Src/main.c</FilePath></File><File><FileName>user_diskio.c</FileName><FileType>1</FileType><FilePath>../Src/user_diskio.c</FilePath></File><File><FileName>fatfs.c</FileName><FileType>1</FileType><FilePath>../Src/fatfs.c</FilePath></File><File><FileName>freertos.c</FileName><FileType>1</FileType><FilePath>../Src/freertos.c</FilePath></File><File><FileName>usb_device.c</FileName><FileType>1</FileType><FilePath>../Src/usb_device.c</FilePath></File><File><FileName>usbd_conf.c</FileName><FileType>1</FileType><FilePath>../Src/usbd_conf.c</FilePath></File><File><FileName>usbd_desc.c</FileName><FileType>1</FileType><FilePath>../Src/usbd_desc.c</FilePath></File><File><FileName>usbd_cdc_if.c</FileName><FileType>1</FileType><FilePath>../Src/usbd_cdc_if.c</FilePath></File><File><FileName>stm32f1xx_it.c</FileName><FileType>1</FileType><FilePath>../Src/stm32f1xx_it.c</FilePath></File><File><FileName>stm32f1xx_hal_msp.c</FileName><FileType>1</FileType><FilePath>../Src/stm32f1xx_hal_msp.c</FilePath></File><File><FileName>stm32f1xx_hal_timebase_TIM.c</FileName><FileType>1</FileType><FilePath>../Src/stm32f1xx_hal_timebase_TIM.c</FilePath></File></Files></Group>
+        <Group><GroupName>Drivers/STM32F1xx_HAL_Driver</GroupName><Files><File><FileName>stm32f1xx_ll_sdmmc.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_sdmmc.c</FilePath></File><File><FileName>stm32f1xx_hal_sd.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sd.c</FilePath></File><File><FileName>stm32f1xx_hal_dac.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dac.c</FilePath></File><File><FileName>stm32f1xx_hal_dac_ex.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dac_ex.c</FilePath></File><File><FileName>stm32f1xx_hal_gpio_ex.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c</FilePath></File><File><FileName>stm32f1xx_hal_pcd.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c</FilePath></File><File><FileName>stm32f1xx_hal_pcd_ex.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c</FilePath></File><File><FileName>stm32f1xx_ll_usb.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c</FilePath></File><File><FileName>stm32f1xx_hal_adc.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c</FilePath></File><File><FileName>stm32f1xx_hal_adc_ex.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c</FilePath></File><File><FileName>stm32f1xx_ll_fsmc.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c</FilePath></File><File><FileName>stm32f1xx_hal_sram.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sram.c</FilePath></File><File><FileName>stm32f1xx_hal_i2s.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2s.c</FilePath></File><File><FileName>stm32f1xx_hal_spi.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c</FilePath></File><File><FileName>stm32f1xx_hal_spi_ex.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi_ex.c</FilePath></File><File><FileName>stm32f1xx_hal_tim.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c</FilePath></File><File><FileName>stm32f1xx_hal_tim_ex.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c</FilePath></File><File><FileName>stm32f1xx_hal.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c</FilePath></File><File><FileName>stm32f1xx_hal_rcc.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c</FilePath></File><File><FileName>stm32f1xx_hal_rcc_ex.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c</FilePath></File><File><FileName>stm32f1xx_hal_gpio.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c</FilePath></File><File><FileName>stm32f1xx_hal_dma.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c</FilePath></File><File><FileName>stm32f1xx_hal_cortex.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c</FilePath></File><File><FileName>stm32f1xx_hal_pwr.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c</FilePath></File><File><FileName>stm32f1xx_hal_flash.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c</FilePath></File><File><FileName>stm32f1xx_hal_flash_ex.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c</FilePath></File></Files></Group>
+        <Group><GroupName>Drivers/CMSIS</GroupName><Files><File><FileName>system_stm32f1xx.c</FileName><FileType>1</FileType><FilePath>..//Src/system_stm32f1xx.c</FilePath></File></Files></Group>
         <Group>
           <GroupName>DSP_Lib</GroupName>
           <Files>
@@ -716,111 +399,9 @@
             </File>
           </Files>
         </Group>
-        <Group>
-          <GroupName>Middlewares/FatFs</GroupName>
-          <Files>
-            <File>
-              <FileName>syscall.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src/option/syscall.c</FilePath>
-            </File>
-            <File>
-              <FileName>ccsbcs.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src/option/ccsbcs.c</FilePath>
-            </File>
-            <File>
-              <FileName>diskio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src/diskio.c</FilePath>
-            </File>
-            <File>
-              <FileName>ff.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src/ff.c</FilePath>
-            </File>
-            <File>
-              <FileName>ff_gen_drv.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src/ff_gen_drv.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Middlewares/FreeRTOS</GroupName>
-          <Files>
-            <File>
-              <FileName>heap_4.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c</FilePath>
-            </File>
-            <File>
-              <FileName>port.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c</FilePath>
-            </File>
-            <File>
-              <FileName>croutine.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/croutine.c</FilePath>
-            </File>
-            <File>
-              <FileName>event_groups.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c</FilePath>
-            </File>
-            <File>
-              <FileName>list.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/list.c</FilePath>
-            </File>
-            <File>
-              <FileName>queue.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/queue.c</FilePath>
-            </File>
-            <File>
-              <FileName>tasks.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/tasks.c</FilePath>
-            </File>
-            <File>
-              <FileName>timers.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/timers.c</FilePath>
-            </File>
-            <File>
-              <FileName>cmsis_os.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Middlewares/USB_Device_Library</GroupName>
-          <Files>
-            <File>
-              <FileName>usbd_core.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_ctlreq.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_ioreq.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_cdc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c</FilePath>
-            </File>
-          </Files>
-        </Group>
+        <Group><GroupName>Middlewares/FatFs</GroupName><Files><File><FileName>syscall.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src/option/syscall.c</FilePath></File><File><FileName>ccsbcs.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src/option/ccsbcs.c</FilePath></File><File><FileName>diskio.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src/diskio.c</FilePath></File><File><FileName>ff.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src/ff.c</FilePath></File><File><FileName>ff_gen_drv.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FatFs/src/ff_gen_drv.c</FilePath></File></Files></Group>
+        <Group><GroupName>Middlewares/FreeRTOS</GroupName><Files><File><FileName>heap_4.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c</FilePath></File><File><FileName>port.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c</FilePath></File><File><FileName>croutine.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/croutine.c</FilePath></File><File><FileName>event_groups.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c</FilePath></File><File><FileName>list.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/list.c</FilePath></File><File><FileName>queue.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/queue.c</FilePath></File><File><FileName>tasks.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/tasks.c</FilePath></File><File><FileName>timers.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/timers.c</FilePath></File><File><FileName>cmsis_os.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c</FilePath></File></Files></Group>
+        <Group><GroupName>Middlewares/USB_Device_Library</GroupName><Files><File><FileName>usbd_core.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c</FilePath></File><File><FileName>usbd_ctlreq.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c</FilePath></File><File><FileName>usbd_ioreq.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c</FilePath></File><File><FileName>usbd_cdc.c</FileName><FileType>1</FileType><FilePath>C:/Users/S04/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.1/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c</FilePath></File></Files></Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
@@ -829,16 +410,16 @@
   </Targets>
 
   <RTE>
-    <apis/>
+    <apis />
     <components>
       <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="4.3.0" condition="CMSIS Core">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="4.5.0"/>
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="4.5.0" />
         <targetInfos>
-          <targetInfo name="NanoVNA-F"/>
+          <targetInfo name="NanoVNA-F" />
         </targetInfos>
       </component>
     </components>
-    <files/>
+    <files />
   </RTE>
 
 </Project>

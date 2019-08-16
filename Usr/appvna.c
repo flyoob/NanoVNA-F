@@ -35,6 +35,7 @@ extern I2S_HandleTypeDef hi2s2;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern ADC_HandleTypeDef hadc1;
+extern ADC_HandleTypeDef hadc2;
 extern void vUARTCommandConsoleStart( uint16_t usStackSize, UBaseType_t uxPriority );
 extern void touch_position(int *x, int *y);
 
@@ -78,8 +79,7 @@ int8_t redraw_requested = FALSE;
 #define  FILE_SIZE   (4*1024)
 uint8_t  file_buf[FILE_SIZE];
 
-void    bat_adc_start(void);
-void    bat_adc_display(void);
+void bat_adc_display(void);
 
 /*
 =======================================
@@ -90,8 +90,6 @@ void app_loop(void)
 {
   while (1)
   {
-    bat_adc_start();
-
     if (sweep_enabled)
     {
       chMtxLock(&mutex);
@@ -2320,25 +2318,28 @@ void cmd_register( void )
 
 /*
 =======================================
-    BAT ADC Start
-=======================================
-*/
-void bat_adc_start(void)
-{
-  HAL_ADC_Start(&hadc1);
-}
-
-/*
-=======================================
     BAT Voltage Display
+    VREFINT = 1.2V
 =======================================
 */
 void bat_adc_display(void)
 {
-  uint32_t adc;
-  HAL_ADC_PollForConversion(&hadc1, 10);
-  adc = (uint32_t)HAL_ADC_GetValue(&hadc1);
-  adc = adc*3300*2/4095;
+  uint32_t i, adc, ref;
+
+  ref = 0;
+  adc = 0;
+  for (i=0; i<100; i++)
+  {
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_Start(&hadc2);
+    HAL_ADC_PollForConversion(&hadc1, 10);  // VREFINT
+    HAL_ADC_PollForConversion(&hadc2, 10);  // BAT
+    ref += (uint32_t)HAL_ADC_GetValue(&hadc1);
+    adc += (uint32_t)HAL_ADC_GetValue(&hadc2);
+  }
+
+  adc = adc*1200*2/ref;
+
   nt35510_drawstring_5x7("BAT:",           0,   180, 0xffff, 0x0000);
   nt35510_drawchar_5x7(adc/1000+'0',        0, 190*2, 0xffff, 0x0000);
   nt35510_drawchar_5x7('.',               5*2, 190*2, 0xffff, 0x0000);
