@@ -2337,7 +2337,7 @@ void bat_adc_display(void)
 
   adc = adc*1200*2/ref;
 
-  nt35510_drawstring_5x7("BAT:",           0,   180, 0xffff, 0x0000);
+  nt35510_drawstring_5x7("BAT:",            0,   180, 0xffff, 0x0000);
   nt35510_drawchar_5x7(adc/1000+'0',        0, 190*2, 0xffff, 0x0000);
   nt35510_drawchar_5x7('.',               5*2, 190*2, 0xffff, 0x0000);
   nt35510_drawchar_5x7(adc%1000/100+'0', 10*2, 190*2, 0xffff, 0x0000);

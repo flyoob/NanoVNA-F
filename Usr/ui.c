@@ -1250,11 +1250,11 @@ menu_item_modify_attribute(const menuitem_t *menu, int item,
   if (menu == menu_trace && item < 4) {
     *bg = config.trace_color[item];
   } else if (menu == menu_calop) {
-    if ((item == 0 && (cal_status & CALSTAT_OPEN))
-        || (item == 1 && (cal_status & CALSTAT_SHORT))
+    if ((item == 0 && ((cal_status & CALSTAT_OPEN) || (cal_status & CALSTAT_ES)))
+      || (item == 1 && ((cal_status & CALSTAT_SHORT) || (cal_status & CALSTAT_ER)))
         || (item == 2 && (cal_status & CALSTAT_LOAD))
         || (item == 3 && (cal_status & CALSTAT_ISOLN))
-        || (item == 4 && (cal_status & CALSTAT_THRU))) {
+        || (item == 4 && ((cal_status & CALSTAT_THRU) || (cal_status & CALSTAT_ET)))) {
       *bg = 0x0000;
       *fg = 0xffff;
     }
@@ -2145,7 +2145,7 @@ ui_init()
 
   // touch_start_watchdog();
 
-  nt35510_drawstring(&font_12x24,  "NanoVNA-F "APP_VERSION,            304, 228, BRG556(0,0,255), 0x0000);
-  nt35510_drawstring(&font_12x24,  "Handheld Vector Network Analyzer", 208, 252, BRG556(0,0,255), 0x0000);
-  nt35510_drawstring(&font_12x24,  "hamelec.taobao.com",               292, 276, BRG556(0,0,255), 0x0000);
+  nt35510_drawstring(&font_12x24,  "NanoVNA-F "APP_VERSION,            304, 200, BRG556(0,0,255), 0x0000);
+  nt35510_drawstring(&font_12x24,  "Handheld Vector Network Analyzer", 208, 224, BRG556(0,0,255), 0x0000);
+  nt35510_drawstring(&font_12x24,  "hamelec.taobao.com",               292, 248, BRG556(0,0,255), 0x0000);
 }
