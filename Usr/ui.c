@@ -2132,5 +2132,9 @@ ui_init()
   // gptStartContinuous(&GPTD3, 10); 
 #endif
 
-  // touch_start_watchdog(); 
+  // touch_start_watchdog();
+
+  nt35510_drawstring(&font_12x24,  "NanoVNA-F "APP_VERSION,            304, 228, BRG556(0,0,255), 0x0000);
+  nt35510_drawstring(&font_12x24,  "Handheld Vector Network Analyzer", 208, 252, BRG556(0,0,255), 0x0000);
+  nt35510_drawstring(&font_12x24,  "hamelec.taobao.com",               292, 276, BRG556(0,0,255), 0x0000);
 }
