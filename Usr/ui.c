@@ -860,7 +860,7 @@ const menuitem_t menu_calop[] = {
   { MT_CALLBACK, "ISOLN", "\x64\x65", menu_calop_cb },
   { MT_CALLBACK, "THRU", "\x66\x17", menu_calop_cb },
   { MT_CALLBACK, "DONE", "\x67\x68", menu_caldone_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
@@ -870,7 +870,7 @@ const menuitem_t menu_save[] = {
   { MT_CALLBACK, "SAVE 2", "\x57\x59\x32", menu_save_cb },
   { MT_CALLBACK, "SAVE 3", "\x57\x59\x33", menu_save_cb },
   { MT_CALLBACK, "SAVE 4", "\x57\x59\x34", menu_save_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
@@ -878,14 +878,14 @@ const menuitem_t menu_cal[] = {
   { MT_SUBMENU, "CALIBRATE", "\x52\x45\x07\x08", menu_calop },
   { MT_CALLBACK, "RESET", "\x53\x0A\x07\x08", menu_cal2_cb },
   { MT_CALLBACK, "CORRECTION", "\x54\x55\x07\x08", menu_cal2_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
 const menuitem_t menu_trace_op[] = {
   { MT_CALLBACK, "OFF", "\x0D\x0E", menu_trace_op_cb },
   { MT_CALLBACK, "SINGLE", "\x4D\x01", menu_trace_op_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
@@ -894,14 +894,14 @@ const menuitem_t menu_trace[] = {
   { MT_CALLBACK, "TRACE 1", "\x0F\x10\x31", menu_trace_cb },
   { MT_CALLBACK, "TRACE 2", "\x0F\x10\x32", menu_trace_cb },
   { MT_CALLBACK, "TRACE 3", "\x0F\x10\x33", menu_trace_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
 const menuitem_t menu_format2[] = {
   { MT_CALLBACK, "POLAR", "\x27\x28\x29", menu_format2_cb },
   { MT_CALLBACK, "LINEAR", "\x19\x1A\x6F\x70", menu_format2_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
@@ -911,10 +911,10 @@ const menuitem_t menu_format[] = {
   { MT_CALLBACK, "DELAY", "\x1C\x1D\x1E", menu_format_cb },
   { MT_CALLBACK, "SMITH", "\x1F\x20\x21", menu_format_cb },
   { MT_CALLBACK, "SWR", "\x22\x23\x24", menu_format_cb },
-  { MT_SUBMENU, "MORE", "\x25\x26", menu_format2 },  
+  { MT_SUBMENU, S_RARROW" MORE", "\x25\x26", menu_format2 },  
   //{ MT_CALLBACK, "LINEAR", menu_format_cb },
   //{ MT_CALLBACK, "SWR", menu_format_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
@@ -922,7 +922,7 @@ const menuitem_t menu_scale[] = {
   { MT_CALLBACK, "SCALE/DIV", "\x15\x16\x3A\x2B", menu_scale_cb },
   { MT_CALLBACK, "\2REFERENCE\0POSITION", "\x2C\x2D\x2E\x2F", menu_scale_cb },
   { MT_CALLBACK, "\2ELECTRICAL\0DELAY", "\x3B\x1D\x1E", menu_scale_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
@@ -930,14 +930,14 @@ const menuitem_t menu_scale[] = {
 const menuitem_t menu_channel[] = {
   { MT_CALLBACK, "\2S11\0REFLECT", "\x69\x6A\x3C\x3D", menu_channel_cb },
   { MT_CALLBACK, "\2S21\0THROUGH", "\x6B\x6C\x3E\x3F", menu_channel_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
 const menuitem_t menu_langset[] = {
   { MT_CALLBACK, "ENGLISH", "\x72\x5F", menu_langset_cb },
   { MT_CALLBACK, "CHINESE", "\x5E\x5F", menu_langset_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
@@ -948,7 +948,7 @@ const menuitem_t menu_display[] = {
   { MT_SUBMENU, "CHANNEL", "\x17\x18", menu_channel },
   { MT_SUBMENU, "LANGSET",  "\x5C\x5D", menu_langset },
   { MT_CALLBACK, "TOUCHCAL", "\x5A\x5B\x07\x08", menu_touchcal_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
@@ -959,7 +959,7 @@ const menuitem_t menu_stimulus[] = {
   { MT_CALLBACK, "SPAN", "\x4A\x4B", menu_stimulus_cb },
   { MT_CALLBACK, "CW FREQ", "\x4D\x1A", menu_stimulus_cb },
   { MT_CALLBACK, "\2PAUSE\0SWEEP", "\x4E\x4F\x50\x51", menu_stimulus_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
@@ -969,7 +969,7 @@ const menuitem_t menu_marker_sel[] = {
   { MT_CALLBACK, "MARKER 3", "\x03\x04\x33", menu_marker_sel_cb },
   { MT_CALLBACK, "MARKER 4", "\x03\x04\x34", menu_marker_sel_cb },
   { MT_CALLBACK, "ALL OFF", "\x0D\x0E\x42\x43", menu_marker_sel_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
@@ -979,7 +979,7 @@ const menuitem_t menu_marker[] = {
   { MT_CALLBACK, S_RARROW"STOP", "\x4C\x46\x47", menu_marker_op_cb },
   { MT_CALLBACK, S_RARROW"CENTER", "\x4C\x48\x49", menu_marker_op_cb },
   { MT_CALLBACK, S_RARROW"SPAN", "\x4C\x4A\x4B", menu_marker_op_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
@@ -989,14 +989,14 @@ const menuitem_t menu_recall[] = {
   { MT_CALLBACK, "RECALL 2", "\x56\x41\x32", menu_recall_cb },
   { MT_CALLBACK, "RECALL 3", "\x56\x41\x33", menu_recall_cb },
   { MT_CALLBACK, "RECALL 4", "\x56\x41\x34", menu_recall_cb },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
 
 const menuitem_t menu_recall_save[] = {
   { MT_SUBMENU, "RECALL", "\x56\x55", menu_recall },
   { MT_SUBMENU, "SAVE", "\x57\x58", menu_save },
-  { MT_CANCEL, "BACK", "\x11\x12", NULL },
+  { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
   

@@ -1000,15 +1000,15 @@ static const CLI_Command_Definition_t x_cmd_sweep = {
     命令：查看文件
 =======================================
 */
+#if 0
 static void cmd_list(BaseSequentialStream *chp, int argc, char *argv[])
 {
-  // int disk_total, disk_free;
+  int disk_total, disk_free;
 
   (void)chp;
   (void)argc;
   (void)argv;
 
-  /*
   if (g_HDStatus != FR_OK) {
       MX_FATFS_Init();
       dbprintf("MX_FATFS_Init !\r\n");
@@ -1020,19 +1020,21 @@ static void cmd_list(BaseSequentialStream *chp, int argc, char *argv[])
       scan_files((const TCHAR *)SDPath);
   } else {
       dbprintf("No SD card or err occur %d\r\n", g_HDStatus);
-  } */
+  }
 }
 static const CLI_Command_Definition_t x_cmd_list = {
 "list", "list the SD Files\r\n", (shellcmd_t)cmd_list, 0};
+#endif
 
 /*
 =======================================
     命令：存取文件
 =======================================
 */
+#if 0
 static void cmd_fatfs(BaseSequentialStream *chp, int argc, char *argv[])
 {
-  FIL  fnew;  /* File object */
+  FIL  fnew;
   UINT f_res, bw, br, inter = 0;
 
   (void)chp;
@@ -1057,12 +1059,10 @@ static void cmd_fatfs(BaseSequentialStream *chp, int argc, char *argv[])
   if (f_res == FR_OK) {
     dbprintf("cr ok\r\n");
   }
-  // stt = _itoll(TSCH, TSCL);    /* 开始计时 */
+
   f_res = f_write(&fnew, file_buf, FILE_SIZE, &bw);
   f_sync(&fnew);
-  // end = _itoll(TSCH, TSCL);    /* 结束计时 */
 
-  // inter = (uint64_t)get_inter(stt, end, 456);
   dbprintf("wr %8u bytes, %8u us  ", bw, (uint32_t)inter);
   // dbprintf("wr speed %8u KB/s\r\n", (uint32_t)get_speed(bw, inter, 456));
   if ((f_res == FR_OK) && (bw == FILE_SIZE)) {
@@ -1073,11 +1073,8 @@ static void cmd_fatfs(BaseSequentialStream *chp, int argc, char *argv[])
 
   f_lseek(&fnew, 0);
 
-  // stt = _itoll(TSCH, TSCL);    /* 开始计时 */
   f_res = f_read(&fnew, file_buf, FILE_SIZE, &br);
-  // end = _itoll(TSCH, TSCL);    /* 结束计时 */
 
-  // inter = (uint64_t)get_inter(stt, end, 456);
   dbprintf("rd %8u bytes, %8u us  ", br, (uint32_t)inter);
   // dbprintf("rd speed %8u KB/s\r\n", (uint32_t)get_speed(br, inter, 456));
   if ((f_res == FR_OK) && (br == FILE_SIZE)) {
@@ -1089,6 +1086,7 @@ static void cmd_fatfs(BaseSequentialStream *chp, int argc, char *argv[])
 }
 static const CLI_Command_Definition_t x_cmd_fatfs = {
 "fatfs", "fatfs r/w test\r\n", (shellcmd_t)cmd_fatfs, -1};
+#endif
 
 /*
 =======================================

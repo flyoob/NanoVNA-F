@@ -202,7 +202,8 @@ extern const MWIMAGEBITS _12x24_bits [];
 #define S_PI              "\034"  // 0x1C π
 #define S_MICRO           "\035"  // 0x1D μ
 #define S_OHM             "\036"  // 0x1E Ω
-#define S_DEGREE          "\037"  // 0x1F 
+#define S_DEGREE          "\037"  // 0x1F
+#define S_LARROW          "\032"  // 0x1A
 #define S_RARROW          "\033"  // 0x1B
 
 // trace 
