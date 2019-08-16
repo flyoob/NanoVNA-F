@@ -680,7 +680,7 @@ menu_langset_cb(int item)
   menu_move_back();
   ui_mode_normal();
 }
-
+/*
 static void 
 choose_active_marker(void)
 {
@@ -691,7 +691,7 @@ choose_active_marker(void)
       return;
     }
   active_marker = -1;
-}
+} */
 
 static void 
 choose_active_trace(void)

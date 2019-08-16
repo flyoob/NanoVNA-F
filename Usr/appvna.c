@@ -34,6 +34,7 @@ extern int g_HDStatus;
 extern I2S_HandleTypeDef hi2s2;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
+extern ADC_HandleTypeDef hadc1;
 extern void vUARTCommandConsoleStart( uint16_t usStackSize, UBaseType_t uxPriority );
 extern void touch_position(int *x, int *y);
 
@@ -77,6 +78,9 @@ int8_t redraw_requested = FALSE;
 #define  FILE_SIZE   (4*1024)
 uint8_t  file_buf[FILE_SIZE];
 
+void    bat_adc_start(void);
+void    bat_adc_display(void);
+
 /*
 =======================================
     APP 死循环
@@ -86,6 +90,8 @@ void app_loop(void)
 {
   while (1)
   {
+    bat_adc_start();
+
     if (sweep_enabled)
     {
       chMtxLock(&mutex);
@@ -98,7 +104,8 @@ void app_loop(void)
     plot_into_index(measured); // 标记要画的点
     /* plot trace as raster */
     draw_all_cells();
-    /* 刷新电池电压 */
+
+    bat_adc_display();
   }
 }
 
@@ -695,9 +702,6 @@ rewind:
     tlv320aic3204_select_in3(); // S11:REFLECT
     wait_dsp(delay1);  // 扔掉两块数据
 
-    // blink LED while scanning
-    // palClearPad(GPIOC, GPIOC_LED);  // 不使用 LED
-
     /* calculate reflection coeficient 计算反射系数 */
     calculate_gamma(measured[0][i]);
     // dbprintf("%5d %5d\r\n", acc_samp_s, acc_samp_c);
@@ -707,9 +711,6 @@ rewind:
 
     /* calculate transmission coeficient 计算传输系数 */
     calculate_gamma(measured[1][i]);
-
-    // blink LED while scanning
-    // palSetPad(GPIOC, GPIOC_LED);  // 不使用 LED
 
     // 应用校准数据
     if (cal_status & CALSTAT_APPLY)
@@ -728,6 +729,7 @@ rewind:
     if (frequency_updated)  // 修改了扫频参数，重新开始扫频
       goto rewind;
   }
+  /*
   set_frequency(frequencies[0]);
   if (frequencies[i] > BASE_MAX*4) {
     tlv320aic3204_set_gain(72, 92);
@@ -739,7 +741,7 @@ rewind:
     tlv320aic3204_set_gain(40, 50);
   } else {
     tlv320aic3204_set_gain(0, 10);
-  }
+  } */
 
   LED1_OFF;
 
@@ -1984,7 +1986,6 @@ static void cmd_touchcal(BaseSequentialStream *chp, int argc, char *argv[])
 {
     (void)argc;
     (void)argv;
-    //extern int16_t touch_cal[4];
     int i;
 
     chMtxLock(&mutex);
@@ -2309,10 +2310,39 @@ void cmd_register( void )
   FreeRTOS_CLIRegisterCommand( &x_cmd_marker );
   FreeRTOS_CLIRegisterCommand( &x_cmd_edelay );
 
-  FreeRTOS_CLIRegisterCommand( &x_cmd_list );
-  FreeRTOS_CLIRegisterCommand( &x_cmd_fatfs );
+  // FreeRTOS_CLIRegisterCommand( &x_cmd_list );
+  // FreeRTOS_CLIRegisterCommand( &x_cmd_fatfs );
   FreeRTOS_CLIRegisterCommand( &x_cmd_pwm );
   FreeRTOS_CLIRegisterCommand( &x_cmd_beep );
   FreeRTOS_CLIRegisterCommand( &x_cmd_lcd );
   FreeRTOS_CLIRegisterCommand( &x_cmd_task );
+}
+
+/*
+=======================================
+    BAT ADC Start
+=======================================
+*/
+void bat_adc_start(void)
+{
+  HAL_ADC_Start(&hadc1);
+}
+
+/*
+=======================================
+    BAT Voltage Display
+=======================================
+*/
+void bat_adc_display(void)
+{
+  uint32_t adc;
+  HAL_ADC_PollForConversion(&hadc1, 10);
+  adc = (uint32_t)HAL_ADC_GetValue(&hadc1);
+  adc = adc*3300*2/4095;
+  nt35510_drawstring_5x7("BAT:",           0,   180, 0xffff, 0x0000);
+  nt35510_drawchar_5x7(adc/1000+'0',        0, 190*2, 0xffff, 0x0000);
+  nt35510_drawchar_5x7('.',               5*2, 190*2, 0xffff, 0x0000);
+  nt35510_drawchar_5x7(adc%1000/100+'0', 10*2, 190*2, 0xffff, 0x0000);
+  nt35510_drawchar_5x7(adc%100/10+'0',   15*2, 190*2, 0xffff, 0x0000);
+  nt35510_drawchar_5x7('V',              20*2, 190*2, 0xffff, 0x0000);
 }
