@@ -219,7 +219,7 @@ void bubble_sort(uint16_t arr[], int len)
 int
 touch_measure_y(void)
 {
-  /* 电容触摸不用
+  /*
   int v;
   // open Y line
   palSetPadMode(GPIOB, 1, PAL_MODE_INPUT_PULLDOWN );
@@ -236,7 +236,7 @@ touch_measure_y(void)
   //v += adc_single_read(ADC1, ADC_CHSELR_CHSEL7);
   return v;
   */
-  // return GUI_TOUCH_X_MeasureX();  // 电容触摸
+  // return GUI_TOUCH_X_MeasureX();
   uint8_t i = 0;
   uint16_t buf[READ_TIMES] = {0};
   uint16_t avg = 0;
@@ -252,7 +252,7 @@ touch_measure_y(void)
 int
 touch_measure_x(void)
 {
-  /* 电容触摸不用
+  /*
   int v;
   // open X line
   palSetPadMode(GPIOB, 0, PAL_MODE_INPUT_PULLDOWN );
@@ -269,7 +269,7 @@ touch_measure_x(void)
   //v += adc_single_read(ADC1, ADC_CHSELR_CHSEL6);
   return v;
   */
-  // return GUI_TOUCH_X_MeasureY();  // 电容触摸
+  // return GUI_TOUCH_X_MeasureY();
   uint8_t i = 0;
   uint16_t buf[READ_TIMES] = {0};
   uint16_t avg = 0;
@@ -312,7 +312,7 @@ int
 touch_status(void)
 {
   touch_prepare_sense();
-  // return adc_single_read(ADC1, ADC_CHSELR_CHSEL7) > TOUCH_THRESHOLD;  // 电容触摸不用
+  // return adc_single_read(ADC1, ADC_CHSELR_CHSEL7) > TOUCH_THRESHOLD;  
   // return (!CTP_INT_IN());
   chThdSleepMilliseconds(20);
   if (touch_measure_x() < 4040) {
@@ -337,7 +337,7 @@ int touch_check(void)
     //}
     touch_prepare_sense();
     */
-    /* 电容触摸
+    /*
     osDelay(10);                // 10ms 读取一次
     ctp_readreg(0, (uint8_t *)&buf, 7);
     if ((buf[2]&0x0F) == 1) {
@@ -391,12 +391,12 @@ void touch_wait_release(void)
 extern void nt35510_line_x2(int, int, int, int, int);
 
 void
-touch_cal_exec(void)  // 触摸校准，电容触摸不用
+touch_cal_exec(void)  // 触摸校准
 {
   int status;
   int x1, x2, y1, y2;
 
-  // adc_stop(ADC1); //  电容触摸不用
+  // adc_stop(ADC1);
   HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
   nt35510_fill_x2(0, 0, LCD_WIDTH, LCD_HEIGHT, 0);
@@ -440,7 +440,7 @@ touch_draw_test(void)
   int x0, y0;
   int x1, y1;
   
-  // adc_stop(ADC1); //  电容触摸不用
+  // adc_stop(ADC1);
   HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
   do {
@@ -1841,7 +1841,7 @@ void
 ui_process_keypad(void)
 {
   int status;
-  // adc_stop(ADC1); // 电容触摸不用
+  // adc_stop(ADC1); 
   HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
   kp_index = 0;
@@ -1985,7 +1985,7 @@ void
 ui_process_touch(void)
 {
   awd_count++;
-  // adc_stop(ADC1); // 电容触摸不用
+  // adc_stop(ADC1); 
   HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
   int status = touch_check();
@@ -2100,7 +2100,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 void
 test_touch(int *x, int *y)
 {
-  // adc_stop(ADC1); // 电容触摸不用
+  // adc_stop(ADC1); 
   HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
   *x = touch_measure_x();
@@ -2118,19 +2118,19 @@ handle_touch_interrupt(void)
 void
 ui_init()
 {
-  // adc_init(); // 电容触摸不用
+  // adc_init(); 
   
   /*
    * Activates the EXT driver 1.
    */
-  // extStart(&EXTD1, &extcfg); // 电容触摸不用
+  // extStart(&EXTD1, &extcfg); 
 
 #if 1
-  // gptStart(&GPTD3, &gpt3cfg); // 电容触摸不用
+  // gptStart(&GPTD3, &gpt3cfg); 
   // gptPolledDelay(&GPTD3, 10); /* Small delay.*/
 
-  // gptStartContinuous(&GPTD3, 10); // 电容触摸不用
+  // gptStartContinuous(&GPTD3, 10); 
 #endif
 
-  // touch_start_watchdog(); // 电容触摸不用
+  // touch_start_watchdog(); 
 }
