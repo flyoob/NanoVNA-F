@@ -12,9 +12,6 @@ void draw_frequencies(void);
 void frequency_string(char *buf, size_t len, int32_t freq);
 void markmap_all_markers(void);
 
-//#define GRID_COLOR 0x0863
-//uint16_t grid_color = 0x1084;
-
 /* indicate dirty cells */
 uint16_t markmap[2][8];
 uint16_t current_mappage = 0;

@@ -33,11 +33,6 @@ extern void tlv320aic3204_set_gain(int lgain, int rgain);
 */
 static void si5351_write(uint8_t reg, uint8_t dat)
 {
-  // int addr = SI5351_I2C_ADDR>>1;
-  // uint8_t buf[] = { reg, dat };
-  // i2cAcquireBus(&I2CD1);
-  // (void)i2cMasterTransmitTimeout(&I2CD1, addr, buf, 2, NULL, 0, 1000);
-  // i2cReleaseBus(&I2CD1);
   i2c_write_reg(SI5351_I2C_ADDR, reg, dat);
 }
 
@@ -48,10 +43,6 @@ static void si5351_write(uint8_t reg, uint8_t dat)
 */
 static void si5351_bulk_write(const uint8_t *buf, int len)
 {
-  // int addr = SI5351_I2C_ADDR>>1;
-  // i2cAcquireBus(&I2CD1);
-  // (void)i2cMasterTransmitTimeout(&I2CD1, addr, buf, len, NULL, 0, 1000);
-  // i2cReleaseBus(&I2CD1);
   i2c_write_regs(SI5351_I2C_ADDR, buf[0], (uint8_t *)&buf[1], len-1);
 }
 

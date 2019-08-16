@@ -122,8 +122,6 @@ extern int16_t rx_buffer[];
 
 extern int16_t samp_buf[];
 extern int16_t ref_buf[];
-extern int16_t refiq_buf[];
-extern int16_t ref_state[];
 
 void dsp_process(int16_t *src, size_t len);
 void reset_dsp_accumerator(void);

@@ -26,8 +26,6 @@
 
 int16_t samp_buf[SAMPLE_LEN];  // 48
 int16_t ref_buf[SAMPLE_LEN];  // 48
-int16_t refiq_buf[AUDIO_BUFFER_LEN];  // 96
-int16_t ref_state[STATE_LEN];  // 32
 
 /*
 

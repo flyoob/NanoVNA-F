@@ -593,7 +593,6 @@ config_t config = {  // 默认配置
 /* menu_active_color */ 0x7777,
 // S11-LOGMAG S21-LOGMAG S11-SMITH S21-PHASE 黄 蓝 绿 紫
 /* trace_colors[4] */ { BRG556(0,255,255), BRG556(255,0,255), BRG556(0,0,255), BRG556(233,233,0) },
-///* touch_cal[4] */ { 620, 600, 160, 190 },
 /* touch_cal[4] */ { 440, 656, 158, 259 },
 /* default_loadcal */    0,
 /* language */ LANG_CN,

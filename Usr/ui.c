@@ -85,8 +85,7 @@ typedef struct {
 int8_t last_touch_status = FALSE;
 int16_t last_touch_x;
 int16_t last_touch_y;
-//int16_t touch_cal[4] = { 1000, 1000, 10*16, 12*16 };
-//int16_t touch_cal[4] = { 620, 600, 130, 180 };
+
 #define EVT_TOUCH_NONE 0
 #define EVT_TOUCH_DOWN 1
 #define EVT_TOUCH_PRESSED 2
@@ -1737,7 +1736,7 @@ numeric_apply_touch(void)
     return;
   }
   
-  if (touch_x < 64) {
+  if (touch_x < 64) {  // 按下左下角，确认输入
     set_numeric_value();
     ui_mode_normal();
     return;
