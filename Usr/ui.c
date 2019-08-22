@@ -218,23 +218,6 @@ void bubble_sort(uint16_t arr[], int len)
 int
 touch_measure_y(void)
 {
-  /*
-  int v;
-  // open Y line
-  palSetPadMode(GPIOB, 1, PAL_MODE_INPUT_PULLDOWN );
-  palSetPadMode(GPIOA, 7, PAL_MODE_INPUT_PULLDOWN );
-  // drive low to high on X line
-  palSetPadMode(GPIOB, 0, PAL_MODE_OUTPUT_PUSHPULL );
-  palClearPad(GPIOB, 0);
-  palSetPadMode(GPIOA, 6, PAL_MODE_OUTPUT_PUSHPULL );
-  palSetPad(GPIOA, 6);
-
-  chThdSleepMilliseconds(2);
-  v = adc_single_read(ADC1, ADC_CHSELR_CHSEL7);
-  //chThdSleepMilliseconds(2);
-  //v += adc_single_read(ADC1, ADC_CHSELR_CHSEL7);
-  return v;
-  */
   // return GUI_TOUCH_X_MeasureX();
   uint8_t i = 0;
   uint16_t buf[READ_TIMES] = {0};
@@ -251,23 +234,6 @@ touch_measure_y(void)
 int
 touch_measure_x(void)
 {
-  /*
-  int v;
-  // open X line
-  palSetPadMode(GPIOB, 0, PAL_MODE_INPUT_PULLDOWN );
-  palSetPadMode(GPIOA, 6, PAL_MODE_INPUT_PULLDOWN );
-  // drive low to high on Y line
-  palSetPadMode(GPIOB, 1, PAL_MODE_OUTPUT_PUSHPULL );
-  palSetPad(GPIOB, 1);
-  palSetPadMode(GPIOA, 7, PAL_MODE_OUTPUT_PUSHPULL );
-  palClearPad(GPIOA, 7);
-
-  chThdSleepMilliseconds(2);
-  v = adc_single_read(ADC1, ADC_CHSELR_CHSEL6);
-  //chThdSleepMilliseconds(2);
-  //v += adc_single_read(ADC1, ADC_CHSELR_CHSEL6);
-  return v;
-  */
   // return GUI_TOUCH_X_MeasureY();
   uint8_t i = 0;
   uint16_t buf[READ_TIMES] = {0};
@@ -284,23 +250,13 @@ touch_measure_x(void)
 void
 touch_prepare_sense(void)
 {
-  /* 不用
-  // open Y line
-  palSetPadMode(GPIOB, 1, PAL_MODE_INPUT_PULLDOWN );
-  palSetPadMode(GPIOA, 7, PAL_MODE_INPUT_PULLDOWN );
-  // force high X line
-  palSetPadMode(GPIOB, 0, PAL_MODE_OUTPUT_PUSHPULL );
-  palSetPad(GPIOB, 0);
-  palSetPadMode(GPIOA, 6, PAL_MODE_OUTPUT_PUSHPULL );
-  palSetPad(GPIOA, 6);
-  */
+
 }
 
 void
 touch_start_watchdog(void)  // 开启 ADC 模拟看门狗
 {
   touch_prepare_sense();
-  // adc_start_analog_watchdogd(ADC1, ADC_CHSELR_CHSEL7);  // 不用
   /* 开启中断 */
   __HAL_GPIO_EXTI_CLEAR_IT(TP_IRQ_Pin);
   HAL_NVIC_ClearPendingIRQ(EXTI9_5_IRQn);
@@ -311,7 +267,6 @@ int
 touch_status(void)
 {
   touch_prepare_sense();
-  // return adc_single_read(ADC1, ADC_CHSELR_CHSEL7) > TOUCH_THRESHOLD;  
   // return (!CTP_INT_IN());
   chThdSleepMilliseconds(20);
   if (touch_measure_x() < 4040) {
@@ -1996,7 +1951,6 @@ void
 ui_process_touch(void)
 {
   awd_count++;
-  // adc_stop(ADC1); 
   HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
   int status = touch_check();
@@ -2046,52 +2000,6 @@ ui_process(void)
   */
 }
 
-/* Triggered when the button is pressed or released. The LED4 is set to ON.*/
-/* 外部中断回调
-static void extcb1(EXTDriver *extp, expchannel_t channel) {  // 外部中断
-  (void)extp;
-  (void)channel;
-  operation_requested = OP_LEVER;
-  //cur_button = READ_PORT() & BUTTON_MASK;
-}
-*/
-
-/* 外部中断配置
-static const EXTConfig extcfg = {
-  {
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_RISING_EDGE | EXT_CH_MODE_AUTOSTART | EXT_MODE_GPIOA, extcb1},  // 上升沿
-    {EXT_CH_MODE_RISING_EDGE | EXT_CH_MODE_AUTOSTART | EXT_MODE_GPIOA, extcb1},  // 上升沿
-    {EXT_CH_MODE_RISING_EDGE | EXT_CH_MODE_AUTOSTART | EXT_MODE_GPIOA, extcb1},  // 上升沿
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL},
-    {EXT_CH_MODE_DISABLED, NULL}
-  }
-}; */
-
-// static const GPTConfig gpt3cfg = {  // 定时中断1ms
-  // 1000,    /* 1kHz timer clock.*/
-  // NULL,   /* Timer callback.*/
-  // 0x0020, /* CR2:MMS=02 to output TRGO */
-  // 0
-// };
-
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if ((GPIO_Pin == K_UP_Pin) || 
@@ -2111,7 +2019,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 void
 test_touch(int *x, int *y)
 {
-  // adc_stop(ADC1); 
   HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
   *x = touch_measure_x();
@@ -2123,28 +2030,12 @@ test_touch(int *x, int *y)
 void
 handle_touch_interrupt(void)
 {
-  operation_requested = OP_TOUCH;  // 电压超过阈值中断标志位
+  operation_requested = OP_TOUCH;
 }
 
 void
 ui_init()
 {
-  // adc_init(); 
-  
-  /*
-   * Activates the EXT driver 1.
-   */
-  // extStart(&EXTD1, &extcfg); 
-
-#if 1
-  // gptStart(&GPTD3, &gpt3cfg); 
-  // gptPolledDelay(&GPTD3, 10); /* Small delay.*/
-
-  // gptStartContinuous(&GPTD3, 10); 
-#endif
-
-  // touch_start_watchdog();
-
   nt35510_drawstring(&font_12x24,  "NanoVNA-F "APP_VERSION,            304, 200, BRG556(0,0,255), 0x0000);
   nt35510_drawstring(&font_12x24,  "Handheld Vector Network Analyzer", 208, 224, BRG556(0,0,255), 0x0000);
   nt35510_drawstring(&font_12x24,  "hamelec.taobao.com",               292, 248, BRG556(0,0,255), 0x0000);

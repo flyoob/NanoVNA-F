@@ -415,11 +415,6 @@
               <FilePath>..\Usr\si5351.c</FilePath>
             </File>
             <File>
-              <FileName>si5351_low.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Usr\si5351_low.c</FilePath>
-            </File>
-            <File>
               <FileName>serial.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Usr\serial.c</FilePath>
