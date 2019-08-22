@@ -350,7 +350,6 @@ touch_cal_exec(void)  // 触摸校准
   int status;
   int x1, x2, y1, y2;
 
-  // adc_stop(ADC1);
   HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
   nt35510_fill_x2(0, 0, LCD_WIDTH, LCD_HEIGHT, 0);
@@ -393,8 +392,7 @@ touch_draw_test(void)
   int status;
   int x0, y0;
   int x1, y1;
-  
-  // adc_stop(ADC1);
+
   HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
   do {
@@ -1578,34 +1576,31 @@ keypad_click(int key)
     while (n-- > 0)
       scale *= 1000;
     /* numeric input done */
-    int value = atoi(kp_buf) * scale;
+    double value = my_atof(kp_buf) * scale;
     switch (keypad_mode) {
     case KM_START:
-      set_sweep_frequency(ST_START, value);
+      set_sweep_frequency(ST_START, (int)value);
       break;
     case KM_STOP:
-      set_sweep_frequency(ST_STOP, value);
+      set_sweep_frequency(ST_STOP, (int)value);
       break;
     case KM_CENTER:
-      set_sweep_frequency(ST_CENTER, value);
+      set_sweep_frequency(ST_CENTER, (int)value);
       break;
     case KM_SPAN:
-      set_sweep_frequency(ST_SPAN, value);
+      set_sweep_frequency(ST_SPAN, (int)value);
       break;
     case KM_CW:
-      set_sweep_frequency(ST_CW, value);
+      set_sweep_frequency(ST_CW, (int)value);
       break;
-    }
-    float value_f = my_atof(kp_buf) * scale;
-    switch (keypad_mode) {
     case KM_SCALE:
-      set_trace_scale(uistat.current_trace, value_f);
+      set_trace_scale(uistat.current_trace, (float)value);
       break;
     case KM_REFPOS:
-      set_trace_refpos(uistat.current_trace, value_f);
+      set_trace_refpos(uistat.current_trace, (float)value);
       break;
     case KM_EDELAY:
-      set_electrical_delay(value_f);
+      set_electrical_delay((float)value);
       break;
     }
 
@@ -1807,7 +1802,7 @@ void
 ui_process_keypad(void)
 {
   int status;
-  // adc_stop(ADC1); 
+
   HAL_NVIC_DisableIRQ(EXTI9_5_IRQn);
 
   kp_index = 0;

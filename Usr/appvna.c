@@ -1790,18 +1790,18 @@ float get_trace_refpos(int t)
   return trace[t].refpos;
 }
 
-float my_atof(const char *p)
+double my_atof(const char *p)
 {
   int neg = FALSE;
   if (*p == '-')
     neg = TRUE;
   if (*p == '-' || *p == '+')
     p++;
-  float x = atoi(p);
+  double x = atoi(p);
   while (isdigit((int)*p))
     p++;
   if (*p == '.') {
-    float d = 1.0f;
+    double d = 1.0;
     p++;
     while (isdigit((int)*p)) {
       d /= 10;
