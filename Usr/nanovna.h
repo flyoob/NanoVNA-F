@@ -42,7 +42,7 @@ extern MWCFONT font_12x24;
 #define LANG_CN      1
 
 #define START_MIN    50000
-#define BASE_MAX     295000000
+#define BASE_MAX     290000000
 #define STOP_MAX     1000000000
 
 #define M_PI        3.14159265358979323846
