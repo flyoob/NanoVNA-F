@@ -396,7 +396,7 @@ void tlv320aic3204_set_gain(int lgain, int rgain)
     I2CWrite(AIC3204_ADDR, 0x3b, lgain); /* Unmute Left MICPGA, set gain */
     I2CWrite(AIC3204_ADDR, 0x3c, rgain); /* Unmute Right MICPGA, set gain */
     I2CWrite(AIC3204_ADDR, 0x00, 0x00); /* Select Page 0 */
-    osDelay(30);
+    osDelay(40);
   }
 }
 
