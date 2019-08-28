@@ -25,7 +25,7 @@ extern MWCFONT font_08x15;
 extern MWCFONT font_10x20;
 extern MWCFONT font_12x24;
 
-#define APP_VERSION  "v0.0.1"
+#define APP_VERSION  "v0.0.2"
 
 #define SWEEP_POINTS 101
 

@@ -684,14 +684,12 @@ rewind:
   for (i = 0; i < sweep_points; i++)  // SWEEP_POINTS
   {
     set_frequency(frequencies[i]);
-    if (frequencies[i] > BASE_MAX*4) {
-      tlv320aic3204_set_gain(72, 92);
-    } else if (frequencies[i] > BASE_MAX*3) {
-      tlv320aic3204_set_gain(68, 82);
+    if (frequencies[i] > BASE_MAX*3) {
+      tlv320aic3204_set_gain(68, 76);
     } else if (frequencies[i] > BASE_MAX*2) {
-      tlv320aic3204_set_gain(48, 58);
+      tlv320aic3204_set_gain(48, 55);
     } else if (frequencies[i] > BASE_MAX) {
-      tlv320aic3204_set_gain(40, 50);
+      tlv320aic3204_set_gain(40, 47);
     } else {
       tlv320aic3204_set_gain(0, 10);
     }
