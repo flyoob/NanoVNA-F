@@ -523,6 +523,8 @@ menu_recall_cb(int item)
   if (item < 0 || item >= 5)
     return;
   if (caldata_recall(item) == 0) {
+    config.default_loadcal = item;
+    config_save();
     menu_move_back();
     ui_mode_normal();
     update_grid();
@@ -536,6 +538,8 @@ menu_save_cb(int item)
   if (item < 0 || item >= 5)
     return;
   if (caldata_save(item) == 0) {
+    config.default_loadcal = item;
+    config_save();
     menu_move_back();
     ui_mode_normal();
     draw_cal_status();
@@ -949,8 +953,8 @@ const menuitem_t menu_recall[] = {
 };
 
 const menuitem_t menu_recall_save[] = {
-  { MT_SUBMENU, "RECALL", "\x56\x55", menu_recall },
-  { MT_SUBMENU, "SAVE", "\x57\x58", menu_save },
+  { MT_SUBMENU, "RECALL", "\x74\x56", menu_recall },
+  { MT_SUBMENU, "SAVE", "\x73\x57", menu_save },
   { MT_CANCEL, S_LARROW" BACK", "\x11\x12", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
@@ -960,7 +964,7 @@ const menuitem_t menu_top[] = {
   { MT_SUBMENU, "MARKER", "\x03\x04", menu_marker },
   { MT_SUBMENU, "STIMULUS", "\x05\x06", menu_stimulus },
   { MT_SUBMENU, "CAL", "\x07\x08", menu_cal },
-  { MT_SUBMENU, "\2RECALL\0SAVE", "\x0B\x0C", menu_recall_save },
+  { MT_SUBMENU, "\2RECALL\0SAVE", "\2\x74\x56\0\x73\x57", menu_recall_save },
   { MT_CLOSE, "CLOSE", "\x0D\x0E", NULL },
   { MT_NONE, NULL, NULL } // sentinel
 };
@@ -1253,7 +1257,12 @@ draw_menu_buttons(const menuitem_t *menu)
     #else
     if (config.lang == LANG_CN)
     {
-        nt35510_drawhz24x24(menu[i].label_cn, LCD_WIDTH-54, y+8, fg, bg);
+        if (menu_is_multiline(menu[i].label_cn, &l1, &l2)) {
+          nt35510_drawhz24x24(l1, LCD_WIDTH-54, y+4, fg, bg);
+          nt35510_drawhz24x24(l2, LCD_WIDTH-54, y+16, fg, bg);
+        } else {
+          nt35510_drawhz24x24(menu[i].label_cn, LCD_WIDTH-54, y+8, fg, bg);
+        }
     } else {
         if (menu_is_multiline(menu[i].label, &l1, &l2)) {
           nt35510_drawstring_5x7(l1, LCD_WIDTH-54, y+8, fg, bg);

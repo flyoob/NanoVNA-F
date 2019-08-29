@@ -44,7 +44,7 @@ extern void touch_position(int *x, int *y);
 int16_t rx_copy[AUDIO_BUFFER_LEN];
 int32_t acquire = 0;
 
-#define ENABLED_DUMP
+// #define ENABLED_DUMP
 
 // static void apply_error_term(void);
 static void apply_error_term_at(int i);
@@ -314,7 +314,7 @@ static void cmd_clearconfig(BaseSequentialStream *chp, int argc, char *argv[])
     return;
   }
 
-  // clear_all_config_prop_data();
+  clear_all_config_prop_data();
   chprintf(chp, "Config and all cal data cleared.\r\n");
 }
 static const CLI_Command_Definition_t x_cmd_clearconfig = {
@@ -685,7 +685,7 @@ rewind:
   {
     set_frequency(frequencies[i]);
     if (frequencies[i] > BASE_MAX*3) {
-      tlv320aic3204_set_gain(68, 76);
+      tlv320aic3204_set_gain(68, 75);
     } else if (frequencies[i] > BASE_MAX*2) {
       tlv320aic3204_set_gain(48, 55);
     } else if (frequencies[i] > BASE_MAX) {
@@ -802,7 +802,7 @@ void update_frequencies(void)
   for (i = 0; i < sweep_points; i++)
     frequencies[i] = start + span * i / (sweep_points - 1) * 100;
 
-  if (cal_auto_interpolate) // 计算插值？
+  if (cal_auto_interpolate) // 校准数据内插
     cal_interpolate(0);
 
   update_marker_index(); // 更新 Mark 点位置
@@ -2274,8 +2274,8 @@ void cmd_register( void )
   FreeRTOS_CLIRegisterCommand( &x_cmd_offset );
   FreeRTOS_CLIRegisterCommand( &x_cmd_time );
   FreeRTOS_CLIRegisterCommand( &x_cmd_dac );
-  FreeRTOS_CLIRegisterCommand( &x_cmd_saveconfig );
-  FreeRTOS_CLIRegisterCommand( &x_cmd_clearconfig );
+  // FreeRTOS_CLIRegisterCommand( &x_cmd_saveconfig );
+  // FreeRTOS_CLIRegisterCommand( &x_cmd_clearconfig );
   FreeRTOS_CLIRegisterCommand( &x_cmd_data );
 
 #ifdef ENABLED_DUMP
@@ -2297,8 +2297,8 @@ void cmd_register( void )
   FreeRTOS_CLIRegisterCommand( &x_cmd_pause );
   FreeRTOS_CLIRegisterCommand( &x_cmd_resume );
   FreeRTOS_CLIRegisterCommand( &x_cmd_cal );
-  FreeRTOS_CLIRegisterCommand( &x_cmd_save );
-  FreeRTOS_CLIRegisterCommand( &x_cmd_recall );
+  // FreeRTOS_CLIRegisterCommand( &x_cmd_save );
+  // FreeRTOS_CLIRegisterCommand( &x_cmd_recall );
   FreeRTOS_CLIRegisterCommand( &x_cmd_trace );
   FreeRTOS_CLIRegisterCommand( &x_cmd_marker );
   FreeRTOS_CLIRegisterCommand( &x_cmd_edelay );
