@@ -919,6 +919,9 @@ void set_sweep_frequency(int type, int frequency)
     }
     break;
   }
+
+  if (cal_auto_interpolate)
+    cal_interpolate(0);
 }
 
 uint32_t get_sweep_frequency(int type)
@@ -954,8 +957,7 @@ static void cmd_sweep(BaseSequentialStream *chp, int argc, char *argv[])
     chprintf(chp, "%d %d %d\r\n", frequency0, frequency1, sweep_points);
     return;
   } else if (argc > 3) {
-    chprintf(chp, "usage: sweep {start(Hz)} [stop] [points]\r\n");
-    return;
+    goto usage;
   }
   if (argc >= 2) {
     if (strcmp(argv[0], "start") == 0) {
@@ -983,12 +985,17 @@ static void cmd_sweep(BaseSequentialStream *chp, int argc, char *argv[])
 
   if (argc >= 1) {
     int32_t value = atoi(argv[0]);
+    if (value == 0)
+      goto usage;
     set_sweep_frequency(ST_START, value);
   }
   if (argc >= 2) {
     int32_t value = atoi(argv[1]);
     set_sweep_frequency(ST_STOP, value);
   }
+usage:
+  chprintf(chp, "usage: sweep {start(Hz)} [stop(Hz)]\r\n");
+  chprintf(chp, "\tsweep {start|stop|center|span|cw} {freq(Hz)}\r\n");
 }
 static const CLI_Command_Definition_t x_cmd_sweep = {
 "sweep", "usage: sweep {start(Hz)} [stop] [points]\r\n", (shellcmd_t)cmd_sweep, -1};
@@ -2274,8 +2281,8 @@ void cmd_register( void )
   FreeRTOS_CLIRegisterCommand( &x_cmd_offset );
   FreeRTOS_CLIRegisterCommand( &x_cmd_time );
   FreeRTOS_CLIRegisterCommand( &x_cmd_dac );
-  // FreeRTOS_CLIRegisterCommand( &x_cmd_saveconfig );
-  // FreeRTOS_CLIRegisterCommand( &x_cmd_clearconfig );
+  FreeRTOS_CLIRegisterCommand( &x_cmd_saveconfig );
+  FreeRTOS_CLIRegisterCommand( &x_cmd_clearconfig );
   FreeRTOS_CLIRegisterCommand( &x_cmd_data );
 
 #ifdef ENABLED_DUMP
@@ -2297,8 +2304,8 @@ void cmd_register( void )
   FreeRTOS_CLIRegisterCommand( &x_cmd_pause );
   FreeRTOS_CLIRegisterCommand( &x_cmd_resume );
   FreeRTOS_CLIRegisterCommand( &x_cmd_cal );
-  // FreeRTOS_CLIRegisterCommand( &x_cmd_save );
-  // FreeRTOS_CLIRegisterCommand( &x_cmd_recall );
+  FreeRTOS_CLIRegisterCommand( &x_cmd_save );
+  FreeRTOS_CLIRegisterCommand( &x_cmd_recall );
   FreeRTOS_CLIRegisterCommand( &x_cmd_trace );
   FreeRTOS_CLIRegisterCommand( &x_cmd_marker );
   FreeRTOS_CLIRegisterCommand( &x_cmd_edelay );
