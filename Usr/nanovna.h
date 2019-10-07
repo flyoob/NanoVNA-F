@@ -25,6 +25,8 @@ extern MWCFONT font_08x15;
 extern MWCFONT font_10x20;
 extern MWCFONT font_12x24;
 
+extern int8_t welcom_8bit[];
+
 #define APP_VERSION  "v0.0.2"
 
 #define SWEEP_POINTS 101
@@ -42,7 +44,7 @@ extern MWCFONT font_12x24;
 #define LANG_CN      1
 
 #define START_MIN    50000
-#define BASE_MAX     280000000
+#define BASE_MAX     270000000
 #define STOP_MAX     1000000000
 
 #define M_PI        3.14159265358979323846
@@ -260,6 +262,7 @@ void set_trace_scale(int t, float scale);
 void set_trace_refpos(int t, float refpos);
 float get_trace_scale(int t);
 float get_trace_refpos(int t);
+void draw_battery_status(void);
 
 void set_electrical_delay(float picoseconds);
 float get_electrical_delay(void);
@@ -297,8 +300,10 @@ int search_nearest_index(int x, int y, int t);
 
 extern int8_t redraw_requested;
 
+extern int16_t vbat;
+
 /*
- * ili9341.c
+ * nt35510.c
  */
 // #define BRG556(b,r,g)     ( (((b)<<8)&0xfc00) | (((r)<<2)&0x03e0) | (((g)>>3)&0x001f) )
 #define BRG556(b,r,g)     ( (((r)<<8)&0xf800) | (((g)<<3)&0x07e0) | (((b)>>3)&0x001f) )
@@ -413,18 +418,18 @@ void touch_cal_exec(void);
 void touch_draw_test(void);
 
 /*
- * adc.c
- */
-
-void adc_init(void);
-uint16_t adc_single_read(ADC_TypeDef *adc, uint32_t chsel);
-void adc_start_analog_watchdogd(ADC_TypeDef *adc, uint32_t chsel);
-void adc_stop(ADC_TypeDef *adc);
-void adc_interrupt(ADC_TypeDef *adc);
-
-/*
  * misclinous
  */
 #define PULSE // do { palClearPad(GPIOC, GPIOC_LED); palSetPad(GPIOC, GPIOC_LED);} while(0)
+
+// convert vbat [mV] to battery indicator
+static inline uint8_t vbat2bati(int16_t vbat)
+{
+  if (vbat < 3200) return 0;
+  if (vbat < 3450) return 25;
+  if (vbat < 3700) return 50;
+  if (vbat < 4100) return 75;
+  return 100;
+}
 
 /*EOF*/
