@@ -32,11 +32,11 @@ You can get one on [AliExpress hamelec Store](https://hamelec.aliexpress.com) an
 [NanoVNA-F Quick start guide (English)](http://www.sysjoint.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.0.pdf)  
 
 ### 固件更新 / Firmware update
-v0.0.2 2019-08-29 : 首次发行 / First Release
-v0.0.3 2019-10-07 : 本次更新需要重新校准设备 / This update requires recalibration of the device
+[v0.0.2](http://www.sysjoint.com/files/NanoVNA-F_APP_v0.0.2.zip) 2019-08-29 : 首次发行 / First Release  
+[v0.0.3](http://www.sysjoint.com/files/NanoVNA-F_APP_v0.0.3.zip) 2019-10-07 : 本次更新需要重新校准设备 / This update requires recalibration of the device  
 * 支持NanoVNA上位机 / support NanoVNA's PC software;
 * 加入开机提示音 / Add a boot tone;
-* 优化低频段（<100MHz）S11测量结果 / Optimize band (<100MHz) S11 measurement results;
+* 优化低频段（<100MHz）S11测量结果 / Optimize band (<100MHz) S11 measurement results;  
 
 [如何更新固件 / How to update the firmware](https://github.com/flyoob/NanoVNA-F_Boot)
 
@@ -49,7 +49,7 @@ v0.0.3 2019-10-07 : 本次更新需要重新校准设备 / This update requires 
 [NanoVNASharp v1.0.3](http://www.sysjoint.com/files/NanoVNASharp.zip)(by Hugen)  
 ![4](https://s1.imgsha.com/2019/10/07/NanoVNASharp.jpg)
 
-[nanoVNA_mod_v2](http://www.sysjoint.com/files/nanoVNA_mod_v2.zip)()(by alex_m)  
+[nanoVNA_mod_v2](http://www.sysjoint.com/files/nanoVNA_mod_v2.zip)(by alex_m)  
 ![5](https://s1.imgsha.com/2019/10/07/nanoVNA_mod_v2.jpg)
 
 [nanovna-saver](https://github.com/mihtjel/nanovna-saver/releases)(by Rune B. Broberg)  
