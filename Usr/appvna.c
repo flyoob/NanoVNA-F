@@ -681,7 +681,7 @@ void sweep(void)
 
 rewind:
   frequency_updated = FALSE;
-  delay1 = 3;
+  delay1 = 4;
   delay2 = 5;
 
   LED1_ON;
