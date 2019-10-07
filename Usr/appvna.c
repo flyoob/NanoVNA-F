@@ -74,12 +74,13 @@ int8_t frequency_updated = FALSE;
 int8_t sweep_enabled = TRUE;
 int8_t cal_auto_interpolate = TRUE;
 int8_t redraw_requested = FALSE;
+int16_t vbat = 0;
 
 /* 文件读写测试 */
 #define  FILE_SIZE   (4*1024)
 uint8_t  file_buf[FILE_SIZE];
 
-void bat_adc_display(void);
+uint32_t bat_adc_display(void);
 
 /*
 =======================================
@@ -103,7 +104,11 @@ void app_loop(void)
     /* plot trace as raster */
     draw_all_cells();
 
-    bat_adc_display();
+    if (sweep_enabled)
+    {
+      vbat = (int16_t)bat_adc_display();
+      // draw_battery_status();
+    }
   }
 }
 
@@ -1133,7 +1138,7 @@ static void cmd_beep(BaseSequentialStream *chp, int argc, char *argv[])
   }
   if (strcmp(argv[0], "on") == 0) {
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, (uint16_t)(185));
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, (uint16_t)(127));
     return;
   }
   if (strcmp(argv[0], "off") == 0) {
@@ -2267,6 +2272,8 @@ void app_init(void)
   }
 
   ui_init();
+
+  beep_open(100);
 }
 
 /*
@@ -2324,7 +2331,7 @@ void cmd_register( void )
     VREFINT = 1.2V
 =======================================
 */
-void bat_adc_display(void)
+uint32_t bat_adc_display(void)
 {
   uint32_t i, adc, ref;
 
@@ -2342,10 +2349,12 @@ void bat_adc_display(void)
 
   adc = adc*1200*2/ref;
 
-  nt35510_drawstring_5x7("BAT:",            0,   180, 0xffff, 0x0000);
-  nt35510_drawchar_5x7(adc/1000+'0',        0, 190*2, BRG556(0,0,255), 0x0000);
-  nt35510_drawchar_5x7('.',               5*2, 190*2, BRG556(0,0,255), 0x0000);
-  nt35510_drawchar_5x7(adc%1000/100+'0', 10*2, 190*2, BRG556(0,0,255), 0x0000);
-  nt35510_drawchar_5x7(adc%100/10+'0',   15*2, 190*2, BRG556(0,0,255), 0x0000);
-  nt35510_drawchar_5x7('V',              20*2, 190*2, BRG556(0,0,255), 0x0000);
+  // nt35510_drawstring_5x7("BAT:",            0,   180, 0xffff, 0x0000);
+  nt35510_drawchar_5x7(adc/1000+'0',        0, 5, BRG556(0,0,255), 0x0000);
+  nt35510_drawchar_5x7('.',               5*2, 5, BRG556(0,0,255), 0x0000);
+  nt35510_drawchar_5x7(adc%1000/100+'0', 10*2, 5, BRG556(0,0,255), 0x0000);
+  nt35510_drawchar_5x7(adc%100/10+'0',   15*2, 5, BRG556(0,0,255), 0x0000);
+  nt35510_drawchar_5x7('V',              20*2, 5, BRG556(0,0,255), 0x0000);
+
+  return adc;
 }

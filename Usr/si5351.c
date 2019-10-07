@@ -537,9 +537,17 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
     } else if (rdiv == SI5351_R_DIV_64) {
       freq_c0 *= 64;
     }
+    if (rdiv == SI5351_R_DIV_8) {
+      freq_c1 *= 8;
+    } else if (rdiv == SI5351_R_DIV_64) {
+      freq_c1 *= 64;
+    }
+
     // PLLFREQ = 832M
     si5351_set_frequency_fixedpll(0, SI5351_PLL_A, PLLFREQ, freq_c0,
                                   rdiv, drive_strength);  // 参考/本振
+    si5351_set_frequency_fixedpll(1, SI5351_PLL_A, PLLFREQ, freq_c1,
+                                  rdiv, drive_strength);
   }
   break;
 
@@ -566,6 +574,7 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
   switch (band_c1) {
   case 0:  // [50k,100M]  DIV range: 8.32~
   {
+    /*
     // fractional divider mode.    MAX=832/8=104MHz
     if (current_band_c1 == 1 || current_band_c1 == 2)
         si5351_setupPLL(SI5351_PLL_B, 32, 0, 1);  // PLLA=832M
@@ -581,6 +590,7 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
     si5351_set_frequency_fixedpll(1, SI5351_PLL_B, PLLFREQ, freq_c1, rdiv, drive_strength);  // 发射
     si5351_set_frequency_fixedpll(2, SI5351_PLL_B, PLLFREQ, CLK2_FREQUENCY,
                                   SI5351_R_DIV_1, SI5351_CLK_DRIVE_STRENGTH_2MA);
+    */
   }
   break;
 
@@ -614,7 +624,7 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
     si5351_enable_output();
 #endif
     delay += 0;
-    osDelay(40);
+    osDelay(60);
   }
 
   current_band_c0 = band_c0;
