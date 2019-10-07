@@ -11,8 +11,9 @@ NanoVNA-F can measure S parameters, Voltage Standing Wave Ratio(SWR), Phase, Gro
 ![2](https://s1.imgsha.com/2019/10/07/NanoVNA-F_rf_kit.jpg)  
 ![2.1](https://s1.imgsha.com/2019/10/07/NanoVNA-F_SWR.jpg)  
 
-For more infomation about performance parameter & details, please visit:  
-[AliExpress hamelec Store](https://hamelec.aliexpress.com)  
+更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com/)  
+For more infomation about performance parameter & details, please visit:[AliExpress hamelec Store](https://hamelec.aliexpress.com)  
+
 NanoVNA-F hardware features include and are not limited to the following improvements:  
 1. Use 4.3-inch IPS TFT LCD & resistive touch screen, with a larger view angle and can be seen clearly outdoor.  
 2. Use large capacity 5000mAh/3.7V lithium battery, standby time is longer, and expand a USB interface. Usually, it can be used as a power bank when the instrument is not used.  
@@ -26,8 +27,8 @@ NanoVNA-F hardware features include and are not limited to the following improve
 ![3](https://s1.imgsha.com/2019/10/07/NanoVNA-F_block_diagram.png)  
 
 ### 如何购买 / Where to Buy
-如果你是中国用户，请到[TaoBao](https://hamelec.taobao.com/)购买。
-You can get one on [AliExpress hamelec Store](https://hamelec.aliexpress.com) and we support shipping to most parts of the world.
+如果你是中国用户，请到[TaoBao](https://hamelec.taobao.com/)购买。  
+You can get one on [AliExpress hamelec Store](https://hamelec.aliexpress.com) and we support shipping to most parts of the world.  
 [NanoVNA-F 快速入门指南（中文）](http://www.sysjoint.com/files/NanoVNA-F_快速入门指南_Quick_start_guide_v1.1.pdf)  
 [NanoVNA-F Quick start guide (English)](http://www.sysjoint.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.0.pdf)  
 
