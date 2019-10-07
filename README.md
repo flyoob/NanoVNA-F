@@ -78,4 +78,4 @@ After Build/Rebuild RUN #1
 D:\Keil_v5\ARM\ARMCC\bin\fromelf.exe --bin -o .\update.bin .\NanoVNA-F\NanoVNA-F.axf  
 
 ### SW4STM32 工程编译 / Build by SW4STM32
-待完善 / Coomming soon
+待完善 / Coming soon
