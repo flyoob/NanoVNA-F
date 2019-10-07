@@ -27,7 +27,7 @@ extern MWCFONT font_12x24;
 
 extern int8_t welcom_8bit[];
 
-#define APP_VERSION  "v0.0.2"
+#define APP_VERSION  "v0.0.3"
 
 #define SWEEP_POINTS 101
 

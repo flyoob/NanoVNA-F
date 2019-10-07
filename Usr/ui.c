@@ -2042,5 +2042,5 @@ ui_init()
 {
   nt35510_drawstring(&font_12x24,  "NanoVNA-F "APP_VERSION,            304, 200, BRG556(0,0,255), 0x0000);
   nt35510_drawstring(&font_12x24,  "Handheld Vector Network Analyzer", 208, 224, BRG556(0,0,255), 0x0000);
-  nt35510_drawstring(&font_12x24,  "hamelec.taobao.com",               292, 248, BRG556(0,0,255), 0x0000);
+  nt35510_drawstring(&font_12x24,  "www.nanovna-f.com",                300, 248, BRG556(0,0,255), 0x0000);
 }

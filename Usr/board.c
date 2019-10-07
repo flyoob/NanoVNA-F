@@ -22,9 +22,6 @@
 #define I2C_SDA_LOW()            HAL_GPIO_WritePin(I2C_GPIO_PORT, I2C_SDA_PIN, GPIO_PIN_RESET)
 #define I2C_SDA_READ()           HAL_GPIO_ReadPin(I2C_GPIO_PORT, I2C_SDA_PIN)
 
-#define BEEP_ON()       HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-#define BEEP_OFF()      HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
-
 extern TIM_HandleTypeDef htim1;
 
 void    I2C_InitGPIO(void);

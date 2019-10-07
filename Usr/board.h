@@ -32,6 +32,9 @@
 #define FLASH_CS_L()    HAL_GPIO_WritePin(SPI_CS1_GPIO_Port, SPI_CS1_Pin, GPIO_PIN_RESET);
 #define FLASH_CS_H()    HAL_GPIO_WritePin(SPI_CS1_GPIO_Port, SPI_CS1_Pin, GPIO_PIN_SET);
 
+#define BEEP_ON()       HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+#define BEEP_OFF()      HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+
 extern void systick_call(void);
 
 void    I2C_Start(void);

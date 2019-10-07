@@ -2273,7 +2273,19 @@ void app_init(void)
 
   ui_init();
 
-  beep_open(100);
+  BEEP_ON();
+  osDelay(100);
+  BEEP_OFF();
+  osDelay(100);
+  BEEP_ON();
+  osDelay(100);
+  BEEP_OFF();
+  // HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_3, (uint32_t *)welcom_8bit, 19200);
+}
+
+void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
+{
+  HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
 }
 
 /*

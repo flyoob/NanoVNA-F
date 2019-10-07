@@ -624,7 +624,7 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
     si5351_enable_output();
 #endif
     delay += 0;
-    osDelay(60);
+    osDelay(80);
   }
 
   current_band_c0 = band_c0;
