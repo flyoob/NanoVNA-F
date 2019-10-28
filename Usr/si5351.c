@@ -512,6 +512,7 @@ si5351_set_frequency_with_offset_expand(int freq, int offset, uint8_t drive_stre
   // CLK1: frequency                   发射
   if (freq_c1 <= 100000000) {  // [50k,100M]
     band_c1 = 0;
+    band_c0 = 0;
   } else if (freq_c1 < 150000000) {  // (100M,150M)
     band_c1 = 1;
   } else {  // [150M,BASE_MAX]
