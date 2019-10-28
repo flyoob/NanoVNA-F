@@ -54,9 +54,7 @@ FATFS USERFatFS;    /* File system object for USER logical drive */
 FIL USERFile;       /* File object for USER */
 
 /* USER CODE BEGIN Variables */
-#include "system.h"
-#include "fs_funs.h"
-int g_HDStatus = FR_DISK_ERR;
+#include "spi_flash.h"
 /* USER CODE END Variables */    
 
 void MX_FATFS_Init(void) 
