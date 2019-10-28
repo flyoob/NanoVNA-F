@@ -79,10 +79,9 @@ osThreadId TaskCmdHandle;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-extern void app_init(void);
-extern void app_loop(void);
-extern void cmd_init(void);
-extern void cmd_loop(void);
+FIL fil;
+UINT size;
+char callsign[11];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -105,6 +104,11 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
+extern void app_init(void);
+extern void app_loop(void);
+extern void cmd_init(void);
+extern void cmd_loop(void);
+
 static void MY_USBDP_IO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct;
@@ -116,6 +120,29 @@ static void MY_USBDP_IO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+}
+
+static void MX_SPI1_Init_SF(void)
+{
+
+  /* SPI1 parameter configuration*/
+  hspi1.Instance = SPI1;
+  hspi1.Init.Mode = SPI_MODE_MASTER;
+  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
+  hspi1.Init.CLKPhase = SPI_PHASE_2EDGE;
+  hspi1.Init.NSS = SPI_NSS_SOFT;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi1.Init.CRCPolynomial = 10;
+  if (HAL_SPI_Init(&hspi1) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
 }
 /* USER CODE END PFP */
 
@@ -156,13 +183,10 @@ int main(void)
   MX_FSMC_Init();
   MX_I2S2_Init();
   MX_TIM1_Init();
-  MX_SPI1_Init();
   MX_TIM2_Init();
   MX_ADC2_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-  // MY_SDIO_IO_Init();
-  // MX_SDIO_SD_Init();
   __enable_irq();
   /* USER CODE END 2 */
 
@@ -643,15 +667,39 @@ static void MX_FSMC_Init(void)
 /* USER CODE END Header_StartTask001 */
 void StartTask001(void const * argument)
 {
-  /* init code for FATFS */
-  MX_FATFS_Init();
-
   /* USER CODE BEGIN 5 */
   MY_USBDP_IO_Init();
   MX_USB_DEVICE_Init();
-  #if BOOTLOADER
+
+  MX_SPI1_Init_SF();
+
+  // Register
   MX_FATFS_Init();
-  #endif
+  if (retUSER != 0) {
+    while(1);
+  }
+  // Mount
+  if (f_mount(&USERFatFS, (TCHAR const*)USERPath, 1) != FR_OK) {
+    while(1);
+  }
+  // Open File
+  if (f_open(&fil, "callsign.txt", FA_OPEN_EXISTING | FA_READ) != FR_OK) {
+    while(1);
+  }
+  f_lseek(&fil, 0);
+  if (f_size(&fil) <= 10) {
+    f_read(&fil, (uint8_t *)callsign, 10, &size);
+    callsign[size] = 0;
+  } else {
+    callsign[0] = 0;
+  }
+  f_close(&fil);
+  // Unmount
+  f_mount(NULL, (TCHAR const*)USERPath, 1);
+
+  HAL_SPI_DeInit(&hspi1);
+  MX_SPI1_Init();
+
   app_init();
   /* Infinite loop */
   for(;;)

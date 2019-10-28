@@ -387,7 +387,7 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* htim_pwm)
     hdma_tim1_ch3.Init.Direction = DMA_MEMORY_TO_PERIPH;
     hdma_tim1_ch3.Init.PeriphInc = DMA_PINC_DISABLE;
     hdma_tim1_ch3.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_tim1_ch3.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hdma_tim1_ch3.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
     hdma_tim1_ch3.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
     hdma_tim1_ch3.Init.Mode = DMA_NORMAL;
     hdma_tim1_ch3.Init.Priority = DMA_PRIORITY_LOW;

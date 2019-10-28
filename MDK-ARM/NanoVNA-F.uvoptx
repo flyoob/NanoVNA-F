@@ -151,7 +151,7 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>vbat,0x0A</ItemText>
+          <ItemText>callsign</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
