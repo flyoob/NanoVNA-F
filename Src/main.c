@@ -683,13 +683,14 @@ void StartTask001(void const * argument)
     while(1);
   }
   // Open File
-  if (f_open(&fil, "callsign.txt", FA_OPEN_EXISTING | FA_READ) != FR_OK) {
-    while(1);
-  }
-  f_lseek(&fil, 0);
-  if (f_size(&fil) <= 10) {
-    f_read(&fil, (uint8_t *)callsign, 10, &size);
-    callsign[size] = 0;
+  if (f_open(&fil, "callsign.txt", FA_OPEN_EXISTING | FA_READ) == FR_OK) {
+    f_lseek(&fil, 0);
+    if (f_size(&fil) <= 10) {
+      f_read(&fil, (uint8_t *)callsign, 10, &size);
+      callsign[size] = 0;
+    } else {
+      callsign[0] = 0;
+    }
   } else {
     callsign[0] = 0;
   }

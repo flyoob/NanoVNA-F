@@ -26,6 +26,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+extern char callsign[11];
+
 uistat_t uistat = {
  // digit: 6,
  // current_trace: 0
@@ -2040,7 +2042,16 @@ handle_touch_interrupt(void)
 void
 ui_init()
 {
-  nt35510_drawstring(&font_12x24,  "NanoVNA-F "APP_VERSION,            304, 200, BRG556(0,0,255), 0x0000);
-  nt35510_drawstring(&font_12x24,  "Handheld Vector Network Analyzer", 208, 224, BRG556(0,0,255), 0x0000);
-  nt35510_drawstring(&font_12x24,  "www.nanovna-f.com",                300, 248, BRG556(0,0,255), 0x0000);
+  int y = 180, l = 0;
+  nt35510_drawstring_x2(&font_12x24, "NanoVNA-F",                        146, 60, BRG556(0,0,255), 0x0000);
+  nt35510_drawstring(&font_12x24, "Version: "APP_VERSION,                200,  y, BRG556(0,0,255), 0x0000);
+  y += 24;
+  nt35510_drawstring(&font_12x24, "https://github.com/flyoob/NanoVNA-F", 200,  y, BRG556(0,0,255), 0x0000);
+  y += 24;
+  nt35510_drawstring(&font_12x24, "Based on edy555 design",              200,  y, BRG556(0,0,255), 0x0000);
+  y += 24;
+  nt35510_drawstring(&font_12x24, "https://github.com/ttrftech/NanoVNA", 200,  y, BRG556(0,0,255), 0x0000);
+
+  l = 620/2 - strlen(callsign)*10;
+  nt35510_drawstring_x2(&font_10x20, callsign, l ,  y/2 + 36, BRG556(0,255,255), 0x0000);
 }
