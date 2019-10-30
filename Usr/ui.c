@@ -964,7 +964,7 @@ const menuitem_t menu_recall_save[] = {
 const menuitem_t menu_top[] = {
   { MT_SUBMENU, "DISPLAY", "\x01\x02", menu_display },
   { MT_SUBMENU, "MARKER", "\x03\x04", menu_marker },
-  { MT_SUBMENU, "STIMULUS", "\x05\x06", menu_stimulus },
+  { MT_SUBMENU, "STIMULUS", "\x1A\x75\x71\x0A", menu_stimulus },
   { MT_SUBMENU, "CAL", "\x07\x08", menu_cal },
   { MT_SUBMENU, "\2RECALL\0SAVE", "\2\x74\x56\0\x73\x57", menu_recall_save },
   { MT_CLOSE, "CLOSE", "\x0D\x0E", NULL },

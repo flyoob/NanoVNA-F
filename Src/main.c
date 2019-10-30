@@ -676,11 +676,11 @@ void StartTask001(void const * argument)
   // Register
   MX_FATFS_Init();
   if (retUSER != 0) {
-    while(1);
+    goto INIT;
   }
   // Mount
   if (f_mount(&USERFatFS, (TCHAR const*)USERPath, 1) != FR_OK) {
-    while(1);
+    goto INIT;
   }
   // Open File
   if (f_open(&fil, "callsign.txt", FA_OPEN_EXISTING | FA_READ) == FR_OK) {
@@ -698,6 +698,7 @@ void StartTask001(void const * argument)
   // Unmount
   f_mount(NULL, (TCHAR const*)USERPath, 1);
 
+INIT:
   HAL_SPI_DeInit(&hspi1);
   MX_SPI1_Init();
 
