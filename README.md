@@ -29,8 +29,8 @@ NanoVNA-F hardware features include and are not limited to the following improve
 ### 如何购买 / Where to Buy
 如果你是中国用户，请到[TaoBao](https://hamelec.taobao.com)购买。  
 You can get one on [AliExpress Deepelec Store](https://deepelec.aliexpress.com) and we support shipping to most parts of the world.  
-[NanoVNA-F 快速入门指南（中文）](http://www.deepelec.com/files/NanoVNA-F_快速入门指南_Quick_start_guide_v1.1.pdf)  
-[NanoVNA-F Quick start guide (English)](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.0.pdf)  
+[NanoVNA-F 快速入门指南（中文）](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.1_CN.pdf)  
+[NanoVNA-F Quick start guide (English)](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.1.pdf)  
 
 ### 固件更新 / Firmware update
 [v0.0.2](http://www.deepelec.com/files/NanoVNA-F_APP_v0.0.2.zip) 2019-08-29 : 首次发行 / First Release  
