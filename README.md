@@ -12,7 +12,7 @@ NanoVNA-F can measure S parameters, Voltage Standing Wave Ratio(SWR), Phase, Gro
 ![2.1](https://s1.imgsha.com/2019/10/07/NanoVNA-F_SWR.jpg)  
 
 更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com)  
-For more infomation about performance parameter & details, please visit:[AliExpress Deepelec Store](http://deepelec.com/nanovna-f)  
+For more infomation about performance parameter & details, please visit:[NanoVNA-F product page](http://deepelec.com/nanovna-f)  
 
 NanoVNA-F hardware features include and are not limited to the following improvements:  
 1. Use 4.3-inch IPS TFT LCD & resistive touch screen, with a larger view angle and can be seen clearly outdoor.  
