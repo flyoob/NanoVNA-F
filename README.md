@@ -8,8 +8,8 @@ Thanks to [hugen](https://github.com/hugen79/NanoVNA-H)'s creative idea of use t
 ![1](https://s1.imgsha.com/2019/10/07/NanoVNA-F_main_pic.jpg)  
 
 NanoVNA-F can measure S parameters, Voltage Standing Wave Ratio(SWR), Phase, Group Delay, Smith chart and so on  
-![2](https://s1.imgsha.com/2019/10/07/NanoVNA-F_rf_kit.jpg)  
-![2.1](https://s1.imgsha.com/2019/10/07/NanoVNA-F_SWR.jpg)  
+![2](https://s1.imgsha.com/2019/11/25/NanoVNA-F_rf_kit_s21_logo.jpg)  
+![2.1](https://s1.imgsha.com/2019/11/25/NanoVNA-F_rf_kit_s11_logo.jpg)  
 
 更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com)  
 For more infomation about performance parameter & details, please visit:[NanoVNA-F product page](https://www.aliexpress.com/item/4000402236126.html)  
