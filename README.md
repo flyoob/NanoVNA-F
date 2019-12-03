@@ -3,16 +3,26 @@ NanoVNA-F, FreeRTOS version of [edy555](https://github.com/ttrftech/NanoVNA)'s N
 "VNA" means: 矢量网络分析仪器 / Vector Network Analyzer  
 
 ### 项目描述 / Project Description
-NanoVNA-F is a product based on the Open Source Project of NanoVNA(https://ttrf.tk/kit/nanovna/).
+NanoVNA-F is a product made by BH5HNU based on the Open Source Project of NanoVNA(https://ttrf.tk/kit/nanovna/).
 Thanks to [hugen](https://github.com/hugen79/NanoVNA-H)'s creative idea of use the harmonic of Si5351, We build NanoVNA-F and `expand the measure frequency up to 1GHz`, which S11 still have 40dB dynamic range At 1GHz.  
 ![1](https://s1.imgsha.com/2019/10/07/NanoVNA-F_main_pic.jpg)  
 
+更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com)  
+For more infomation about performance parameter & details, please visit:[NanoVNA-F product page](https://www.aliexpress.com/item/4000402236126.html)  
+
+### About NanoVNA-F machines Vendors and bad clones
+Hello everyone, it is necessary to state that at present we only produce -F machines with metal case.  
+We do not resist enthusiasts buying machines from other suppliers, but enthusiasts need to have a certain discrimination ability: choose a supplier with good evaluation, and the price of the machine is trustworthy at around $ 120.  
+Like what hwalker in groups.io/nanovna-f said "be aware that some vendors are scammers and the only way to protect yourself is buying from a reputable source."  
+Recently we found a bad clone of the -F machine on AliExpress / eBay. We have open sourced all the code on github, but this clone is still badly made. ╮(╯▽╰)╭  
+As the picture shown below, We want enthusiasts to stay away from these crude products.  
+![1](https://s1.imgsha.com/2019/11/30/Bad_Clone.jpg)
+Please look for the product description in our shop, and think twice before purchasing any variant.  
+
+### 产品功能 / Product Features
 NanoVNA-F can measure S parameters, Voltage Standing Wave Ratio(SWR), Phase, Group Delay, Smith chart and so on  
 ![2](https://s1.imgsha.com/2019/11/25/NanoVNA-F_rf_kit_s21_logo.jpg)  
 ![2.1](https://s1.imgsha.com/2019/11/25/NanoVNA-F_rf_kit_s11_logo.jpg)  
-
-更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com)  
-For more infomation about performance parameter & details, please visit:[NanoVNA-F product page](https://www.aliexpress.com/item/4000402236126.html)  
 
 NanoVNA-F hardware features include and are not limited to the following improvements:  
 1. Use 4.3-inch IPS TFT LCD & resistive touch screen, with a larger view angle and can be seen clearly outdoor.  
