@@ -5,7 +5,7 @@ NanoVNA-F, FreeRTOS version of [edy555](https://github.com/ttrftech/NanoVNA)'s N
 ### 项目描述 / Project Description
 NanoVNA-F is a product made by BH5HNU based on the Open Source Project of NanoVNA(https://ttrf.tk/kit/nanovna/).
 Thanks to [hugen](https://github.com/hugen79/NanoVNA-H)'s creative idea of use the harmonic of Si5351, We build NanoVNA-F and `expand the measure frequency up to 1GHz`, which S11 still have 40dB dynamic range At 1GHz.  
-![1](https://s1.imgsha.com/2019/10/07/NanoVNA-F_main_pic.jpg)  
+![1](https://s1.imgsha.com/2019/12/04/VNA-F-ALI.png)  
 
 更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com)  
 For more infomation about performance parameter & details, please visit:[NanoVNA-F product page](https://www.aliexpress.com/item/4000402236126.html)  
@@ -21,8 +21,8 @@ Please look for the product description in our shop, and think twice before purc
 
 ### 产品功能 / Product Features
 NanoVNA-F can measure S parameters, Voltage Standing Wave Ratio(SWR), Phase, Group Delay, Smith chart and so on  
-![2](https://s1.imgsha.com/2019/11/25/NanoVNA-F_rf_kit_s21_logo.jpg)  
-![2.1](https://s1.imgsha.com/2019/11/25/NanoVNA-F_rf_kit_s11_logo.jpg)  
+![2](https://s1.imgsha.com/2019/12/03/rf_demo_kit_circuit_1.png)  
+![2.1](https://s1.imgsha.com/2019/12/03/rf_demo_kit_circuit_11.png)  
 
 NanoVNA-F hardware features include and are not limited to the following improvements:  
 1. Use 4.3-inch IPS TFT LCD & resistive touch screen, with a larger view angle and can be seen clearly outdoor.  
