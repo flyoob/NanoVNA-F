@@ -4,11 +4,11 @@ NanoVNA-F, FreeRTOS version of [edy555](https://github.com/ttrftech/NanoVNA)'s N
 
 ### 项目描述 / Project Description
 NanoVNA-F is a product made by BH5HNU based on the Open Source Project of NanoVNA(https://ttrf.tk/kit/nanovna/).
-Thanks to [hugen](https://github.com/hugen79/NanoVNA-H)'s creative idea of use the harmonic of Si5351, We build NanoVNA-F and `expand the measure frequency up to 1GHz`, which S11 still have 40dB dynamic range At 1GHz.  
+Thanks to [hugen](https://github.com/hugen79/NanoVNA-H)'s creative idea to use harmonics output by Si5351, we designed NanoVNA-F to **expand the measurement range to 1GHz**, where S11 still has 40dB dynamic range at 1GHz.  
 ![1](https://s1.imgsha.com/2019/12/04/VNA-F-ALI.png)  
 
 更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com)  
-For more infomation about performance parameter & details, please visit:[NanoVNA-F product page](https://www.aliexpress.com/item/4000402236126.html)  
+For more infomation about performance parameters & details, please visit:[NanoVNA-F product page](https://www.aliexpress.com/item/4000402236126.html)  
 
 ### About NanoVNA-F machines Vendors and bad clones
 Hello everyone, it is necessary to state that at present we only produce -F machines with metal case.  
@@ -20,7 +20,7 @@ As the picture shown below, We want enthusiasts to stay away from these crude pr
 Please look for the product description in our shop, and think twice before purchasing any variant.  
 
 ### 产品功能 / Product Features
-NanoVNA-F can measure S parameters, Voltage Standing Wave Ratio(SWR), Phase, Group Delay, Smith chart and so on  
+NanoVNA-F can measure S parameters, Voltage Standing Wave Ratio (SWR), Phase, Group Delay, Smith chart and more  
 ![2](https://s1.imgsha.com/2019/12/03/rf_demo_kit_circuit_1.png)  
 ![2.1](https://s1.imgsha.com/2019/12/03/rf_demo_kit_circuit_11.png)  
 
@@ -60,10 +60,17 @@ You can get one on [AliExpress Deepelec Store](https://deepelec.aliexpress.com) 
 如何显示呼号 / How to display your call sign
 1. 使用 Type-C 将设备连接到 USB，进入 Bootloader 模式。 / Connect the device to USB using Type-C, go into Bootloader Mode.  
 ![v0.0.4_1](https://s1.imgsha.com/2019/10/30/v0.0.4_3.png)
-2. 将你的 callsign.txt 文件放入 U盘，重新上下电后自动显示。 / Put you callsign.txt into Udisk, Re-power the device.  
+2. 将你的 callsign.txt 文件放入 U盘，重新上下电后自动显示。 / Copy your **null terminated** callsign.txt onto Udisk, Re-power the device.  
 ![v0.0.4_2](https://s1.imgsha.com/2019/10/30/v0.0.4_1.jpg)
-
-后续计划 / Follow up plan:
+3. example callsign.txt content created in bash (`<ctrl-d>` means Control+D keys)
+```
+$ cat > callsign.txt
+BH5HNU<ctrl-d><ctrl-d>
+$ od -tc -Ax callsign.txt
+000000   B   H   5   H   N   U
+000006
+```
+### 后续计划 / Follow up plan
 * 跟进原作者 NanoVNA 项目更新，BUG修复 / Follow up the original NanoVNA project update, BUG fix
 * 对数扫频 / Logarithmic frequency sweep
 
