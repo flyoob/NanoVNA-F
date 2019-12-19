@@ -682,18 +682,29 @@ void StartTask001(void const * argument)
   if (f_mount(&USERFatFS, (TCHAR const*)USERPath, 1) != FR_OK) {
     goto INIT;
   }
-  // Open File
+  // Open Callsign File
+  callsign[0] = 0; // (nul == null char) init nul callsign before use
+ 
+  // consider callsign <"abcdefghil0123456789\r\n\0"|"abcdefghil0123456789\n\0"|"abcdefghil0123456789\0">
   if (f_open(&fil, "callsign.txt", FA_OPEN_EXISTING | FA_READ) == FR_OK) {
+    DWORD size;
+   
     f_lseek(&fil, 0);
-    if (f_size(&fil) <= 10) {
-      f_read(&fil, (uint8_t *)callsign, 10, &size);
-      callsign[size] = 0;
-    } else {
-      callsign[0] = 0;
-    }
-  } else {
-    callsign[0] = 0;
-  }
+   
+    if ((size = f_size(&fil)) > 0) {
+      UINT cp;
+     
+      f_read(&fil, (uint8_t *)callsign, 10, &size); // load max 10 chars
+     
+      if (size < 11) { callsign[size] = 0; } // 11 == CMAX+1
+      else { callsign[10] = 0; } // truncate at 10th char
+     
+      for (cp = 0; callsign[cp] != '\r' && callsign[cp] != '\n' && callsign[cp] != 0; cp++); // lazy eval: find \r or \n or null
+     
+      if (callsign[cp] != 0) { callsign[cp] = 0; } // nul terminate else no-op
+    } // (size > 0) else no-op
+  } // FR_OK else no-op
+ 
   f_close(&fil);
   // Unmount
   f_mount(NULL, (TCHAR const*)USERPath, 1);
