@@ -1,5 +1,5 @@
 # NanoVNA-F
-NanoVNA-F, FreeRTOS version of [edy555](https://github.com/ttrftech/NanoVNA)'s NanoVNA.  
+NanoVNA-F, NanoVNA-Fairy, FreeRTOS version of [edy555](https://github.com/ttrftech/NanoVNA)'s NanoVNA.  
 "VNA" means: 矢量网络分析仪器 / Vector Network Analyzer  
 
 ### 项目描述 / Project Description
@@ -7,17 +7,8 @@ NanoVNA-F is a product made by BH5HNU based on the Open Source Project of NanoVN
 Thanks to [hugen](https://github.com/hugen79/NanoVNA-H)'s creative idea to use harmonics output by Si5351, we designed NanoVNA-F to **expand the measurement range to 1GHz**, where S11 still has 40dB dynamic range at 1GHz.  
 ![1](https://s1.imgsha.com/2019/12/04/VNA-F-ALI.png)  
 
-更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com)  
+更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com)唯一官方店铺  
 For more infomation about performance parameters & details, please visit:[NanoVNA-F product page](https://www.aliexpress.com/item/4000402236126.html)  
-
-### About NanoVNA-F machines Vendors and bad clones
-Hello everyone, it is necessary to state that at present we only produce -F machines with metal case.  
-We do not resist enthusiasts buying machines from other suppliers, but enthusiasts need to have a certain discrimination ability: choose a supplier with good evaluation, and the price of the machine is trustworthy at around $ 120.  
-Like what hwalker in groups.io/nanovna-f said "be aware that some vendors are scammers and the only way to protect yourself is buying from a reputable source."  
-Recently we found a bad clone of the -F machine on AliExpress / eBay. We have open sourced all the code on github, but this clone is still badly made. ╮(╯▽╰)╭  
-As the picture shown below, We want enthusiasts to stay away from these crude products.  
-![1](https://s1.imgsha.com/2019/11/30/Bad_Clone.jpg)
-Please look for the product description in our shop, and think twice before purchasing any variant.  
 
 ### 产品功能 / Product Features
 NanoVNA-F can measure S parameters, Voltage Standing Wave Ratio (SWR), Phase, Group Delay, Smith chart and more  
@@ -37,10 +28,10 @@ NanoVNA-F hardware features include and are not limited to the following improve
 ![3](https://s1.imgsha.com/2019/10/07/NanoVNA-F_block_diagram.png)  
 
 ### 如何购买 / Where to Buy
-如果你是中国用户，请到[TaoBao](https://hamelec.taobao.com)购买。  
+如果你是中国用户，请到[TaoBao](https://hamelec.taobao.com)唯一官方店铺购买。  
 You can get one on [AliExpress Deepelec Store](https://deepelec.aliexpress.com) and we support shipping to most parts of the world.  
-[NanoVNA-F 快速入门指南（中文）](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.1_zh-cn.pdf)  
-[NanoVNA-F Quick start guide (English)](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.1.pdf)  
+[NanoVNA-F 快速入门指南（中文）](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.2_zh-cn.pdf)  
+[NanoVNA-F Quick start guide (English)](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.2.pdf)  
 
 ### 固件更新 / Firmware update
 [v0.0.2](http://www.deepelec.com/files/NanoVNA-F_APP_v0.0.2.zip) 2019-08-29 : 首次发行 / First Release  
@@ -88,6 +79,15 @@ $ od -tc -Ax callsign.txt
 * https://groups.io/g/nanovna-f The NanoVNA-F discussion group.You can ask any questions about NanoVNA-F here.
 * https://groups.io/g/nanovna-users Users of nanovna small VNA, very popular forum.
 * NanoVNA-F 网分/天分 交流QQ群：522796745
+
+### About NanoVNA-F machines Vendors and bad clones
+Hello everyone, it is necessary to state that at present we only produce -F machines with metal case.  
+We do not resist enthusiasts buying machines from other suppliers, but enthusiasts need to have a certain discrimination ability: choose a supplier with good evaluation, and the price of the machine is trustworthy at around $ 120.  
+Like what hwalker in groups.io/nanovna-f said "be aware that some vendors are scammers and the only way to protect yourself is buying from a reputable source."  
+Recently we found a bad clone of the -F machine on AliExpress / eBay. We have open sourced all the code on github, but this clone is still badly made. ╮(╯▽╰)╭  
+As the picture shown below, We want enthusiasts to stay away from these crude products.  
+![1](https://s1.imgsha.com/2019/11/30/Bad_Clone.jpg)
+Please look for the product description in our shop, and think twice before purchasing any variant.  
 
 ### MDK-ARM 工程编译 / Build by MDK-ARM
 Created by STM32CubeMX 4.27.0 V1.0
