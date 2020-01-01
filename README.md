@@ -2,10 +2,12 @@
 NanoVNA-F, NanoVNA-Fairy, FreeRTOS version of [edy555](https://github.com/ttrftech/NanoVNA)'s NanoVNA.  
 "VNA" means: 矢量网络分析仪器 / Vector Network Analyzer  
 
+<font color=#FF0000 >New up to 1.5GHz released</font> [Click to view](http://deepelec.com/2019/12/30/nanovna-f-0_0_5/)
+
 ### 项目描述 / Project Description
 NanoVNA-F is a product made by BH5HNU based on the Open Source Project of NanoVNA(https://ttrf.tk/kit/nanovna/).
 Thanks to [hugen](https://github.com/hugen79/NanoVNA-H)'s creative idea to use harmonics output by Si5351, we designed NanoVNA-F to **expand the measurement range to 1GHz**, where S11 still has 40dB dynamic range at 1GHz.  
-![1](https://s1.imgsha.com/2019/12/04/VNA-F-ALI.png)  
+![1](https://s2.imgsha.com/2020/01/01/VNA-F-ALI.png)  
 ![1.1](https://s2.imgsha.com/2019/12/14/VNA-F.png)
 
 更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com)唯一官方店铺  
