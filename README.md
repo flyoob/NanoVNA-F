@@ -2,7 +2,7 @@
 NanoVNA-F, NanoVNA-Fairy, FreeRTOS version of [edy555](https://github.com/ttrftech/NanoVNA)'s NanoVNA.  
 "VNA" means: 矢量网络分析仪器 / Vector Network Analyzer  
 
-<font color=#FF0000 >New up to 1.5GHz released</font> [Click to view](http://deepelec.com/2019/12/30/nanovna-f-0_0_5/)
+<font color=#FF0000 >New up to 1.5GHz released</font> Click [deepelec.com](http://deepelec.com/2019/12/30/nanovna-f-0_0_5/) to view
 
 ### 项目描述 / Project Description
 NanoVNA-F is a product made by BH5HNU based on the Open Source Project of NanoVNA(https://ttrf.tk/kit/nanovna/).
@@ -34,8 +34,8 @@ NanoVNA-F hardware features include and are not limited to the following improve
 ### 如何购买 / Where to Buy
 如果你是中国用户，请到[TaoBao](https://hamelec.taobao.com)唯一官方店铺购买。  
 You can get one on [AliExpress Deepelec Store](https://deepelec.aliexpress.com) and we support shipping to most parts of the world.  
-[NanoVNA-F 快速入门指南（中文）](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.2_zh-cn.pdf)  
-[NanoVNA-F Quick start guide (English)](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.2.pdf)  
+[NanoVNA-F 快速入门指南（中文）](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.3_zh-cn.pdf)  
+[NanoVNA-F Quick start guide (English)](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.3.pdf)  
 
 ### 固件更新 / Firmware update
 [v0.0.2](http://www.deepelec.com/files/NanoVNA-F_APP_v0.0.2.zip) 2019-08-29 : 首次发行 / First Release  
@@ -50,13 +50,21 @@ You can get one on [AliExpress Deepelec Store](https://deepelec.aliexpress.com) 
 * 修复 100MHz 频点不输出的 BUG / fix BUG: CW=100MHz do not output
 * 优化中文翻译 / Optimize Chinese translation
 
+[v0.0.5](http://www.deepelec.com/files/NanoVNA-F_APP_v0.0.5.zip) 2019-12-30 : 本次更新需要重新校准设备 / This update requires recalibration of the device  
+* support measurable frequency to 1.5 GHz, default setting 1 GHz, accurate measurement up to 1.35GHz.
+* fix: unexpected 0.3dB offset of s21 in thru
+* fix: mark all off bug
+* fix: clutter display when standing wave ratio is infinite
+* add version & info command
+* add REAL IMAG R X trace format
+
 [如何更新固件 / How to update the firmware](https://github.com/flyoob/NanoVNA-F_Boot)
 
 如何显示呼号 / How to display your call sign
 1. 使用 Type-C 将设备连接到 USB，进入 Bootloader 模式。 / Connect the device to USB using Type-C, go into Bootloader Mode.  
 ![v0.0.4_1](https://s1.imgsha.com/2019/10/30/v0.0.4_3.png)
 2. 将你的 callsign.txt 文件放入 U盘，重新上下电后自动显示。 / Copy your **null terminated** callsign.txt onto Udisk, Re-power the device.  
-![v0.0.4_2](https://s1.imgsha.com/2019/10/30/v0.0.4_1.jpg)
+![v0.0.4_2](https://s2.imgsha.com/2019/12/30/NanoVNA-F_info.png)
 3. example callsign.txt content created in bash (`<ctrl-d>` means Control+D keys)
 ```
 $ cat > callsign.txt
