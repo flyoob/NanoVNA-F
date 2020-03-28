@@ -2,13 +2,12 @@
 NanoVNA-F, NanoVNA-Fairy, FreeRTOS version of [edy555](https://github.com/ttrftech/NanoVNA)'s NanoVNA.  
 "VNA" means: 矢量网络分析仪器 / Vector Network Analyzer  
 
-<font color=#FF0000 >New up to 1.5GHz released</font> Click [deepelec.com](http://deepelec.com/2019/12/30/nanovna-f-0_0_5/) to view
+<font color=#FF0000 >New up to 1.5GHz released</font> Click [deepelec.com](deepelec.com) to view
 
 ### 项目描述 / Project Description
 NanoVNA-F is a product made by BH5HNU based on the Open Source Project of NanoVNA(https://ttrf.tk/kit/nanovna/).
 Thanks to [hugen](https://github.com/hugen79/NanoVNA-H)'s creative idea to use harmonics output by Si5351, we designed NanoVNA-F to **expand the measurement range to 1GHz**, where S11 still has 40dB dynamic range at 1GHz.  
-![1](https://s2.imgsha.com/2020/01/01/VNA-F-ALI.png)  
-![1.1](https://s2.imgsha.com/2019/12/14/VNA-F.png)
+![1](https://s2.imgsha.com/2020/03/26/DSC01292_1.jpg)
 
 更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com)唯一官方店铺  
 For more infomation about performance parameters & details, please visit:[NanoVNA-F product page](https://www.aliexpress.com/item/4000402236126.html)  
@@ -38,27 +37,7 @@ You can get one on [AliExpress Deepelec Store](https://deepelec.aliexpress.com) 
 [NanoVNA-F Quick start guide (English)](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.3.pdf)  
 
 ### 固件更新 / Firmware update
-[v0.0.2](http://www.deepelec.com/files/NanoVNA-F_APP_v0.0.2.zip) 2019-08-29 : 首次发行 / First Release  
-
-[v0.0.3](http://www.deepelec.com/files/NanoVNA-F_APP_v0.0.3.zip) 2019-10-07 : 本次更新需要重新校准设备 / This update requires recalibration of the device  
-* 支持NanoVNA上位机 / support NanoVNA's PC software;
-* 加入开机提示音 / Add a boot tone;
-* 优化低频段（<100MHz）S11测量结果 / Optimize band (<100MHz) S11 measurement results;  
-
-[v0.0.4](http://www.deepelec.com/files/NanoVNA-F_APP_v0.0.4.zip) 2019-10-30 : 本次更新无需重新校准设备 / This update does not require recalibration of the device  
-* 呼号显示 / Can display call sign
-* 修复 100MHz 频点不输出的 BUG / fix BUG: CW=100MHz do not output
-* 优化中文翻译 / Optimize Chinese translation
-
-[v0.0.5](http://www.deepelec.com/files/NanoVNA-F_APP_v0.0.5.zip) 2019-12-30 : 本次更新需要重新校准设备 / This update requires recalibration of the device  
-* support measurable frequency to 1.5 GHz, default setting 1 GHz, accurate measurement up to 1.35GHz.
-* fix: unexpected 0.3dB offset of s21 in thru
-* fix: mark all off bug
-* fix: clutter display when standing wave ratio is infinite
-* add version & info command
-* add REAL IMAG R X trace format
-
-[如何更新固件 / How to update the firmware](https://github.com/flyoob/NanoVNA-F_Boot)
+https://github.com/flyoob/NanoVNA-F/releases
 
 如何显示呼号 / How to display your call sign
 1. 使用 Type-C 将设备连接到 USB，进入 Bootloader 模式。 / Connect the device to USB using Type-C, go into Bootloader Mode.  
