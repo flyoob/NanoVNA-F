@@ -2,19 +2,20 @@
 NanoVNA-F, NanoVNA-Fairy, FreeRTOS version of [edy555](https://github.com/ttrftech/NanoVNA)'s NanoVNA.  
 "VNA" means: 矢量网络分析仪器 / Vector Network Analyzer  
 
-<font color=#FF0000 >New up to 1.5GHz released</font> Click [deepelec.com](deepelec.com) to view
+<font color=#FF0000 >New firmware support 10k ~ 1.5GHz released</font>, Click [deepelec.com](https://deepelec.com) to get latest info.
 
 ### 项目描述 / Project Description
 NanoVNA-F is a product made by BH5HNU based on the Open Source Project of NanoVNA(https://ttrf.tk/kit/nanovna/).
-Thanks to [hugen](https://github.com/hugen79/NanoVNA-H)'s creative idea to use harmonics output by Si5351, we designed NanoVNA-F to **expand the measurement range to 1GHz**, where S11 still has 40dB dynamic range at 1GHz.  
-![1](https://s2.imgsha.com/2020/03/26/DSC01292_1.jpg)
+Thanks to [hugen](https://github.com/hugen79/NanoVNA-H)'s creative idea to use harmonics output by Si5351, we designed NanoVNA-F to **expand the measurement range to 1GHz**, where S11 still has 40dB dynamic range at 1GHz.
+![1](https://s2.imgsha.com/2020/01/01/VNA-F-ALI.png)  
+![1](https://s2.imgsha.com/2020/03/26/DSC01292_1.jpg)  
 
 更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com)唯一官方店铺  
 For more infomation about performance parameters & details, please visit:[NanoVNA-F product page](https://www.aliexpress.com/item/4000402236126.html)  
 
 ### 产品功能 / Product Features
 NanoVNA-F can measure S parameters, Voltage Standing Wave Ratio (SWR), Phase, Group Delay, Smith chart and more  
-![2](https://s2.imgsha.com/2019/12/14/VNA-F_UHF.png)
+![2](https://s2.imgsha.com/2019/12/14/VNA-F_UHF.png)  
 ![2.1](https://s1.imgsha.com/2019/12/03/rf_demo_kit_circuit_1.png)  
 ![2.2](https://s1.imgsha.com/2019/12/03/rf_demo_kit_circuit_11.png)  
 
@@ -33,11 +34,12 @@ NanoVNA-F hardware features include and are not limited to the following improve
 ### 如何购买 / Where to Buy
 如果你是中国用户，请到[TaoBao](https://hamelec.taobao.com)唯一官方店铺购买。  
 You can get one on [AliExpress Deepelec Store](https://deepelec.aliexpress.com) and we support shipping to most parts of the world.  
-[NanoVNA-F 快速入门指南（中文）](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.3_zh-cn.pdf)  
-[NanoVNA-F Quick start guide (English)](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v1.3.pdf)  
+[NanoVNA-F 快速入门指南（中文）](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v2.0_zh-cn.pdf)  
+[NanoVNA-F Quick start guide (English)](http://www.deepelec.com/files/NanoVNA-F_Menu_Structure_Quick_start_guide_v2.0.pdf)  
 
 ### 固件更新 / Firmware update
 https://github.com/flyoob/NanoVNA-F/releases
+https://groups.io/g/nanovna-f/wiki/How-do-I-upgrade-the-firmware
 
 如何显示呼号 / How to display your call sign
 1. 使用 Type-C 将设备连接到 USB，进入 Bootloader 模式。 / Connect the device to USB using Type-C, go into Bootloader Mode.  
@@ -70,15 +72,6 @@ $ od -tc -Ax callsign.txt
 * https://groups.io/g/nanovna-f The NanoVNA-F discussion group.You can ask any questions about NanoVNA-F here.
 * https://groups.io/g/nanovna-users Users of nanovna small VNA, very popular forum.
 * NanoVNA-F 网分/天分 交流QQ群：522796745
-
-### About NanoVNA-F machines Vendors and bad clones
-Hello everyone, it is necessary to state that at present we only produce -F machines with metal case.  
-We do not resist enthusiasts buying machines from other suppliers, but enthusiasts need to have a certain discrimination ability: choose a supplier with good evaluation, and the price of the machine is trustworthy at around $ 120.  
-Like what hwalker in groups.io/nanovna-f said "be aware that some vendors are scammers and the only way to protect yourself is buying from a reputable source."  
-Recently we found a bad clone of the -F machine on AliExpress / eBay. We have open sourced all the code on github, but this clone is still badly made. ╮(╯▽╰)╭  
-As the picture shown below, We want enthusiasts to stay away from these crude products.  
-![1](https://s1.imgsha.com/2019/11/30/Bad_Clone.jpg)
-Please look for the product description in our shop, and think twice before purchasing any variant.  
 
 ### MDK-ARM 工程编译 / Build by MDK-ARM
 Created by STM32CubeMX 4.27.0 V1.0
