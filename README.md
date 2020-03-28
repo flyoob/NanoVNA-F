@@ -43,7 +43,7 @@ https://github.com/flyoob/NanoVNA-F/releases
 1. 使用 Type-C 将设备连接到 USB，进入 Bootloader 模式。 / Connect the device to USB using Type-C, go into Bootloader Mode.  
 ![v0.0.4_1](https://s1.imgsha.com/2019/10/30/v0.0.4_3.png)
 2. 将你的 callsign.txt 文件放入 U盘，重新上下电后自动显示。 / Copy your **null terminated** callsign.txt onto Udisk, Re-power the device.  
-![v0.0.4_2](https://s2.imgsha.com/2019/12/30/NanoVNA-F_info.png)
+![v0.0.4_2](https://s2.imgsha.com/2020/02/03/shot_logo1.png)
 3. example callsign.txt content created in bash (`<ctrl-d>` means Control+D keys)
 ```
 $ cat > callsign.txt
