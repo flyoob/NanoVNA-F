@@ -29,7 +29,7 @@ NanoVNA-F hardware features include and are not limited to the following improve
 7. Standard aluminium case to protect SMA head and reduce the interference of external electromagnetic wave to instrument.  
 ...  
 
-![3](https://s1.imgsha.com/2019/10/07/NanoVNA-F_block_diagram.png)  
+![3](https://s2.imgsha.com/2020/05/04/NanoVNA-F_block_diagram_2.png)  
 
 ### 如何购买 / Where to Buy
 如果你是中国用户，请到[TaoBao](https://hamelec.taobao.com)唯一官方店铺购买。  
