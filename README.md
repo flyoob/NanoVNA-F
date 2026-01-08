@@ -7,17 +7,17 @@ NanoVNA-F, NanoVNA-Fairy, FreeRTOS version of [edy555](https://github.com/ttrfte
 ### 项目描述 / Project Description
 NanoVNA-F is a product made by BH5HNU based on the Open Source Project of NanoVNA(https://ttrf.tk/kit/nanovna/).
 Thanks to [hugen](https://github.com/hugen79/NanoVNA-H)'s creative idea to use harmonics output by Si5351, we designed NanoVNA-F to **expand the measurement range to 1GHz**, where S11 still has 40dB dynamic range at 1GHz.
-![1](https://s2.imgsha.com/2020/01/01/VNA-F-ALI.png)  
-![1](https://s2.imgsha.com/2020/03/26/DSC01292_1.jpg)  
+![1](https://www.deepelec.com/files/vna-f/img/VNA-F-ALI.png)  
+![1](https://www.deepelec.com/files/vna-f/img/DSC01292_1.jpg)  
 
 更多性能和指标测试信息，请访问：[TaoBao](https://hamelec.taobao.com)唯一官方店铺  
 For more infomation about performance parameters & details, please visit:[NanoVNA-F product page](https://www.aliexpress.com/item/4000402236126.html)  
 
 ### 产品功能 / Product Features
 NanoVNA-F can measure S parameters, Voltage Standing Wave Ratio (SWR), Phase, Group Delay, Smith chart and more  
-![2](https://s2.imgsha.com/2019/12/14/VNA-F_UHF.png)  
-![2.1](https://s1.imgsha.com/2019/12/03/rf_demo_kit_circuit_1.png)  
-![2.2](https://s1.imgsha.com/2019/12/03/rf_demo_kit_circuit_11.png)  
+![2](https://www.deepelec.com/files/vna-f/img/VNA-F_UHF.png)  
+![2.1](https://www.deepelec.com/files/vna-f/img/rf_demo_kit_circuit_1.png)  
+![2.2](https://www.deepelec.com/files/vna-f/img/rf_demo_kit_circuit_11.png)  
 
 NanoVNA-F hardware features include and are not limited to the following improvements:  
 1. Use 4.3-inch IPS TFT LCD & resistive touch screen, with a larger view angle and can be seen clearly outdoor.  
@@ -29,7 +29,7 @@ NanoVNA-F hardware features include and are not limited to the following improve
 7. Standard aluminium case to protect SMA head and reduce the interference of external electromagnetic wave to instrument.  
 ...  
 
-![3](https://s2.imgsha.com/2020/05/04/NanoVNA-F_block_diagram_2.png)  
+![3](https://www.deepelec.com/files/vna-f/img/NanoVNA-F_block_diagram_2.png)  
 
 ### 如何购买 / Where to Buy
 如果你是中国用户，请到[TaoBao](https://hamelec.taobao.com)唯一官方店铺购买。  
@@ -43,9 +43,9 @@ https://groups.io/g/nanovna-f/wiki/How-do-I-upgrade-the-firmware
 
 如何显示呼号 / How to display your call sign
 1. 使用 Type-C 将设备连接到 USB，进入 Bootloader 模式。 / Connect the device to USB using Type-C, go into Bootloader Mode.  
-![v0.0.4_1](https://s1.imgsha.com/2019/10/30/v0.0.4_3.png)
+![v0.0.4_1](https://www.deepelec.com/files/vna-f/img/v0.0.4_3.png)
 2. 将你的 callsign.txt 文件放入 U盘，重新上下电后自动显示。 / Copy your **null terminated** callsign.txt onto Udisk, Re-power the device.  
-![v0.0.4_2](https://s2.imgsha.com/2020/02/03/shot_logo1.png)
+![v0.0.4_2](https://www.deepelec.com/files/vna-f/img/shot_logo1.png)
 3. example callsign.txt content created in bash (`<ctrl-d>` means Control+D keys)
 ```
 $ cat > callsign.txt
@@ -60,13 +60,13 @@ $ od -tc -Ax callsign.txt
 
 ### PC控制软件 / PC control software
 [NanoVNASharp v1.0.3](http://www.deepelec.com/files/NanoVNASharp.zip)(by Hugen)  
-![4](https://s1.imgsha.com/2019/10/07/NanoVNASharp.jpg)
+![4](https://www.deepelec.com/files/vna-f/img/NanoVNASharp.jpg)
 
 [nanoVNA_mod_v2](http://www.deepelec.com/files/nanoVNA_mod_v2.zip)(by alex_m)  
-![5](https://s1.imgsha.com/2019/10/07/nanoVNA_mod_v2.jpg)
+![5](https://www.deepelec.com/files/vna-f/img/nanoVNA_mod_v2.jpg)
 
 [nanovna-saver](https://github.com/mihtjel/nanovna-saver/releases)(by Rune B. Broberg)  
-![6](https://s1.imgsha.com/2019/10/07/nanovna-saver.v0.1.0.jpg)
+![6](https://www.deepelec.com/files/vna-f/img/nanovna-saver.v0.1.0.jpg)
 
 ### 相关网站 / Related website
 * https://groups.io/g/nanovna-f The NanoVNA-F discussion group.You can ask any questions about NanoVNA-F here.
